@@ -26,5 +26,10 @@ position = Vector2( -0.354218, -1.33337 )
 rotation = -0.0730092
 shape = SubResource( 2 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 124, 72 )
+[node name="Player1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 99, 99 )
+
+[node name="Player2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 46, 93 )
+scale = Vector2( 0.122254, 0.122254 )
+player_index = 2
