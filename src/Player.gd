@@ -1,51 +1,59 @@
 extends KinematicBody2D
 
-export var player_index = 1;
+export var player_index: int = 1
 
-var move_speed = 100
-var acceleration = 30
-var friction = 50;
+# Movement Constants
+const speed:        int = 100
 
-var jump_force = 100
-var gravity = 200
-var slope_slide_threshold = 50.0
+const jump_force = 100
+const gravity = 200
 
-var direction_x = 0;
+# Movement vars
+var is_in_air: bool = true
+var velocity: Vector2 = Vector2()
 
-var is_in_air = true;
-var velocity := Vector2()
+# Action names
+var right_action: String
+var left_action: String
+var up_action: String
+var down_action: String
 
-var right_action
-var left_action
-var up_action
-var down_action
-
-# performance
-func _ready():
+# We're preparing these for perforamance
+func _ready() -> void:
 	right_action = "right_p" + str(player_index)
 	left_action = "left_p" + str(player_index)
 	up_action = "up_p" + str(player_index)
 	down_action = "down_p" + str(player_index)
 
-func _physics_process(delta):
-	direction_x = Input.get_action_strength(right_action) - Input.get_action_strength(left_action)
-	velocity.x = direction_x * move_speed
+func _physics_process(delta) -> void:
+	input_move()
+	input_jump()
+	handle_gravity(delta)
+	move()
 
+func input_move() -> void:
+	var direction_x: int = 0
+	direction_x = Input.get_action_strength(right_action) - Input.get_action_strength(left_action)
+	velocity.x = direction_x * speed
+
+func input_jump() -> void:
 	if Input.is_action_pressed(up_action) and not is_in_air:
 		velocity.y = -jump_force
 		is_in_air = true
 
+func handle_gravity(delta) -> void:
 	if is_in_air:
 		velocity.y += gravity * delta
 	else:
 		velocity.y = 0
-	
-	velocity = move_and_slide(velocity)
-	direction_x = 0;
 
-func _on_IsOnFloor_body_entered(body):
+func move() -> void:
+	velocity = move_and_slide(velocity)
+
+
+func _on_IsOnFloor_body_entered(body) -> void:
 	is_in_air = false
 
-func _on_IsOnFloor_body_exited(body):
+func _on_IsOnFloor_body_exited(body) -> void:
 	is_in_air = true
 

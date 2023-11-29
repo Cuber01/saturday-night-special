@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Shooter Synthwave 2.wav-c4cc040cd7d4500231294de83c3de649.sample"
+path="res://.import/Shooter Synthwave 2.wav-25be7fec89f4e73b69bd140f9f9fb8d0.sample"
 
 [deps]
 
-source_file="res://assets/music/synthwave/wav/Shooter Synthwave 2.wav"
-dest_files=[ "res://.import/Shooter Synthwave 2.wav-c4cc040cd7d4500231294de83c3de649.sample" ]
+source_file="res://assets/audio/Alkakrab/wav/Shooter Synthwave 2.wav"
+dest_files=[ "res://.import/Shooter Synthwave 2.wav-25be7fec89f4e73b69bd140f9f9fb8d0.sample" ]
 
 [params]
 

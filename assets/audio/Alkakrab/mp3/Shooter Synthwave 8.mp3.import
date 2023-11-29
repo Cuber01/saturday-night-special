@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Shooter Synthwave 8.mp3-a3caaa5b4ffa38bca767207ab2da8a5c.mp3str"
+path="res://.import/Shooter Synthwave 8.mp3-038d49832f707644d810fea62b7af13e.mp3str"
 
 [deps]
 
-source_file="res://assets/music/synthwave/mp3/Shooter Synthwave 8.mp3"
-dest_files=[ "res://.import/Shooter Synthwave 8.mp3-a3caaa5b4ffa38bca767207ab2da8a5c.mp3str" ]
+source_file="res://assets/audio/Alkakrab/mp3/Shooter Synthwave 8.mp3"
+dest_files=[ "res://.import/Shooter Synthwave 8.mp3-038d49832f707644d810fea62b7af13e.mp3str" ]
 
 [params]
 

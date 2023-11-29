@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/16_bit_space.ogg-95388fb55ffece439929e49afaf426e0.oggstr"
+path="res://.import/16_bit_space.ogg-5ed1138be6fbf5933dfa3dbd886c9e42.oggstr"
 
 [deps]
 
-source_file="res://assets/music/retro/16_bit_space.ogg"
-dest_files=[ "res://.import/16_bit_space.ogg-95388fb55ffece439929e49afaf426e0.oggstr" ]
+source_file="res://assets/audio/Shonoki/16_bit_space.ogg"
+dest_files=[ "res://.import/16_bit_space.ogg-5ed1138be6fbf5933dfa3dbd886c9e42.oggstr" ]
 
 [params]
 

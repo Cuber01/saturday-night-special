@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/(Soft Loop For Dialogues, Pause or Other Things) 9.wav-31f16f1df5fe6b018622b1fdf9224c20.sample"
+path="res://.import/(Soft Loop For Dialogues, Pause or Other Things) 9.wav-b927bb12662ab0bbdf5cf333d6375a1c.sample"
 
 [deps]
 
-source_file="res://assets/music/synthwave/wav/(Soft Loop For Dialogues, Pause or Other Things) 9.wav"
-dest_files=[ "res://.import/(Soft Loop For Dialogues, Pause or Other Things) 9.wav-31f16f1df5fe6b018622b1fdf9224c20.sample" ]
+source_file="res://assets/audio/Alkakrab/wav/(Soft Loop For Dialogues, Pause or Other Things) 9.wav"
+dest_files=[ "res://.import/(Soft Loop For Dialogues, Pause or Other Things) 9.wav-b927bb12662ab0bbdf5cf333d6375a1c.sample" ]
 
 [params]
 

@@ -25,7 +25,7 @@ texture = ExtResource( 1 )
 position = Vector2( -4.06901e-06, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IsOnFloor"]
-position = Vector2( 0, 34 )
+position = Vector2( 1.21266e-12, 34 )
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="IsOnFloor" to="." method="_on_IsOnFloor_body_entered"]

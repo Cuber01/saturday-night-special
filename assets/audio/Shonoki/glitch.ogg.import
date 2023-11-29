@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/glitch.ogg-c4a6d8309943f79c0e540ba2c4e7b5c9.oggstr"
+path="res://.import/glitch.ogg-8e68afa608327dc1dc1222c3649cfe49.oggstr"
 
 [deps]
 
-source_file="res://assets/music/retro/glitch.ogg"
-dest_files=[ "res://.import/glitch.ogg-c4a6d8309943f79c0e540ba2c4e7b5c9.oggstr" ]
+source_file="res://assets/audio/Shonoki/glitch.ogg"
+dest_files=[ "res://.import/glitch.ogg-8e68afa608327dc1dc1222c3649cfe49.oggstr" ]
 
 [params]
 
