@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/(Soft Loop For Dialogues, Pause or Other Things) 9.mp3-6a334eaa06e58d0a9c0005df42ec85a6.mp3str"
+
+[deps]
+
+source_file="res://assets/music/synthwave/mp3/(Soft Loop For Dialogues, Pause or Other Things) 9.mp3"
+dest_files=[ "res://.import/(Soft Loop For Dialogues, Pause or Other Things) 9.mp3-6a334eaa06e58d0a9c0005df42ec85a6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

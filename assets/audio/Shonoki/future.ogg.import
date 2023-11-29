@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/future.ogg-5eb5ade053dee146c3c10fb473a54832.oggstr"
+
+[deps]
+
+source_file="res://assets/music/retro/future.ogg"
+dest_files=[ "res://.import/future.ogg-5eb5ade053dee146c3c10fb473a54832.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

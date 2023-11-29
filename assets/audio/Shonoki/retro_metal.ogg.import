@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/retro_metal.ogg-131893446a2be59163399302a0ae5531.oggstr"
+
+[deps]
+
+source_file="res://assets/music/retro/retro_metal.ogg"
+dest_files=[ "res://.import/retro_metal.ogg-131893446a2be59163399302a0ae5531.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

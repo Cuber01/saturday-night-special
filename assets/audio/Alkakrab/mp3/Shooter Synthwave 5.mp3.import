@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Shooter Synthwave 5.mp3-7de21ea65b6add4341d05ea3166ce80d.mp3str"
+
+[deps]
+
+source_file="res://assets/music/synthwave/mp3/Shooter Synthwave 5.mp3"
+dest_files=[ "res://.import/Shooter Synthwave 5.mp3-7de21ea65b6add4341d05ea3166ce80d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

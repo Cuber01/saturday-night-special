@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/(Soft Loop For Dialogues, Pause or Other Things) 9.wav-31f16f1df5fe6b018622b1fdf9224c20.sample"
+
+[deps]
+
+source_file="res://assets/music/synthwave/wav/(Soft Loop For Dialogues, Pause or Other Things) 9.wav"
+dest_files=[ "res://.import/(Soft Loop For Dialogues, Pause or Other Things) 9.wav-31f16f1df5fe6b018622b1fdf9224c20.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
