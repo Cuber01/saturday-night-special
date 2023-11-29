@@ -3,10 +3,9 @@ extends KinematicBody2D
 export var player_index: int = 1
 
 # Movement Constants
-const speed:        int = 100
-
-const jump_force = 100
-const gravity = 200
+const speed: int = 100
+const jump_force: int = 100
+const gravity: int = 200
 
 # Movement vars
 var is_in_air: bool = true
@@ -50,10 +49,11 @@ func handle_gravity(delta) -> void:
 func move() -> void:
 	velocity = move_and_slide(velocity)
 
-
 func _on_IsOnFloor_body_entered(body) -> void:
-	is_in_air = false
+	if body is StaticBody2D:
+		is_in_air = false
 
 func _on_IsOnFloor_body_exited(body) -> void:
-	is_in_air = true
+	if body is StaticBody2D:
+		is_in_air = false
 
