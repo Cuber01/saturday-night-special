@@ -4,7 +4,7 @@ export var player_index: int = 1
 
 # Movement Constants
 const speed: int = 100
-const jump_force: int = 100
+const jump_force: int = 150
 const gravity: int = 200
 
 # Movement vars
@@ -50,10 +50,8 @@ func move() -> void:
 	velocity = move_and_slide(velocity)
 
 func _on_IsOnFloor_body_entered(body) -> void:
-	if body is StaticBody2D:
 		is_in_air = false
 
 func _on_IsOnFloor_body_exited(body) -> void:
-	if body is StaticBody2D:
-		is_in_air = false
+		is_in_air = true
 
