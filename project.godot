@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "PickupableObject",
+"language": "GDScript",
+"path": "res://scenes/PickupableObject.gd"
+} ]
+_global_script_class_icons={
+"PickupableObject": ""
+}
+
 [application]
 
 config/name="Multiplayer Game"
