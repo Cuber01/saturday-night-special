@@ -28,8 +28,4 @@ func _drop():
 	pass
 
 func handle_gravity(delta) -> void:
-	if not is_on_floor.colliding():
-		velocity.y += gravity_force * delta
-	else:
-		velocity.y = 0
-		
+	velocity.y += gravity_force * delta

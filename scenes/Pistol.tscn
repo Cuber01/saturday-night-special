@@ -7,5 +7,8 @@
 [node name="Pistol" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( 0, 4 )
+
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
