@@ -56,11 +56,11 @@ func input_pickup() -> void:
 	if Input.is_action_just_pressed(pickup_action):
 		print(str($PickupZone.get_overlapping_bodies()))
 		for body in $PickupZone.get_overlapping_bodies():
-			body.queue_free()
+			#body.queue_free()
+			pass
 
-func _on_IsOnFloor_body_entered(_body) -> void:
-		is_in_air = false
+func _on_IsOnFloor_body_entered(body):
+	is_in_air = false
 
-func _on_IsOnFloor_body_exited(_body) -> void:
-		is_in_air = true
-
+func _on_IsOnFloor_body_exited(body):
+	is_in_air = true

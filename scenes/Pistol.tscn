@@ -5,6 +5,7 @@
 [ext_resource path="res://scenes/Pistol.gd" type="Script" id=3]
 
 [node name="Pistol" instance=ExtResource( 1 )]
+collision_mask = 1
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="0"]

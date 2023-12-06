@@ -2,8 +2,6 @@ extends KinematicBody2D
 
 class_name PickupableObject
 
-onready var is_on_floor = $IsOnFloor
-
 const gravity_force: int = 200
 var velocity: Vector2 = Vector2()
 
