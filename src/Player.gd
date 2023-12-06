@@ -54,10 +54,8 @@ func move() -> void:
 
 func input_pickup() -> void:
 	if Input.is_action_just_pressed(pickup_action):
-		print(str($PickupZone.get_overlapping_bodies()))
-		for body in $PickupZone.get_overlapping_bodies():
-			#body.queue_free()
-			pass
+		for area in $PickupZone.get_overlapping_areas():
+			area.owner.queue_free()
 
 func _on_IsOnFloor_body_entered(body):
 	is_in_air = false
