@@ -75,7 +75,7 @@ func pickup_object() -> void:
 		picked_object = item
 
 func drop_object() -> void:
-	picked_object._drop()
+	picked_object._drop(velocity)
 	picked_object = null
 
 func _on_IsOnFloor_body_entered(_body):

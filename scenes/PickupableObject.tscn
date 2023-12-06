@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/PickupableObject.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5, 0 )
+extents = Vector2( 5.5, 4 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 5.5, 4 )
@@ -13,8 +13,7 @@ extents = Vector2( 5.5, 4 )
 collision_layer = 2
 script = ExtResource( 2 )
 
-[node name="FloorCollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 8 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
