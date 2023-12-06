@@ -21,10 +21,6 @@ var pickup_action: String
 # Pickup system vars
 var picked_object: PickupableObject = null
 
-# Child Nodes
-var PickupZone := $PickupZone as Area2D
-var HoldItemPosition := $HoldItemPosition as Node2D
-
 # We're preparing these for perforamance
 func _ready() -> void:
 	right_action = "right_p" + str(player_index)
