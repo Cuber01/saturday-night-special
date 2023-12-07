@@ -10,6 +10,7 @@ const gravity: int = 200
 # Movement vars
 var is_in_air: bool = true
 var velocity: Vector2 = Vector2()
+var facing_right: bool = true
 
 # Action names
 var right_action: String
@@ -40,10 +41,25 @@ func _physics_process(delta) -> void:
 	if picked_object != null:
 		picked_object.picked_update($HoldItemPosition.global_position)
 
+#########################################################################################
+######### MOVEMENT ######################################################################
+#########################################################################################
+
 func input_move() -> void:
 	var direction_x: int = 0
 	direction_x = Input.get_action_strength(right_action) - Input.get_action_strength(left_action)
+	
+	if direction_x < 0:
+		change_direction(false)
+	elif direction_x > 0:
+		change_direction(true)
+	
 	velocity.x = direction_x * speed
+
+func change_direction(dir_right: bool) -> void:
+	if facing_right != dir_right:
+		scale.x = scale.x * -1
+		facing_right = not facing_right
 
 func input_jump() -> void:
 	if Input.is_action_pressed(up_action) and not is_in_air:
@@ -58,6 +74,10 @@ func handle_gravity(delta) -> void:
 
 func move() -> void:
 	velocity = move_and_slide(velocity)
+
+#########################################################################################
+########## PICKUP #######################################################################
+#########################################################################################
 
 func input_pickup() -> void:
 	if Input.is_action_just_pressed(pickup_action):
@@ -77,6 +97,10 @@ func pickup_object() -> void:
 func drop_object() -> void:
 	picked_object._drop(velocity)
 	picked_object = null
+
+#########################################################################################
+# EXTERNAL CALLBACK METHODS #############################################################
+#########################################################################################
 
 func _on_IsOnFloor_body_entered(_body):
 	is_in_air = false
