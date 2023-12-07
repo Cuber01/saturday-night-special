@@ -50,16 +50,19 @@ func input_move() -> void:
 	direction_x = Input.get_action_strength(right_action) - Input.get_action_strength(left_action)
 	
 	if direction_x < 0:
-		change_direction(false)
+		flip_direction(false)
 	elif direction_x > 0:
-		change_direction(true)
+		flip_direction(true)
 	
 	velocity.x = direction_x * speed
 
-func change_direction(dir_right: bool) -> void:
+func flip_direction(dir_right: bool) -> void:
 	if facing_right != dir_right:
 		scale.x = scale.x * -1
 		facing_right = not facing_right
+		
+		if picked_object != null:
+			picked_object.flip_direction(dir_right)
 
 func input_jump() -> void:
 	if Input.is_action_pressed(up_action) and not is_in_air:
@@ -91,7 +94,7 @@ func pickup_object() -> void:
 	
 	if objects.size() != 0:
 		var item: PickupableObject = objects[0].owner
-		item._pick_up()
+		item._pick_up(facing_right)
 		picked_object = item
 
 func drop_object() -> void:
