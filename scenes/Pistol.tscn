@@ -9,3 +9,6 @@ script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
+
+[node name="ShootPoint" type="Node2D" parent="." index="3"]
+position = Vector2( -5.5, -2.5 )

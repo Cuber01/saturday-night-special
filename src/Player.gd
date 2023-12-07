@@ -13,11 +13,12 @@ var velocity: Vector2 = Vector2()
 var facing_right: bool = true
 
 # Action names
-var right_action: String
-var left_action: String
-var up_action: String
-var down_action: String
+var right_action:  String
+var left_action:   String
+var up_action:     String
+var down_action:   String
 var pickup_action: String
+var use_action:    String
 
 # Pickup system vars
 var picked_object: PickupableObject = null
@@ -29,14 +30,21 @@ func _ready() -> void:
 	up_action = "up_p" + str(player_index)
 	down_action = "down_p" + str(player_index)
 	pickup_action = "pickup_p" + str(player_index)
+	use_action = "use_p" + str(player_index)
 
 func _physics_process(delta) -> void:
+	
+	# Check for input and do certain actions
 	input_move()
 	input_jump()
 	input_pickup()
+	input_use()
+	
+	# Handle Movement
 	handle_gravity(delta)
 	move()
 	
+	# Update held item
 	# Saying just '$HoldItemPosition.position' gives us position in relation to parent (Player)
 	if picked_object != null:
 		picked_object.picked_update($HoldItemPosition.global_position)
@@ -79,7 +87,7 @@ func move() -> void:
 	velocity = move_and_slide(velocity)
 
 #########################################################################################
-########## PICKUP #######################################################################
+########## ITEM MANAGEMENT ###########################################################
 #########################################################################################
 
 func input_pickup() -> void:
@@ -88,6 +96,11 @@ func input_pickup() -> void:
 			pickup_object()
 		else:
 			drop_object()
+
+func input_use() -> void:
+	if Input.is_action_just_pressed(use_action):
+		if picked_object != null:
+			picked_object._use()
 
 func pickup_object() -> void:
 	var objects: Array = $PickupZone.get_overlapping_areas()
