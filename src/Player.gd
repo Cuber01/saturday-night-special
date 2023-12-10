@@ -3,9 +3,9 @@ extends KinematicBody2D
 export var player_index: int = 1
 
 # Movement Constants
-const speed: int = 100
-const jump_force: int = 150
-const gravity: int = 200
+const SPEED: int = 100
+const JUMP_FORCE: int = 150
+const GRAVITY_FORCE: int = 200
 
 # Movement vars
 var is_in_air: bool = true
@@ -41,7 +41,7 @@ func _physics_process(delta) -> void:
 	input_use()
 	
 	# Handle Movement
-	handle_gravity(delta)
+	handle_GRAVITY_FORCE(delta)
 	move()
 	
 	# Update held item
@@ -62,7 +62,7 @@ func input_move() -> void:
 	elif direction_x > 0:
 		flip_direction(true)
 	
-	velocity.x = direction_x * speed
+	velocity.x = direction_x * SPEED
 
 func flip_direction(dir_right: bool) -> void:
 	if facing_right != dir_right:
@@ -74,12 +74,12 @@ func flip_direction(dir_right: bool) -> void:
 
 func input_jump() -> void:
 	if Input.is_action_pressed(up_action) and not is_in_air:
-		velocity.y = -jump_force
+		velocity.y = -JUMP_FORCE
 		is_in_air = true
 
-func handle_gravity(delta) -> void:
+func handle_GRAVITY_FORCE(delta) -> void:
 	if is_in_air:
-		velocity.y += gravity * delta
+		velocity.y += GRAVITY_FORCE * delta
 	else:
 		velocity.y = 0
 

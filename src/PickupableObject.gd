@@ -3,9 +3,9 @@ extends KinematicBody2D
 class_name PickupableObject
 
 # Physics
-const gravity_force: int = 200
-const friction_force: float = 0.05 # Should take into account ground type / air in the future
-const throwVelocityModifiers = Vector2(3, 1)
+const GRAVITY_FORCE: int = 200
+const FRICTION_FORCE: float = 0.05 # Should take into account ground type / air in the future
+const THROW_VELOCITY_MODIFIERS = Vector2(3, 1)
 
 var velocity: Vector2 = Vector2()
 
@@ -28,10 +28,10 @@ func flip_direction(dir_right: bool) -> void:
 		facing_right = not facing_right
 
 func apply_friction() -> void:
-	velocity.x = lerp(velocity.x, 0, friction_force)
+	velocity.x = lerp(velocity.x, 0, FRICTION_FORCE)
 
 func handle_gravity(delta) -> void:
-	velocity.y += gravity_force * delta
+	velocity.y += GRAVITY_FORCE * delta
 	
 func picked_update(newPos: Vector2) -> void:
 	position = newPos
@@ -45,7 +45,7 @@ func _pick_up(player_dir_right: bool) -> void:
 func _drop(throwVelocity: Vector2):
 	$CollisionShape2D.disabled = false
 	$PickupZone.get_node("PickupZoneShape").disabled = false
-	velocity += throwVelocity * throwVelocityModifiers
+	velocity += throwVelocity * THROW_VELOCITY_MODIFIERS
 	picked_up = false
 	
 func _use():

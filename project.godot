@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "PickupableObject",
 "language": "GDScript",
-"path": "res://scenes/PickupableObject.gd"
+"path": "res://src/PickupableObject.gd"
 }, {
 "base": "Line2D",
 "class": "Trail",
 "language": "GDScript",
-"path": "res://scenes/Trail.gd"
+"path": "res://src/Trail.gd"
 } ]
 _global_script_class_icons={
 "PickupableObject": "",
