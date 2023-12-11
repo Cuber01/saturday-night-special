@@ -2,6 +2,7 @@ extends Line2D
 class_name Trail
 
 var current_point: Vector2
+const time_to_dissappear: float = 0.5
 
 export var length: int = 25
 
@@ -19,7 +20,7 @@ func _process(_delta) -> void:
 func stop() -> void:
 	set_process(false)
 	var tw := get_tree().create_tween()
-	tw.tween_property(self, "modulate:a", 0.0, 3.0)
+	tw.tween_property(self, "modulate:a", 0.0, time_to_dissappear)
 	
 	yield(tw, "finished")
 	

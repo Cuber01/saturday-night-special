@@ -45,7 +45,7 @@ func death_phase_one(delta) -> void:
 	death_counter -= 1
 	
 func death_phase_two():
-	if $Trail == null:
+	if  get_node_or_null("Trail") == null:
 		queue_free()
 
 func change_state(var new_state) -> void:
