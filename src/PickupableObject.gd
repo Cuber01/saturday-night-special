@@ -1,5 +1,4 @@
 extends KinematicBody2D
-
 class_name PickupableObject
 
 # Physics

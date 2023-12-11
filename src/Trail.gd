@@ -1,16 +1,21 @@
 extends Line2D
 class_name Trail
 
-onready var curve := Curve2D.new() 
+var length: int
+var point: Vector2
 
-const MAX_POINTS: int = 100
+func _init(length = 50) -> void:
+	self.length = length
 
-func _process(delta) -> void:
-	curve.add_point(get_parent().position)
-	if	curve.get_baked_points().size() > MAX_POINTS:
-		curve.remove_point(0)
-	points = curve.get_baked_points()
+func _process(_delta) -> void:
+	global_position = Vector2(0,0)
 	
+	point = get_parent().global_position
+	
+	add_point(point)
+	while get_point_count() > length:
+		remove_point(0)
+
 func stop() -> void:
 	set_process(false)
 	var tw := get_tree().create_tween()

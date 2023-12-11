@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 
 export var player_index: int = 1
 
