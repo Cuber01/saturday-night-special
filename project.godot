@@ -177,6 +177,7 @@ use_p2={
 2d_physics/layer_1="Ground"
 2d_physics/layer_2="PickupableObjects"
 2d_physics/layer_3="Players"
+2d_physics/layer_4="Bullets"
 
 [physics]
 

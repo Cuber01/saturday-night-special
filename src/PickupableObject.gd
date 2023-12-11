@@ -36,13 +36,13 @@ func picked_update(newPos: Vector2) -> void:
 	position = newPos
 
 func _pick_up(player_dir_right: bool) -> void:
-	$CollisionShape2D.disabled = true
+	$Hitbox.disabled = true
 	$PickupZone.get_node("PickupZoneShape").disabled = true
 	flip_direction(player_dir_right)
 	picked_up = true
 	
 func _drop(throwVelocity: Vector2):
-	$CollisionShape2D.disabled = false
+	$Hitbox.disabled = false
 	$PickupZone.get_node("PickupZoneShape").disabled = false
 	velocity += throwVelocity * THROW_VELOCITY_MODIFIERS
 	picked_up = false

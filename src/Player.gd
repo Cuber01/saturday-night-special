@@ -119,6 +119,9 @@ func drop_object() -> void:
 # EXTERNAL CALLBACK METHODS #############################################################
 #########################################################################################
 
+func die():
+	queue_free()
+
 func _on_IsOnFloor_body_entered(_body):
 	is_in_air = false
 
