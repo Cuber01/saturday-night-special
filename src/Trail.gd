@@ -1,18 +1,18 @@
 extends Line2D
 class_name Trail
 
-var length: int
-var point: Vector2
+var current_point: Vector2
 
-func _init(length = 50) -> void:
-	self.length = length
+export var length: int = 25
+
+func _ready():
+	set_as_toplevel(true)
 
 func _process(_delta) -> void:
-	global_position = Vector2(0,0)
+	current_point = get_parent().global_position
 	
-	point = get_parent().global_position
+	add_point(current_point)
 	
-	add_point(point)
 	while get_point_count() > length:
 		remove_point(0)
 
