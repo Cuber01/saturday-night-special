@@ -5,7 +5,7 @@ var bullet_scn: PackedScene = preload("res://scenes/Bullet.tscn")
 const BULLET_SPEED: int = 120
 const RECOIL_FORCE: Vector2 = Vector2(100,-20)
 
-var ammo_left: int = 2
+var ammo_left: int = 100
 
 func _use(user) -> void:
 	if ammo_left > 0:
