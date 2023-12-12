@@ -9,14 +9,14 @@ enum State {
 
 var velocity: Vector2
 var state = -1
-var death_counter: int = 1
+var death_counter: int = 1	
 
 func init(pos: Vector2, vel: Vector2) -> void:
 	self.position = pos
 	self.velocity = vel
 	change_state(State.FLYING)
 
-func _physics_process(delta):
+func _physics_process(delta):	
 	match state:
 		State.FLYING:
 			flying(delta)

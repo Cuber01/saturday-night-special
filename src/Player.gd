@@ -42,7 +42,7 @@ func _physics_process(delta) -> void:
 	input_use()
 	
 	# Handle Movement
-	handle_GRAVITY_FORCE(delta)
+	handle_gravity_force(delta)
 	move()
 	
 	# Update held item
@@ -78,7 +78,7 @@ func input_jump() -> void:
 		velocity.y = -JUMP_FORCE
 		is_in_air = true
 
-func handle_GRAVITY_FORCE(delta) -> void:
+func handle_gravity_force(delta) -> void:
 	if is_in_air:
 		velocity.y += GRAVITY_FORCE * delta
 	else:
@@ -101,7 +101,7 @@ func input_pickup() -> void:
 func input_use() -> void:
 	if Input.is_action_just_pressed(use_action):
 		if picked_object != null:
-			picked_object._use()
+			picked_object._use(self)
 
 func pickup_object() -> void:
 	var objects: Array = $PickupZone.get_overlapping_areas()

@@ -3,9 +3,24 @@ extends PickupableObject
 var bullet_scn: PackedScene = preload("res://scenes/Bullet.tscn")
 
 const BULLET_SPEED: int = 120
+const RECOIL_FORCE: Vector2 = Vector2(100,-20)
 
-func _use() -> void:
-	var bullet: Bullet = bullet_scn.instance()
+var ammo_left: int = 2
+
+func _use(user) -> void:
+	if ammo_left > 0:
+		handle_recoil(user)
+		spawn_bullet()
+		ammo_left -= 1
+
+func handle_recoil(user) -> void:
+	user.velocity.x += RECOIL_FORCE.x if not facing_right else -RECOIL_FORCE.x
+	user.velocity.y += RECOIL_FORCE.y
+	user.is_in_air = true
+
+func spawn_bullet():
+	var bullet: KinematicBody2D = bullet_scn.instance()
+	bullet.set_global_position($ShootPoint.global_position)
 	bullet.init($ShootPoint.global_position, 
 				Vector2(BULLET_SPEED if facing_right else -BULLET_SPEED,
 				0))

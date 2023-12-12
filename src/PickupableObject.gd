@@ -47,7 +47,7 @@ func _drop(throwVelocity: Vector2):
 	velocity += throwVelocity * THROW_VELOCITY_MODIFIERS
 	picked_up = false
 	
-func _use():
+func _use(user):
 	print( str(self) + "is being used!" )
 
 
