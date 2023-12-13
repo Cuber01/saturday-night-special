@@ -5,6 +5,7 @@
 [ext_resource path="res://src/Pistol.gd" type="Script" id=3]
 
 [node name="Pistol" instance=ExtResource( 1 )]
+z_index = 1
 script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="1"]

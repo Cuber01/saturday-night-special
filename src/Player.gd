@@ -2,6 +2,7 @@ extends KinematicBody2D
 class_name Player
 
 export var player_index: int = 1
+export var facing_right: bool = true
 
 # Movement Constants
 const SPEED: int = 100
@@ -11,7 +12,6 @@ const GRAVITY_FORCE: int = 200
 # Movement vars
 var is_in_air: bool = true
 var velocity: Vector2 = Vector2()
-var facing_right: bool = true
 
 # Action names
 var right_action:  String
@@ -26,6 +26,9 @@ var picked_object: PickupableObject = null
 
 # We're preparing these for perforamance
 func _ready() -> void:
+	if not facing_right:
+		flip_direction(true)
+	
 	right_action = "right_p" + str(player_index)
 	left_action = "left_p" + str(player_index)
 	up_action = "up_p" + str(player_index)

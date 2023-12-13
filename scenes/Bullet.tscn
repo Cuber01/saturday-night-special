@@ -16,6 +16,7 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+z_index = 1
 texture = ExtResource( 2 )
 
 [node name="Trail" parent="." instance=ExtResource( 3 )]
