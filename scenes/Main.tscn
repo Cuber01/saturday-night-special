@@ -1,24 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/levels/Level01.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Pistol.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/LevelManager.gd" type="Script" id=5]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 5 )
-
-[node name="Player1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 63, 80 )
-
-[node name="Player2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 157, 115 )
-scale = Vector2( 0.224141, 0.224141 )
-player_index = 2
-
-[node name="Pistol" parent="." instance=ExtResource( 4 )]
-position = Vector2( 83, 84 )
-
-[node name="BasicTilemap" parent="." instance=ExtResource( 2 )]
-collision_mask = 15
-tile_data = PoolIntArray( 131074, 0, 4, 131092, 0, 4, 196610, 0, 65540, 196628, 0, 65540, 262146, 0, 65540, 262164, 0, 65540, 327682, 0, 65540, 327700, 0, 65540, 393218, 0, 65540, 393236, 0, 65540, 458754, 0, 262162, 458755, 0, 262145, 458756, 0, 262145, 458757, 0, 262146, 458769, 0, 262144, 458770, 0, 262145, 458771, 0, 262145, 458772, 0, 196627, 524290, 0, 65540, 524308, 0, 65540, 589826, 0, 65540, 589844, 0, 65540, 655362, 0, 262159, 655363, 0, 1, 655364, 0, 1, 655365, 0, 196614, 655366, 0, 196615, 655367, 0, 196615, 655368, 0, 196615, 655369, 0, 196615, 655370, 0, 196615, 655371, 0, 1, 655372, 0, 196614, 655373, 0, 196615, 655374, 0, 196615, 655375, 0, 196614, 655376, 0, 1, 655377, 0, 196615, 655378, 0, 196615, 655379, 0, 1, 655380, 0, 196621, 720898, 0, 131072, 720899, 0, 131073, 720900, 0, 131073, 720901, 0, 131073, 720902, 0, 262150, 720903, 0, 131073, 720904, 0, 262150, 720905, 0, 131073, 720906, 0, 131073, 720907, 0, 262151, 720908, 0, 131073, 720909, 0, 262150, 720910, 0, 262151, 720911, 0, 131073, 720912, 0, 262151, 720913, 0, 131073, 720914, 0, 262151, 720915, 0, 131073, 720916, 0, 131074 )
