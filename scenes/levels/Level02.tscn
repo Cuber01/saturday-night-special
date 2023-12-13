@@ -18,4 +18,5 @@ position = Vector2( 40, 280 )
 
 [node name="Player2" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( 408, 280 )
+player_index = 2
 facing_right = false

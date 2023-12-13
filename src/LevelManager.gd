@@ -1,10 +1,12 @@
 extends Node2D
 
 var levels: Array
+var current_level
+
 var rng = RandomNumberGenerator.new()
 const PATH = "res://scenes/levels/"
 
-var load_next_level = true
+var load_next_level: bool = true
 
 func _ready() -> void:
 	load_levels()
@@ -18,14 +20,14 @@ func load_levels() -> void:
 		var filename = dir.get_next()
 		if filename == "": 
 			break # break the loop if there are no more files left
-		elif !filename.begins_with("."):
-			#get_next() returns a string so this can be used to load the images into an array.
+		elif !filename.begins_with("."): # skip "." and ".." directories
 			levels.append(load(PATH + filename))
+			
 	dir.list_dir_end()
 
-func process() -> void:
+func _process(delta) -> void:
 	if load_next_level:
-		load_level(rng.randi_range(0, levels.size()))
+		load_level(rng.randi_range(0, levels.size()-1))
 		load_next_level = false
 		
 	if Input.is_action_just_pressed("debug_button"):
@@ -33,4 +35,11 @@ func process() -> void:
 
 	
 func load_level(index: int) -> void:
-	pass
+	var new_level = levels[index].instance()
+	
+	if current_level != null:
+		remove_child(current_level)
+	
+	current_level = new_level
+	add_child(new_level)
+	
