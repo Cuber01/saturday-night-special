@@ -6,8 +6,8 @@
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1 )
 
 [node name="Trail" type="Line2D"]
-points = PoolVector2Array( 0, 0, 2, 0 )
+show_behind_parent = true
 width = 1.0
-default_color = Color( 1, 1, 1, 1 )
+default_color = Color( 1, 0, 0, 1 )
 gradient = SubResource( 1 )
 script = ExtResource( 1 )

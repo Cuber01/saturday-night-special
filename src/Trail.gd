@@ -11,11 +11,12 @@ func _ready():
 
 func _process(_delta) -> void:
 	current_point = get_parent().global_position
-	
+
 	add_point(current_point)
-	
+
 	while get_point_count() > length:
 		remove_point(0)
+	pass
 
 func stop() -> void:
 	set_process(false)

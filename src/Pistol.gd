@@ -20,8 +20,8 @@ func handle_recoil(user) -> void:
 
 func spawn_bullet():
 	var bullet: KinematicBody2D = bullet_scn.instance()
-	bullet.set_global_position($ShootPoint.global_position)
 	bullet.init($ShootPoint.global_position, 
 				Vector2(BULLET_SPEED if facing_right else -BULLET_SPEED,
 				0))
+	print(str(owner))
 	owner.add_child(bullet)

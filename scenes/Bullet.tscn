@@ -19,5 +19,3 @@ shape = SubResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="Trail" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1, 0 )
-points = PoolVector2Array( 0, 0, 1, 0, 1, 0, 1.34449, 0, 2, 0 )
