@@ -10,6 +10,8 @@ var weapon: PickupableObject = null
 onready var SpawnTimer = $SpawnTimer
 const SPAWN_DELAY: float = 5.0
 
+signal signal_pick_up
+
 func _ready():
 	match type:
 		PickupableObject.Type.PISTOL:
@@ -24,9 +26,11 @@ func _process(delta) -> void:
 	
 func spawn() -> void:
 	weapon = weapon_scn.instance()
-	weapon.init(self.global_position)
+	weapon.init(self.global_position, self)
 	world.call_deferred("add_child", weapon)
 
 func _on_SpawnTimer_timeout() -> void:
 	spawn()
-	
+
+func _on_weapon_picked_up() -> void:
+	weapon = null
