@@ -23,5 +23,4 @@ func spawn_bullet():
 	bullet.init($ShootPoint.global_position, 
 				Vector2(BULLET_SPEED if facing_right else -BULLET_SPEED,
 				0))
-	print(str(owner))
-	owner.add_child(bullet)
+	world.add_child(bullet)

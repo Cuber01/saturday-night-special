@@ -1,8 +1,15 @@
 extends KinematicBody2D
 class_name PickupableObject
 
+# We spawn stuff here
+var world: Object
+
+enum Type {
+		PISTOL
+	}
+
 # Physics
-const GRAVITY_FORCE: int = 200
+const GRAVITY_FORCE: int = 275
 const FRICTION_FORCE: float = 0.05 # Should take into account ground type / air in the future
 const THROW_VELOCITY_MODIFIERS = Vector2(3, 1)
 
@@ -11,8 +18,13 @@ var velocity: Vector2 = Vector2()
 var picked_up: bool = false
 var facing_right: bool = false
 
+func _ready():
+	world = get_parent()
+
+func init(pos: Vector2):
+	global_position = pos
+
 func _physics_process(delta):
-	
 	if not picked_up:
 		handle_gravity(delta)
 		move()
