@@ -18,12 +18,17 @@ var velocity: Vector2 = Vector2()
 signal signal_pick_up
 var picked_up: bool = false
 
-# Facing
+# Despawn
+var can_despawn: bool = false
+const TIME_UNTIL_DESPAWN: float = 5.0
+
+# Other
 var facing_right: bool = false
 
 func _ready() -> void:
 	world = get_parent()
 
+# Remember: this doesn't get called automatically
 func init(pos: Vector2, spawner_mother: Object) -> void:
 	global_position = pos
 	connect("signal_pick_up", spawner_mother, "_on_weapon_picked_up")
@@ -33,6 +38,9 @@ func _physics_process(delta) -> void:
 		handle_gravity(delta)
 		move()
 		apply_friction()
+	if can_despawn and not picked_up:
+		$DespawnTimer.start(TIME_UNTIL_DESPAWN)
+		can_despawn = false # avoid resetting the timer
 
 func move() -> void:
 	velocity = move_and_slide(velocity)
@@ -66,3 +74,6 @@ func _drop(throwVelocity: Vector2) -> void:
 	
 func _use(user) -> void:
 	print( str(self) + "is being used!" )
+
+func _on_DespawnTimer_timeout():
+	queue_free()

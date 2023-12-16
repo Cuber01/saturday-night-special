@@ -26,3 +26,7 @@ collision_mask = 4
 
 [node name="PickupZoneShape" type="CollisionShape2D" parent="PickupZone"]
 shape = SubResource( 2 )
+
+[node name="DespawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_DespawnTimer_timeout"]

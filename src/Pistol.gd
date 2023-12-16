@@ -5,13 +5,16 @@ var bullet_scn: PackedScene = preload("res://scenes/Bullet.tscn")
 const BULLET_SPEED: int = 120
 const RECOIL_FORCE: Vector2 = Vector2(100,-20)
 
-var ammo_left: int = 100
+var ammo_left: int = 6
 
 func _use(user) -> void:
 	if ammo_left > 0:
 		handle_recoil(user)
 		spawn_bullet()
 		ammo_left -= 1
+		
+		if ammo_left == 0:
+			can_despawn = true
 
 func handle_recoil(user) -> void:
 	user.velocity.x += RECOIL_FORCE.x if not facing_right else -RECOIL_FORCE.x
