@@ -13,10 +13,10 @@ position = Vector2( 184, 88 )
 [node name="Pistol" parent="." index="1" instance=ExtResource( 1 )]
 position = Vector2( 264, 88 )
 
-[node name="Player" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Player0" parent="." index="2" instance=ExtResource( 2 )]
 position = Vector2( 40, 280 )
 
-[node name="Player2" parent="." index="3" instance=ExtResource( 2 )]
+[node name="Player1" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( 408, 280 )
-player_index = 2
+player_index = 1
 facing_right = false

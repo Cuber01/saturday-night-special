@@ -18,7 +18,7 @@ func _ready():
 	world = get_parent()
 	spawn()
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	if weapon == null and SpawnTimer.time_left == 0:
 		SpawnTimer.start(SPAWN_DELAY)
 	

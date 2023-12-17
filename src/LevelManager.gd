@@ -32,7 +32,7 @@ func load_level(index: int) -> void:
 	var new_level = levels[index].instance()
 	
 	if current_level != null:
-		remove_child(current_level)
+		my_match.remove_child(current_level)
 	
 	current_level = new_level
 	my_match.add_child(current_level)

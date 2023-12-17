@@ -1,7 +1,7 @@
 extends KinematicBody2D
 class_name Player
 
-export var player_index: int = 1
+export var player_index: int = 0
 export var facing_right: bool = true
 
 # Movement Constants

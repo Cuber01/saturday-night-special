@@ -73,7 +73,7 @@ func _drop(throwVelocity: Vector2) -> void:
 	picked_up = false
 	
 func _use(user) -> void:
-	print( str(self) + "is being used!" )
+	print( str(self) + " is being used by " + str(user))
 
 func _on_DespawnTimer_timeout():
 	queue_free()
