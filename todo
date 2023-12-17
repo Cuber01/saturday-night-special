@@ -4,8 +4,9 @@ X add level loading
 X add recoil
 X limit ammo
 X add weapon spawn/dissappear
-- add score
-- add level load on player death
+X add score
+X add level load on player death
+X add colored players
 
 ALPHA 2
 - add a shotgun

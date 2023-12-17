@@ -31,6 +31,8 @@ func _ready() -> void:
 	if not facing_right:
 		flip_direction(true)
 		
+	set_color()
+		
 	var match_manager = get_parent().get_parent()
 	connect("sig_player_died", match_manager, "_on_player_died")
 	
@@ -40,6 +42,23 @@ func _ready() -> void:
 	down_action = "down_p" + str(player_index)
 	pickup_action = "pickup_p" + str(player_index)
 	use_action = "use_p" + str(player_index)
+
+func set_color() -> void:
+	var mat_override: Material = $Sprite.get_material().duplicate()
+	var my_color: Color
+	
+	match player_index:
+		0:
+			my_color = Color(255.0/255.0, 255.0/255.0, 255.0/255.0, 1.0)
+		1:
+			my_color = Color(194.0/255.0, 27.0/255.0, 43.0/255.0, 1.0)
+		2:
+			my_color = Color(233.0/255.0, 86.0/255.0, 76.0/255.0, 1.0)
+		3:
+			my_color = Color(52.0/255.0, 61.0/255.0, 91.0/255.0, 1.0)
+	
+	mat_override.set_shader_param("new_color", my_color)
+	$Sprite.set_material(mat_override)
 
 func _physics_process(delta) -> void:
 	
