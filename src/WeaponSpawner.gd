@@ -10,8 +10,6 @@ var weapon: PickupableObject = null
 onready var SpawnTimer = $SpawnTimer
 const SPAWN_DELAY: float = 5.0
 
-signal signal_pick_up
-
 func _ready():
 	match type:
 		PickupableObject.Type.PISTOL:

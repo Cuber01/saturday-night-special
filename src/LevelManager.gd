@@ -1,17 +1,19 @@
 extends Node2D
+class_name LevelManager
 
 var levels: Array
-var current_level
+var level_amount: int
 
-var rng = RandomNumberGenerator.new()
+var my_match: Object
+var current_level: Object
+
 const PATH = "res://scenes/levels/"
 
-var load_next_level: bool = true
+func _init(lm_match: Object) -> void:
+	my_match = lm_match
+	prepare_levels()
 
-func _ready() -> void:
-	load_levels()
-
-func load_levels() -> void:
+func prepare_levels() -> void:
 	var dir = Directory.new()
 	dir.open(PATH)
 	dir.list_dir_begin()
@@ -24,15 +26,7 @@ func load_levels() -> void:
 			levels.append(load(PATH + filename))
 			
 	dir.list_dir_end()
-
-func _process(delta) -> void:
-	if load_next_level:
-		load_level(rng.randi_range(0, levels.size()-1))
-		load_next_level = false
-		
-	if Input.is_action_just_pressed("debug_button"):
-		load_next_level = true
-
+	level_amount = levels.size()
 	
 func load_level(index: int) -> void:
 	var new_level = levels[index].instance()
@@ -41,5 +35,5 @@ func load_level(index: int) -> void:
 		remove_child(current_level)
 	
 	current_level = new_level
-	add_child(new_level)
+	my_match.add_child(current_level)
 	

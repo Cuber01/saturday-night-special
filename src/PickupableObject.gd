@@ -15,7 +15,7 @@ const THROW_VELOCITY_MODIFIERS = Vector2(3, 1)
 var velocity: Vector2 = Vector2()
 
 # Pick up
-signal signal_pick_up
+signal sig_picked_up
 var picked_up: bool = false
 
 # Despawn
@@ -31,7 +31,7 @@ func _ready() -> void:
 # Remember: this doesn't get called automatically
 func init(pos: Vector2, spawner_mother: Object) -> void:
 	global_position = pos
-	connect("signal_pick_up", spawner_mother, "_on_weapon_picked_up")
+	connect("sig_picked_up", spawner_mother, "_on_weapon_picked_up")
 
 func _physics_process(delta) -> void:
 	if not picked_up:
@@ -64,7 +64,7 @@ func _pick_up(player_dir_right: bool) -> void:
 	$PickupZone.get_node("PickupZoneShape").disabled = true
 	flip_direction(player_dir_right)
 	picked_up = true
-	emit_signal("signal_pick_up")
+	emit_signal("sig_picked_up")
 	
 func _drop(throwVelocity: Vector2) -> void:
 	$Hitbox.disabled = false

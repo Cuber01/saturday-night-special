@@ -1,6 +1,14 @@
+ALPHA 1
 X fix trail bug
 X add level loading
-- add score
 X add recoil
 X limit ammo
-- add weapon spawn/dissappear
+X add weapon spawn/dissappear
+- add score
+- add level load on player death
+
+ALPHA 2
+- add a shotgun
+- add breaking blocks
+- add camera movement
+- have at least 5 maps total

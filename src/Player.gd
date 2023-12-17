@@ -24,10 +24,15 @@ var use_action:    String
 # Pickup system vars
 var picked_object: PickupableObject = null
 
+signal sig_player_died(player_id)
+
 # We're preparing these for perforamance
 func _ready() -> void:
 	if not facing_right:
 		flip_direction(true)
+		
+	var match_manager = get_parent().get_parent()
+	connect("sig_player_died", match_manager, "_on_player_died")
 	
 	right_action = "right_p" + str(player_index)
 	left_action = "left_p" + str(player_index)
@@ -56,7 +61,7 @@ func _physics_process(delta) -> void:
 # --------------------------- Movement
 
 func input_move() -> void:
-	var direction_x: int = 0
+	var direction_x: float = 0
 	direction_x = Input.get_action_strength(right_action) - Input.get_action_strength(left_action)
 	
 	if direction_x < 0:
@@ -117,6 +122,7 @@ func drop_object() -> void:
 # --------------------------- Callbacks
 
 func die():
+	emit_signal("sig_player_died", player_index)
 	queue_free()
 
 func _on_IsOnFloor_body_entered(_body):

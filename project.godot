@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Bullet.gd"
 }, {
+"base": "Node2D",
+"class": "LevelManager",
+"language": "GDScript",
+"path": "res://src/LevelManager.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "PickupableObject",
 "language": "GDScript",
@@ -31,6 +36,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Bullet": "",
+"LevelManager": "",
 "PickupableObject": "",
 "Player": "",
 "Trail": ""
@@ -39,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Multiplayer Game"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/Match.tscn"
 config/icon="res://assets/img/icon.png"
 
 [display]
