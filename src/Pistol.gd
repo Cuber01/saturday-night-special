@@ -1,6 +1,6 @@
 extends PickupableObject
 
-var bullet_scn: PackedScene = preload("res://scenes/Bullet.tscn")
+var bullet_scn: PackedScene = preload("res://scenes/projectiles/Bullet.tscn")
 
 const BULLET_SPEED: int = 120
 const RECOIL_FORCE: Vector2 = Vector2(100,-20)

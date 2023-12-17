@@ -41,6 +41,7 @@ func death_phase_one(delta) -> void:
 		change_state(State.DEATH_PHASE_2)
 		return
 	
+# warning-ignore:return_value_discarded
 	move_and_collide(velocity * delta)
 	death_counter -= 1
 	

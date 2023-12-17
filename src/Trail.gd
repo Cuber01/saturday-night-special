@@ -21,6 +21,7 @@ func _process(_delta) -> void:
 func stop() -> void:
 	set_process(false)
 	var tw := get_tree().create_tween()
+# warning-ignore:return_value_discarded
 	tw.tween_property(self, "modulate:a", 0.0, time_to_dissappear)
 	
 	yield(tw, "finished")

@@ -13,7 +13,7 @@ const SPAWN_DELAY: float = 5.0
 func _ready():
 	match type:
 		PickupableObject.Type.PISTOL:
-			weapon_scn = preload("res://scenes/Pistol.tscn")
+			weapon_scn = preload("res://scenes/items/Pistol.tscn")
 			
 	world = get_parent()
 	spawn()

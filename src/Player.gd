@@ -34,6 +34,7 @@ func _ready() -> void:
 	set_color()
 		
 	var match_manager = get_parent().get_parent()
+# warning-ignore:return_value_discarded
 	connect("sig_player_died", match_manager, "_on_player_died")
 	
 	right_action = "right_p" + str(player_index)

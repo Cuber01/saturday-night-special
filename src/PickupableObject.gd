@@ -31,6 +31,7 @@ func _ready() -> void:
 # Remember: this doesn't get called automatically
 func init(pos: Vector2, spawner_mother: Object) -> void:
 	global_position = pos
+# warning-ignore:return_value_discarded
 	connect("sig_picked_up", spawner_mother, "_on_weapon_picked_up")
 
 func _physics_process(delta) -> void:
