@@ -44,7 +44,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Multiplayer Game"
+config/name="Saturday Night Special"
 run/main_scene="res://scenes/Match.tscn"
 config/icon="res://assets/img/icon.png"
 

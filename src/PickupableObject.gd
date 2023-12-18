@@ -5,7 +5,8 @@ class_name PickupableObject
 var world: Object
 
 enum Type {
-		PISTOL
+		PISTOL,
+		SHOTGUN
 	}
 
 # Physics

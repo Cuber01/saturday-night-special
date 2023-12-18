@@ -11,12 +11,15 @@ var velocity: Vector2
 var state = -1
 var death_counter: int = 1	
 
-func init(pos: Vector2, vel: Vector2) -> void:
+var lifetime: int
+
+func init(pos: Vector2, vel: Vector2, lifetime: int) -> void:
 	self.position = pos
 	self.velocity = vel
+	self.lifetime = lifetime
 	change_state(State.FLYING)
 
-func _physics_process(delta):	
+func _physics_process(delta):		
 	match state:
 		State.FLYING:
 			flying(delta)
@@ -25,7 +28,15 @@ func _physics_process(delta):
 		State.DEATH_PHASE_2:
 			death_phase_two()
 
-func flying(delta):
+func flying(delta: float) -> void:
+	if check_lifetime(): 
+		change_state(State.DEATH_PHASE_1)
+		return
+	if fly_or_collide(delta):
+		change_state(State.DEATH_PHASE_1)
+
+
+func fly_or_collide(delta: float) -> bool:
 	var collision_info: KinematicCollision2D = move_and_collide(velocity * delta)
 	
 	if collision_info != null:
@@ -34,7 +45,16 @@ func flying(delta):
 		if colliding_body is Player:
 			colliding_body.die()
 			
-		change_state(State.DEATH_PHASE_1)
+		return true
+		
+	return false
+
+func check_lifetime() -> bool:
+	if lifetime <= 0:
+		return true
+	elif state == State.FLYING:
+		lifetime -= 1
+	return false
 
 func death_phase_one(delta) -> void:
 	if death_counter <= 0:
@@ -46,7 +66,7 @@ func death_phase_one(delta) -> void:
 	death_counter -= 1
 	
 func death_phase_two():
-	if  get_node_or_null("Trail") == null:
+	if get_node_or_null("Trail") == null:
 		queue_free()
 
 func change_state(var new_state) -> void:
