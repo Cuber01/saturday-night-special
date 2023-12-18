@@ -11,11 +11,14 @@ var ammo_left: int = 6
 func _use(user) -> void:
 	if ammo_left > 0:
 		handle_recoil(user)
-		spawn_bullet()
+		shoot()
 		ammo_left -= 1
 		
 		if ammo_left == 0:
 			can_despawn = true
+
+func shoot():
+	spawn_bullet()
 
 func handle_recoil(user) -> void:
 	user.velocity.x += RECOIL_FORCE.x if not facing_right else -RECOIL_FORCE.x
