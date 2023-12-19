@@ -23,7 +23,6 @@ func shoot():
 func handle_recoil(user) -> void:
 	user.velocity.x += RECOIL_FORCE.x if not facing_right else -RECOIL_FORCE.x
 	user.velocity.y += RECOIL_FORCE.y
-	user.is_in_air = true
 
 func spawn_bullet():
 	var bullet: KinematicBody2D = bullet_scn.instance()

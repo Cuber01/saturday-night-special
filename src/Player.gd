@@ -9,8 +9,9 @@ const SPEED: int = 100
 const JUMP_FORCE: int = 200
 const GRAVITY_FORCE: int = 275
 
+const UP: Vector2 = Vector2(0, -1) # for move_and_slide and is_on_floor to choose what is considered floor
+
 # Movement vars
-var is_in_air: bool = true
 var velocity: Vector2 = Vector2()
 
 # Action names
@@ -65,9 +66,10 @@ func set_color() -> void:
 	mat_override.set_shader_param("new_color", my_color)
 	$Sprite.set_material(mat_override)
 
-func _physics_process(delta) -> void:
-	
+func _physics_process(delta) -> void:	
 	# Check for input and do certain actions
+	if player_index == 0:
+		print(is_on_floor())
 	input_move()
 	input_jump()
 	input_pickup()
@@ -104,18 +106,14 @@ func flip_direction(dir_right: bool) -> void:
 			picked_object.flip_direction(dir_right)
 
 func input_jump() -> void:
-	if Input.is_action_pressed(up_action) and not is_in_air:
+	if Input.is_action_pressed(up_action) and is_on_floor():
 		velocity.y = -JUMP_FORCE
-		is_in_air = true
 
 func handle_gravity_force(delta) -> void:
-	if is_in_air:
-		velocity.y += GRAVITY_FORCE * delta
-	else:
-		velocity.y = 0
+	velocity.y += GRAVITY_FORCE * delta
 
 func move() -> void:
-	velocity = move_and_slide(velocity)
+	velocity = move_and_slide(velocity, UP)
 
 # --------------------------- Item Management
 
@@ -150,8 +148,3 @@ func die():
 	match_manager.get_node("Camera").remove_target(self)
 	queue_free()
 
-func _on_IsOnFloor_body_entered(_body):
-	is_in_air = false
-
-func _on_IsOnFloor_body_exited(_body):
-	is_in_air = true
