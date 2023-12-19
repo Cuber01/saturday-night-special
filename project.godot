@@ -46,7 +46,6 @@ _global_script_class_icons={
 
 config/name="Saturday Night Special"
 run/main_scene="res://scenes/Match.tscn"
-config/icon="res://assets/img/icon.png"
 
 [display]
 

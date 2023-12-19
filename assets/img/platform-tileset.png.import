@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-859001d62588b6d9cb01a8eba79b6466.stex"
+path="res://.import/platform-tileset.png-2e91c1702e0f471b805a8ea73323ae2c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/icon.png"
-dest_files=[ "res://.import/icon.png-859001d62588b6d9cb01a8eba79b6466.stex" ]
+source_file="res://assets/img/platform-tileset.png"
+dest_files=[ "res://.import/platform-tileset.png-2e91c1702e0f471b805a8ea73323ae2c.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
