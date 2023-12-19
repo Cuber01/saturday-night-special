@@ -8,14 +8,24 @@ const BULLET_INNACURACY: float = 10.0
 const BULLET_SPEED: int = 120
 const BULLET_LIFETIME: int = 100
 const RECOIL_FORCE: Vector2 = Vector2(100,-20)
+const DELAY_BETWEEN_SHOTS: int = 10
 
-var ammo_left: int = 6
+var current_delay: int = 0
+var ammo_left: int = 30
+
+func _overriden_update() -> void:
+	if current_delay > 0:
+		current_delay -= 1
 
 func _use(user) -> void:
+	if current_delay > 0:
+		return
+	
 	if ammo_left > 0:
 		handle_recoil(user)
 		shoot()
 		ammo_left -= 1
+		current_delay = DELAY_BETWEEN_SHOTS
 		
 		if ammo_left == 0:
 			can_despawn = true

@@ -23,6 +23,9 @@ var picked_up: bool = false
 var can_despawn: bool = false
 const TIME_UNTIL_DESPAWN: float = 5.0
 
+# Pistol
+var manual_block_shot = false
+
 # Other
 var facing_right: bool = false
 
@@ -43,6 +46,11 @@ func _physics_process(delta) -> void:
 	if can_despawn and not picked_up:
 		$DespawnTimer.start(TIME_UNTIL_DESPAWN)
 		can_despawn = false # avoid resetting the timer
+		
+	_overriden_update()	
+
+func _overriden_update() -> void:
+	pass
 
 func move() -> void:
 	velocity = move_and_slide(velocity)
@@ -74,8 +82,13 @@ func _drop(throwVelocity: Vector2) -> void:
 	velocity += throwVelocity * THROW_VELOCITY_MODIFIERS
 	picked_up = false
 	
-func _use(user) -> void:
-	print( str(self) + " is being used by " + str(user))
+
+func use(user) -> void:
+	
+	_overriden_use(user)
+
+func _overriden_use(user) -> void:
+	pass
 
 func _on_DespawnTimer_timeout():
 	if picked_up:

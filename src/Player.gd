@@ -128,7 +128,7 @@ func input_pickup() -> void:
 			drop_object()
 
 func input_use() -> void:
-	if Input.is_action_just_pressed(use_action):
+	if Input.is_action_pressed(use_action):
 		if picked_object != null:
 			picked_object._use(self)
 
