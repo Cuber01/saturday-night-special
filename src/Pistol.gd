@@ -1,6 +1,6 @@
 extends PickupableObject
 
-var bullet_scn: PackedScene = preload("res://scenes/projectiles/Bullet.tscn")
+var bullet_scn: PackedScene = preload("res://scenes/projectiles/BreakBlocksBullet.tscn")
 
 const BULLET_SPEED: int = 120
 const BULLET_LIFETIME: int = 100
@@ -29,5 +29,6 @@ func spawn_bullet():
 	bullet.init($ShootPoint.global_position, 
 				Vector2(BULLET_SPEED if facing_right else -BULLET_SPEED,
 				0),
-				BULLET_LIFETIME)
+				BULLET_LIFETIME,
+				world)
 	world.add_child(bullet)

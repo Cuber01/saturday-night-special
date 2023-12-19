@@ -40,14 +40,16 @@ func fly_or_collide(delta: float) -> bool:
 	var collision_info: KinematicCollision2D = move_and_collide(velocity * delta)
 	
 	if collision_info != null:
-		var colliding_body = collision_info.collider
-		
-		if colliding_body is Player:
-			colliding_body.die()
-			
+		collision_response(collision_info)
 		return true
 		
 	return false
+
+func collision_response(collision: KinematicCollision2D) -> void:
+	var colliding_body = collision.collider
+		
+	if colliding_body is Player:
+		colliding_body.die()
 
 func check_lifetime() -> bool:
 	if lifetime <= 0:
