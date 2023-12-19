@@ -6,7 +6,7 @@ export var facing_right: bool = true
 
 # Movement Constants
 const SPEED: int = 100
-const JUMP_FORCE: int = 175
+const JUMP_FORCE: int = 200
 const GRAVITY_FORCE: int = 275
 
 # Movement vars
