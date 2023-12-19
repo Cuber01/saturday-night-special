@@ -20,8 +20,8 @@ func _use(user) -> void:
 	if reloading: return
 	
 	if ammo_left > 0:
-		handle_recoil(user)
 		shoot()	
+		handle_recoil(user)
 	elif mags_left > 0:
 		reload()
 		

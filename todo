@@ -10,7 +10,17 @@ X add colored players
 
 ALPHA 2
 X add a shotgun (with reload)
-- add breaking blocks
+X add breaking blocks
 X add camera movement
 X add platforms
-- add an uzi (automatic weapon)
+- add a uzi (automatic weapon)
+
+ALPHA 3
+- add a grenade (that breaks blocks)
+- add shells dropping on the ground
+- add particles 
+	- weapon spawn
+	- weapon despawn
+	- bullet breaking on wall 
+
+

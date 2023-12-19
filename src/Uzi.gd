@@ -1,6 +1,9 @@
 extends PickupableObject
 
-var bullet_scn: PackedScene = preload("res://scenes/projectiles/BreakBlocksBullet.tscn")
+var bullet_scn: PackedScene = preload("res://scenes/projectiles/Bullet.tscn")
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+
+const BULLET_INNACURACY: float = 10.0
 
 const BULLET_SPEED: int = 120
 const BULLET_LIFETIME: int = 100
@@ -10,8 +13,8 @@ var ammo_left: int = 6
 
 func _use(user) -> void:
 	if ammo_left > 0:
-		shoot()
 		handle_recoil(user)
+		shoot()
 		ammo_left -= 1
 		
 		if ammo_left == 0:
@@ -24,9 +27,8 @@ func spawn_bullet():
 	var bullet: KinematicBody2D = bullet_scn.instance()
 	bullet.init($ShootPoint.global_position, 
 				Vector2(BULLET_SPEED if facing_right else -BULLET_SPEED,
-				0),
-				BULLET_LIFETIME,
-				world)
+				rng.randf_range(-BULLET_INNACURACY, BULLET_INNACURACY)),
+				BULLET_LIFETIME)
 	world.add_child(bullet)
 
 func handle_recoil(user) -> void:

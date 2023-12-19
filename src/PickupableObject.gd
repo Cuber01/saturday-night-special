@@ -78,4 +78,7 @@ func _use(user) -> void:
 	print( str(self) + " is being used by " + str(user))
 
 func _on_DespawnTimer_timeout():
+	if picked_up:
+		can_despawn = true
+		return
 	queue_free()
