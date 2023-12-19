@@ -68,12 +68,11 @@ func set_color() -> void:
 
 func _physics_process(delta) -> void:	
 	# Check for input and do certain actions
-	if player_index == 0:
-		print(is_on_floor())
 	input_move()
 	input_jump()
 	input_pickup()
 	input_use()
+	input_down()
 	
 	# Handle Movement
 	handle_gravity_force(delta)
@@ -108,6 +107,10 @@ func flip_direction(dir_right: bool) -> void:
 func input_jump() -> void:
 	if Input.is_action_pressed(up_action) and is_on_floor():
 		velocity.y = -JUMP_FORCE
+
+func input_down() -> void:
+	if Input.is_action_pressed(down_action) and is_on_floor():
+		position.y += 1
 
 func handle_gravity_force(delta) -> void:
 	velocity.y += GRAVITY_FORCE * delta
