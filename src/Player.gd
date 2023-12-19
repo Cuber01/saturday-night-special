@@ -24,6 +24,9 @@ var use_action:    String
 # Pickup system vars
 var picked_object: PickupableObject = null
 
+# Other
+var match_manager
+
 signal sig_player_died(player_id)
 
 # We're preparing these for perforamance
@@ -33,9 +36,10 @@ func _ready() -> void:
 		
 	set_color()
 		
-	var match_manager = get_parent().get_parent()
+	match_manager = get_parent().get_parent()
 # warning-ignore:return_value_discarded
 	connect("sig_player_died", match_manager, "_on_player_died")
+	match_manager.get_node("Camera").add_target(self)
 	
 	right_action = "right_p" + str(player_index)
 	left_action = "left_p" + str(player_index)
@@ -143,6 +147,7 @@ func drop_object() -> void:
 
 func die():
 	emit_signal("sig_player_died", player_index)
+	match_manager.get_node("Camera").remove_target(self)
 	queue_free()
 
 func _on_IsOnFloor_body_entered(_body):

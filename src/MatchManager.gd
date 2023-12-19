@@ -20,7 +20,9 @@ func _ready() -> void:
 	
 	rng.randomize()
 	level_manager = LevelManager.new(self)
-	level_manager.load_level(rng.randi_range(0, level_manager.level_amount - 1))
+	#level_manager.load_level(rng.randi_range(0, level_manager.level_amount - 1))
+	level_manager.load_level(0)
+
 
 func reset_board(board: Array, value) -> void:
 	for i in (player_amount - 1):

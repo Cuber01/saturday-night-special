@@ -13,10 +13,10 @@ var death_counter: int = 1
 
 var lifetime: int
 
-func init(pos: Vector2, vel: Vector2, lifetime: int) -> void:
+func init(pos: Vector2, vel: Vector2, lifespan: int) -> void:
 	self.position = pos
 	self.velocity = vel
-	self.lifetime = lifetime
+	self.lifetime = lifespan
 	change_state(State.FLYING)
 
 func _physics_process(delta):		
