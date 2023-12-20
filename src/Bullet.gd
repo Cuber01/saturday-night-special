@@ -13,7 +13,7 @@ var death_counter: int = 1
 
 var lifetime: int
 
-func init(pos: Vector2, vel: Vector2, lifespan: int) -> void:
+func init(pos: Vector2, vel: Vector2, lifespan: int, world: TileMap = null) -> void:
 	self.position = pos
 	self.velocity = vel
 	self.lifetime = lifespan

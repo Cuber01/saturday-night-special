@@ -6,7 +6,8 @@ var world: Object
 
 enum Type {
 		PISTOL,
-		SHOTGUN
+		SHOTGUN,
+		UZI
 	}
 
 # Physics
@@ -23,11 +24,9 @@ var picked_up: bool = false
 var can_despawn: bool = false
 const TIME_UNTIL_DESPAWN: float = 5.0
 
-# Pistol
-var manual_block_shot = false
-
 # Other
 var facing_right: bool = false
+var button_released: bool = false
 
 func _ready() -> void:
 	world = get_parent()
@@ -35,7 +34,6 @@ func _ready() -> void:
 # Remember: this doesn't get called automatically
 func init(pos: Vector2, spawner_mother: Object) -> void:
 	global_position = pos
-# warning-ignore:return_value_discarded
 	connect("sig_picked_up", spawner_mother, "_on_weapon_picked_up")
 
 func _physics_process(delta) -> void:
@@ -49,6 +47,7 @@ func _physics_process(delta) -> void:
 		
 	_overriden_update()	
 
+# Override
 func _overriden_update() -> void:
 	pass
 
@@ -69,26 +68,22 @@ func handle_gravity(delta) -> void:
 func picked_update(newPos: Vector2) -> void:
 	position = newPos
 
-func _pick_up(player_dir_right: bool) -> void:
+func pick_up(player_dir_right: bool) -> void:
 	$Hitbox.disabled = true
 	$PickupZone.get_node("PickupZoneShape").disabled = true
 	flip_direction(player_dir_right)
 	picked_up = true
 	emit_signal("sig_picked_up")
 	
-func _drop(throwVelocity: Vector2) -> void:
+func drop(throwVelocity: Vector2) -> void:
 	$Hitbox.disabled = false
 	$PickupZone.get_node("PickupZoneShape").disabled = false
 	velocity += throwVelocity * THROW_VELOCITY_MODIFIERS
 	picked_up = false
-	
 
-func use(user) -> void:
-	
-	_overriden_use(user)
-
-func _overriden_use(user) -> void:
-	pass
+# Override
+func _use(user) -> void:	
+	push_error("_use(): No override")
 
 func _on_DespawnTimer_timeout():
 	if picked_up:

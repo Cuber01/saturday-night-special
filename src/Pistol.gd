@@ -1,34 +1,14 @@
-extends PickupableObject
+extends BaseGun
 
-var bullet_scn: PackedScene = preload("res://scenes/projectiles/BreakBlocksBullet.tscn")
+func _ready() -> void:
+	bulletScene = preload("res://scenes/projectiles/BreakBlocksBullet.tscn")
+	bulletSpeed = 120
+	bulletLifetime = 100
+	recoilForce = Vector2(100,-20)
+	bulletSpread = 1.0
+	mode = Mode.MANUAL
+	
+	ammo_left = 6
 
-const BULLET_SPEED: int = 120
-const BULLET_LIFETIME: int = 100
-const RECOIL_FORCE: Vector2 = Vector2(100,-20)
-
-var ammo_left: int = 6
-
-func _use(user) -> void:
-	if ammo_left > 0:
-		shoot()
-		handle_recoil(user)
-		ammo_left -= 1
-		
-		if ammo_left == 0:
-			can_despawn = true
-
-func shoot():
+func _shoot():
 	spawn_bullet()
-
-func spawn_bullet():
-	var bullet: KinematicBody2D = bullet_scn.instance()
-	bullet.init($ShootPoint.global_position, 
-				Vector2(BULLET_SPEED if facing_right else -BULLET_SPEED,
-				0),
-				BULLET_LIFETIME,
-				world)
-	world.add_child(bullet)
-
-func handle_recoil(user) -> void:
-	user.velocity.x += RECOIL_FORCE.x if not facing_right else -RECOIL_FORCE.x
-	user.velocity.y += RECOIL_FORCE.y

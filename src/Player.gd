@@ -128,20 +128,25 @@ func input_pickup() -> void:
 			drop_object()
 
 func input_use() -> void:
-	if Input.is_action_pressed(use_action):
-		if picked_object != null:
+	if picked_object != null:
+		if Input.is_action_pressed(use_action):
 			picked_object._use(self)
+			
+		if Input.is_action_just_released(use_action):
+			picked_object.button_released = true
+		else:
+			picked_object.button_released = false
 
 func pickup_object() -> void:
 	var objects: Array = $PickupZone.get_overlapping_areas()
 	
 	if objects.size() != 0:
 		var item: PickupableObject = objects[0].owner
-		item._pick_up(facing_right)
+		item.pick_up(facing_right)
 		picked_object = item
 
 func drop_object() -> void:
-	picked_object._drop(velocity)
+	picked_object.drop(velocity)
 	picked_object = null
 
 # --------------------------- Callbacks

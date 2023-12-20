@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "PickupableObject",
+"class": "BaseGun",
+"language": "GDScript",
+"path": "res://src/Gun.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Bullet",
 "language": "GDScript",
@@ -35,6 +40,7 @@ _global_script_classes=[ {
 "path": "res://src/Trail.gd"
 } ]
 _global_script_class_icons={
+"BaseGun": "",
 "Bullet": "",
 "LevelManager": "",
 "PickupableObject": "",
@@ -46,6 +52,10 @@ _global_script_class_icons={
 
 config/name="Saturday Night Special"
 run/main_scene="res://scenes/Match.tscn"
+
+[debug]
+
+shapes/collision/shape_color=Color( 1, 1, 1, 0.560784 )
 
 [display]
 

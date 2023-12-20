@@ -13,8 +13,9 @@ X add a shotgun (with reload)
 X add breaking blocks
 X add camera movement
 X add platforms
-- add a uzi (automatic weapon)
+X add a uzi (automatic weapon)
 - rewrite gun system so that the code is less messy
+- fix weapon spawner
 
 ALPHA 3
 - add a grenade (that breaks blocks)

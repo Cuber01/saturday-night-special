@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/projectiles/BreakBlocksBullet.gd" type="Script" id=1]
+[ext_resource path="res://src/BreakBlocksBullet.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/bullet.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Trail.tscn" type="PackedScene" id=3]
 
