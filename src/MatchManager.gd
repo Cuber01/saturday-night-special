@@ -3,7 +3,6 @@ extends Node2D
 onready var timer: Timer = $NextRoundTimer
 const TIME_TIL_NEXT_ROUND: float = 3.0
 
-var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var level_manager: LevelManager
 
 var round_count = 0
@@ -14,11 +13,13 @@ var players_alive: int = 2
 var scoreboard: Array = [0, 0, 0, 0]
 var alive_board: Array = [null, null, null, null]
 
+
 func _ready() -> void:
 	reset_board(scoreboard, 0)
 	reset_board(alive_board, true)
 	
-	rng.randomize()
+	Global.rng.randomize()
+	
 	level_manager = LevelManager.new(self)
 	#level_manager.load_level(rng.randi_range(0, level_manager.level_amount - 1))
 	level_manager.load_level(0)
@@ -51,4 +52,4 @@ func _on_NextRoundTimer_timeout():
 	
 	players_alive = player_amount
 	reset_board(alive_board, true)
-	level_manager.load_level(rng.randi_range(0, level_manager.level_amount - 1))
+	level_manager.load_level(Global.rng.randi_range(0, level_manager.level_amount - 1))

@@ -1,6 +1,9 @@
 extends BaseGun
 
+var shotgun_schell_scn = preload("res://scenes/effects/ShotgunShell.tscn")
+
 const BULLETS_PER_SHOT = 8
+const SHELL_LIFETIME = 5
 
 func _ready() -> void:
 	bulletScene = preload("res://scenes/projectiles/Bullet.tscn")
@@ -18,3 +21,9 @@ func _ready() -> void:
 func _shoot():
 	for i in BULLETS_PER_SHOT:
 		spawn_bullet()
+
+func _reloaded_effect():
+	for i in 2:
+		var shell: RigidBody2D = shotgun_schell_scn.instance()
+		shell.init($ShellDropPoint.global_position, facing_right)
+		world.add_child(shell)

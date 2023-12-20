@@ -37,5 +37,8 @@ one_shot = true
 [node name="ShootPoint" type="Node2D" parent="."]
 position = Vector2( -10, -3 )
 
+[node name="ShellDropPoint" type="Node2D" parent="."]
+position = Vector2( 6, -3 )
+
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_DespawnTimer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]

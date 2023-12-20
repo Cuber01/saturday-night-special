@@ -1,8 +1,6 @@
 extends PickupableObject
 class_name BaseGun
 
-var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-
 enum Mode {
 		MANUAL,
 		AUTOMATIC
@@ -44,6 +42,8 @@ var shooting_blocked: bool = false # Weapons are blocked when reloading and when
 var current_delay: int = 0 # Delay for automatic weapons
 var reloading: bool = false
 
+signal reloaded
+
 func _use(user) -> void:
 	if shooting_blocked or reloading:
 		return
@@ -75,7 +75,7 @@ func spawn_bullet():
 	var bullet: KinematicBody2D = bulletScene.instance()
 	bullet.init($ShootPoint.global_position, 
 				Vector2(bulletSpeed if facing_right else -bulletSpeed,
-				rng.randf_range(-bulletSpread, bulletSpread)),
+				Global.rng.randf_range(-bulletSpread, bulletSpread)),
 				bulletLifetime,
 				world)
 	world.add_child(bullet)
@@ -95,5 +95,10 @@ func handle_recoil(user) -> void:
 	
 func _on_ReloadTimer_timeout():
 	reloading = false
+	_reloaded_effect()
 	ammo_left = ammoPerMag
 	mags_left -= 1 
+	
+# Override
+func _reloaded_effect():
+	pass
