@@ -12,22 +12,22 @@ _global_script_classes=[ {
 "base": "PickupableObject",
 "class": "BaseGun",
 "language": "GDScript",
-"path": "res://src/Gun.gd"
+"path": "res://src/items/Gun.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Bullet",
 "language": "GDScript",
-"path": "res://src/Bullet.gd"
+"path": "res://src/projectiles/Bullet.gd"
 }, {
 "base": "Node2D",
 "class": "LevelManager",
 "language": "GDScript",
-"path": "res://src/LevelManager.gd"
+"path": "res://src/game_loop/LevelManager.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "PickupableObject",
 "language": "GDScript",
-"path": "res://src/PickupableObject.gd"
+"path": "res://src/items/PickupableObject.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "Line2D",
 "class": "Trail",
 "language": "GDScript",
-"path": "res://src/Trail.gd"
+"path": "res://src/gfx/Trail.gd"
 } ]
 _global_script_class_icons={
 "BaseGun": "",
