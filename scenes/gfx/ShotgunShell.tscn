@@ -4,7 +4,7 @@
 [ext_resource path="res://src/gfx/PhysicsParticle.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3, 1.66406 )
+extents = Vector2( 2.8125, 1.66406 )
 
 [node name="ShotgunShell" type="RigidBody2D"]
 collision_layer = 16
@@ -23,7 +23,7 @@ max_bounce = 0.3
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2( 1, 0.92 )
+scale = Vector2( 1.08, 0.92 )
 shape = SubResource( 1 )
 
 [node name="DespawnTimer" type="Timer" parent="."]
