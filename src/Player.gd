@@ -7,7 +7,6 @@ export var facing_right: bool = true
 # Movement Constants
 const SPEED: int = 100
 const JUMP_FORCE: int = 200
-const GRAVITY_FORCE: int = 275
 
 const UP: Vector2 = Vector2(0, -1) # for move_and_slide and is_on_floor to choose what is considered floor
 
@@ -113,7 +112,7 @@ func input_down() -> void:
 		position.y += 1
 
 func handle_gravity_force(delta) -> void:
-	velocity.y += GRAVITY_FORCE * delta
+	velocity.y += Global.GRAVITY_FORCE * delta
 
 func move() -> void:
 	velocity = move_and_slide(velocity, UP)

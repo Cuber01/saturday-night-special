@@ -17,6 +17,7 @@ min_vel_y = -5.0
 max_vel_y = -20.0
 min_vel_x = 10.0
 max_vel_x = 50.0
+max_bounce = 0.3
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

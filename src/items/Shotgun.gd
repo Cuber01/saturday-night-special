@@ -1,9 +1,8 @@
 extends BaseGun
 
-var shotgun_schell_scn = preload("res://scenes/effects/ShotgunShell.tscn")
+var shotgun_schell_scn = preload("res://scenes/gfx/ShotgunShell.tscn")
 
 const BULLETS_PER_SHOT = 8
-const SHELL_LIFETIME = 5
 
 func _ready() -> void:
 	bulletScene = preload("res://scenes/projectiles/Bullet.tscn")

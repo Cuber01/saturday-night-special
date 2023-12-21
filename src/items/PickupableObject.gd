@@ -11,9 +11,8 @@ enum Type {
 	}
 
 # Physics
-const GRAVITY_FORCE: int = 275
 const FRICTION_FORCE: float = 0.05 # Should take into account ground type / air in the future
-const THROW_VELOCITY_MODIFIERS = Vector2(3, 1)
+var throwVelocityModifiers = Vector2(3, 1)
 var velocity: Vector2 = Vector2()
 
 # Pick up
@@ -63,7 +62,7 @@ func apply_friction() -> void:
 	velocity.x = lerp(velocity.x, 0, FRICTION_FORCE)
 
 func handle_gravity(delta) -> void:
-	velocity.y += GRAVITY_FORCE * delta
+	velocity.y += Global.GRAVITY_FORCE * delta
 	
 func picked_update(newPos: Vector2) -> void:
 	position = newPos
@@ -75,10 +74,10 @@ func pick_up(player_dir_right: bool) -> void:
 	picked_up = true
 	emit_signal("sig_picked_up")
 	
-func drop(throwVelocity: Vector2) -> void:
+func drop(throw_vel: Vector2) -> void:
 	$Hitbox.disabled = false
 	$PickupZone.get_node("PickupZoneShape").disabled = false
-	velocity += throwVelocity * THROW_VELOCITY_MODIFIERS
+	velocity += throw_vel * throwVelocityModifiers
 	picked_up = false
 
 # Override
