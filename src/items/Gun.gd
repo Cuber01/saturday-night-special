@@ -44,7 +44,7 @@ var reloading: bool = false
 
 signal reloaded
 
-func _use(user) -> void:
+func _use() -> void:
 	if shooting_blocked or reloading:
 		return
 	
@@ -54,7 +54,7 @@ func _use(user) -> void:
 	
 	if ammo_left > 0:
 		_shoot()
-		handle_recoil(user)
+		handle_recoil()
 		ammo_left -= 1
 		
 		if mode == Mode.MANUAL:
@@ -89,9 +89,9 @@ func _overriden_update():
 		shooting_blocked = false
 		button_released = false
 
-func handle_recoil(user) -> void:
-	user.velocity.x += recoilForce.x if not facing_right else -recoilForce.x
-	user.velocity.y += recoilForce.y
+func handle_recoil() -> void:
+	holder.velocity.x += recoilForce.x if not facing_right else -recoilForce.x
+	holder.velocity.y += recoilForce.y
 	
 func _on_ReloadTimer_timeout():
 	reloading = false

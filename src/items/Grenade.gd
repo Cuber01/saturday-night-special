@@ -3,12 +3,11 @@ extends PickupableObject
 const TIME_UNTIL_EXPLOSION = 5.0
 
 var anim_scn = preload("res://scenes/gfx/OneShotAnimation.tscn")
-var grenade_cotter = preload("res://scenes/gfx/GrenadeCotter.tscn")
 
 func _ready() -> void:
 	throwVelocityModifiers = Vector2(5, 2)
 
-func _use(user) -> void:
+func _use() -> void:
 	$Sprite.set_region_rect(Rect2(7,0,7,10))
 	$ExplodeTimer.start(TIME_UNTIL_EXPLOSION)
 	# drop fuse effect
@@ -29,6 +28,7 @@ func destroy_blocks() -> void:
 	world.update_bitmask_area(current_cell) # TODO, not sure if we want this. Depends on the final tilemap
 
 func _on_ExplodeTimer_timeout() -> void:
+	holder.picked_object = null
 	explosion_gfx()
 	# spawn bullets
 	destroy_blocks()

@@ -17,7 +17,7 @@ var velocity: Vector2 = Vector2()
 
 # Pick up
 signal sig_picked_up
-var picked_up: bool = false
+var holder: Player = null
 
 # Despawn
 var can_despawn: bool = false
@@ -36,11 +36,11 @@ func init(pos: Vector2, spawner_mother: Object) -> void:
 	connect("sig_picked_up", spawner_mother, "_on_weapon_picked_up")
 
 func _physics_process(delta) -> void:
-	if not picked_up:
+	if not holder:
 		handle_gravity(delta)
 		move()
 		apply_friction()
-	if can_despawn and not picked_up:
+	if can_despawn and not holder:
 		$DespawnTimer.start(TIME_UNTIL_DESPAWN)
 		can_despawn = false # avoid resetting the timer
 		
@@ -67,25 +67,25 @@ func handle_gravity(delta) -> void:
 func picked_update(newPos: Vector2) -> void:
 	position = newPos
 
-func pick_up(player_dir_right: bool) -> void:
+func pick_up(player: Player) -> void:
 	$Hitbox.disabled = true
 	$PickupZone.get_node("PickupZoneShape").disabled = true
-	flip_direction(player_dir_right)
-	picked_up = true
+	flip_direction(player.facing_right)
+	holder = player
 	emit_signal("sig_picked_up")
 	
 func drop(throw_vel: Vector2) -> void:
 	$Hitbox.disabled = false
 	$PickupZone.get_node("PickupZoneShape").disabled = false
 	velocity += throw_vel * throwVelocityModifiers
-	picked_up = false
+	holder = null
 
 # Override
-func _use(user) -> void:	
+func _use() -> void:	
 	push_error("_use(): No override")
 
 func _on_DespawnTimer_timeout():
-	if picked_up:
+	if holder:
 		can_despawn = true
-		return
-	queue_free()
+	else:
+		queue_free()
