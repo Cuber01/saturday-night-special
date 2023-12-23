@@ -76,7 +76,6 @@ func change_state(var new_state) -> void:
 		State.FLYING:
 			continue
 		State.DEATH_PHASE_1:
-			remove_child($Sprite)
 			remove_child($Hitbox)
 		State.DEATH_PHASE_2:
 			$Trail.stop()
