@@ -7,6 +7,7 @@ export var facing_right: bool = true
 # Movement Constants
 const SPEED: int = 100
 const JUMP_FORCE: int = 200
+const PUSH_FORCE: int = 10
 
 const UP: Vector2 = Vector2(0, -1) # for move_and_slide and is_on_floor to choose what is considered floor
 
@@ -115,7 +116,13 @@ func handle_gravity_force(delta) -> void:
 	velocity.y += Global.GRAVITY_FORCE * delta
 
 func move() -> void:
-	velocity = move_and_slide(velocity, UP)
+	velocity = move_and_slide(velocity, UP, false, 4, PI/4, false)
+	
+	for i in get_slide_count():
+		var collision: KinematicCollision2D = get_slide_collision(i)
+		if collision.collider is RigidBody2D:
+			collision.collider.apply_central_impulse(-collision.normal * PUSH_FORCE)
+
 
 # --------------------------- Item Management
 
