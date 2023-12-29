@@ -18,11 +18,20 @@ X rewrite gun system so that the code is less messy
 X fix weapon spawner
 
 ALPHA 3
-- add a grenade (that breaks blocks)
+X add a grenade (that breaks blocks)
 X add shells dropping on the ground
+
+ALPHA 4 — Enjoyable Version
 - add particles 
 	- weapon spawn
 	- weapon despawn
 	- bullet breaking on wall 
 	- explosion
-
+- replace sprites
+	- shotgun
+	- pistol
+	- uzi
+	- character x4
+	- tileset
+- add doors
+- add pickupable boxes

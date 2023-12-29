@@ -55,11 +55,19 @@ func move() -> void:
 
 func flip_direction(dir_right: bool) -> void:
 	if dir_right != facing_right:
-		scale.x = scale.x * -1
+		position.x = -position.x
+		$Sprite.flip_h = not $Sprite.flip_h
+		_flip_additional_parts()
 		facing_right = not facing_right
 
+func _flip_additional_parts() -> void:
+	pass
+
 func apply_friction() -> void:
-	velocity.x = lerp(velocity.x, 0, FRICTION_FORCE)
+	if is_on_floor():
+		velocity.x = lerp(velocity.x, 0, FRICTION_FORCE)
+	else: 
+		velocity.x = lerp(velocity.x, 0, FRICTION_FORCE/2)
 
 func handle_gravity(delta) -> void:
 	velocity.y += Global.GRAVITY_FORCE * delta
@@ -71,6 +79,7 @@ func pick_up(player: Player) -> void:
 	$Hitbox.disabled = true
 	$PickupZone.get_node("PickupZoneShape").disabled = true
 	flip_direction(player.facing_right)
+	rotation = 0
 	holder = player
 	emit_signal("sig_picked_up")
 	

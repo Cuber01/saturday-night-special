@@ -13,6 +13,13 @@ var used: bool = false
 func _ready() -> void:
 	throwVelocityModifiers = Vector2(5, 2)
 
+func _overriden_update() -> void:
+	if not holder:
+		if velocity.x > 0:
+			rotation += lerp(0, 2*PI, velocity.x/10000)
+		elif velocity.x < 0:
+			rotation += lerp(0, -2*PI, -velocity.x/10000)
+
 func _use() -> void:
 	if used:
 		return
@@ -52,6 +59,9 @@ func destroy_blocks() -> void:
 			world.set_cellv(Vector2(top_right_cell.x+i, top_right_cell.y+j), -1)
 	
 	world.update_bitmask_area(current_cell) # TODO, not sure if we want this. Depends on the final tilemap
+
+func _flip_additional_parts() -> void:
+	$Cotter.position.x = -$Cotter.position.x 
 
 func _on_ExplodeTimer_timeout() -> void:
 	if holder:

@@ -10,5 +10,6 @@ func _ready() -> void:
 	
 	ammo_left = 6
 
+
 func _shoot():
 	spawn_bullet()

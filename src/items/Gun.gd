@@ -71,6 +71,11 @@ func _use() -> void:
 func _shoot():
 	push_error("_shoot(): No override")
 
+func _flip_additional_parts() -> void:
+	$ShootPoint.position.x = -$ShootPoint.position.x 
+	if get_node_or_null("ShellDropPoint"):
+		$ShellDropPoint.position.x = -$ShellDropPoint.position.x
+
 func spawn_bullet():
 	var bullet: KinematicBody2D = bulletScene.instance()
 	bullet.init($ShootPoint.global_position, 
