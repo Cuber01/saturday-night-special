@@ -68,7 +68,7 @@ func _use() -> void:
 		reload()
 
 # Override
-func _shoot():
+func _shoot() -> void:
 	push_error("_shoot(): No override")
 
 func _flip_additional_parts() -> void:
@@ -76,7 +76,7 @@ func _flip_additional_parts() -> void:
 	if get_node_or_null("ShellDropPoint"):
 		$ShellDropPoint.position.x = -$ShellDropPoint.position.x
 
-func spawn_bullet():
+func spawn_bullet() -> void:
 	var bullet: KinematicBody2D = bulletScene.instance()
 	bullet.init($ShootPoint.global_position, 
 				Vector2(bulletSpeed if facing_right else -bulletSpeed,
@@ -85,11 +85,12 @@ func spawn_bullet():
 				world)
 	world.add_child(bullet)
 
-func reload():
+func reload() -> void:
 	reloading = true
 	$ReloadTimer.start(reloadTime)
 
-func _overriden_update():
+func _physics_process(delta: float) -> void:
+	._physics_process(delta)
 	if button_released:
 		shooting_blocked = false
 		button_released = false

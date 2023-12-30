@@ -13,7 +13,8 @@ var used: bool = false
 func _ready() -> void:
 	throwVelocityModifiers = Vector2(5, 2)
 
-func _overriden_update() -> void:
+func _physics_process(delta: float) -> void:
+	._physics_process(delta)
 	if not holder:
 		if velocity.x > 0:
 			rotation += lerp(0, 2*PI, velocity.x/10000)

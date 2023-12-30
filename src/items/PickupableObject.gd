@@ -37,6 +37,7 @@ func init(pos: Vector2, spawner_mother: Object) -> void:
 	global_position = pos
 	connect("sig_picked_up", spawner_mother, "_on_weapon_picked_up")
 
+# Override
 func _physics_process(delta) -> void:
 	if not holder:
 		handle_gravity(delta)
@@ -45,12 +46,6 @@ func _physics_process(delta) -> void:
 	if can_despawn and not holder:
 		$DespawnTimer.start(TIME_UNTIL_DESPAWN)
 		can_despawn = false # avoid resetting the timer
-		
-	_overriden_update()	
-
-# Override
-func _overriden_update() -> void:
-	pass
 
 func move() -> void:
 	velocity = move_and_slide(velocity)
