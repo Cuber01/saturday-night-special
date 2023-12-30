@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/environment/WeaponSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tiles/PlatformTilemap.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/items/Uzi.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/items/Grenade.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/items/Crate.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/environment/Door.tscn" type="PackedScene" id=9]
 
 [node name="BasicTilemap" type="TileMap"]
 tile_set = ExtResource( 4 )
@@ -46,3 +47,6 @@ position = Vector2( 90, 209 )
 
 [node name="Box" parent="." instance=ExtResource( 8 )]
 position = Vector2( 292, 203 )
+
+[node name="Door" parent="." instance=ExtResource( 9 )]
+position = Vector2( 432, 209 )
