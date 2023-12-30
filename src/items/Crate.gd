@@ -1,4 +1,5 @@
 extends PickupableObject
+class_name Crate
 
 var held_hitbox:Vector2 = Vector2(2, 12)
 var normal_hitbox = Vector2(12,12)
