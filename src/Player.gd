@@ -116,12 +116,12 @@ func handle_gravity_force(delta) -> void:
 	velocity.y += Global.GRAVITY_FORCE * delta
 
 func move() -> void:
-	velocity = move_and_slide(velocity, UP, false, 4, PI/4, false)
+	velocity = move_and_slide(velocity, UP)
 	
-	for i in get_slide_count():
-		var collision: KinematicCollision2D = get_slide_collision(i)
-		if collision.collider is RigidBody2D:
-			collision.collider.apply_central_impulse(-collision.normal * PUSH_FORCE)
+#	for i in get_slide_count():
+#		var collision: KinematicCollision2D = get_slide_collision(i)
+#		if collision.collider is Crate:
+#			collision.collider.apply_central_impulse(-collision.normal * PUSH_FORCE)
 
 
 # --------------------------- Item Management
