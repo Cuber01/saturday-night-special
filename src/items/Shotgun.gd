@@ -9,6 +9,7 @@ func _ready() -> void:
 	bulletSpeed = 120
 	bulletLifetime = 30
 	bulletSpread = 10.0
+	bulletDamage = 8
 	ammoPerMag = 1
 	reloadTime = 3
 	recoilForce = Vector2(300,-60)

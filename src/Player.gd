@@ -148,8 +148,9 @@ func pickup_object() -> void:
 	
 	if objects.size() != 0:
 		var item: Object = objects[0].owner
-		item._pick_up(self)
-		picked_object = item
+		if item is PickupableObject:
+			item._pick_up(self)
+			picked_object = item
 
 func drop_object() -> void:
 	picked_object._drop(velocity)
@@ -157,7 +158,7 @@ func drop_object() -> void:
 
 # --------------------------- Callbacks
 
-func die():
+func take_damage(damage: int):
 	emit_signal("sig_player_died", player_index)
 	match_manager.get_node("Camera").remove_target(self)
 	queue_free()

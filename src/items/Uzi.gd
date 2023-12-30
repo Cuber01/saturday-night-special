@@ -6,6 +6,7 @@ func _ready() -> void:
 	bulletLifetime = 100
 	bulletSpread = 10
 	ammoPerMag = 30
+	bulletDamage = 5
 	recoilForce = Vector2(100,-20)
 	delayBetweenShots = 10
 	mode = Mode.AUTOMATIC

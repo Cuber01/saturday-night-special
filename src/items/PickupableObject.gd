@@ -14,12 +14,12 @@ enum Type {
 
 # Physics
 const FRICTION_FORCE: float = 0.05 # Should take into account ground type / air in the future
-var throwVelocityModifiers = Vector2(3, 1)
+var throwVelocityModifiers = Vector2(2.5, 1)
 var velocity: Vector2 = Vector2()
 
 # Pick up
 signal sig_picked_up
-var holder: Player = null
+var holder: Object = null
 
 # Despawn
 var can_despawn: bool = false
@@ -74,7 +74,7 @@ func picked_update(newPos: Vector2) -> void:
 	position = newPos
 
 # Override
-func _pick_up(player: Player) -> void:
+func _pick_up(player: Object) -> void:
 	$Hitbox.disabled = true
 	$PickupZone.get_node("PickupZoneShape").disabled = true
 	flip_direction(player.facing_right)

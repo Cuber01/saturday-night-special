@@ -6,7 +6,7 @@ var normal_hitbox = Vector2(12,12)
 func _use() -> void:
 	pass
 	
-func _pick_up(player: Player) -> void:
+func _pick_up(player: Object) -> void:
 	._pick_up(player)
 	$HeldHitbox.disabled = false
 

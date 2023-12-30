@@ -3,10 +3,10 @@ extends Bullet
 var tilemap: TileMap
 
 # world has to be optional due to how 
-func init(pos: Vector2, vel: Vector2, lifespan: int, world: TileMap = null) -> void:
-	self.position = pos
-	self.velocity = vel
-	self.lifetime = lifespan
+func init(pos: Vector2, vel: Vector2, lifespan: int, 
+		 damage: int, world: TileMap = null) -> void:
+	.init(pos, vel, lifespan, damage)
+	
 	if world == null: # In case I forgor...
 		push_error("BreakBlocksBullet: World is null.")
 	self.tilemap = world

@@ -2,7 +2,9 @@ extends PickupableObject
 
 const TIME_UNTIL_EXPLOSION: int = 5
 const NUM_OF_BULLETS: int = 8
-const BULLET_SPEED = 8
+const BULLET_SPEED: int = 8
+const BULLET_LIFESPAN: int = 10
+const BULLET_DAMAGE: int = 100
 
 var boom_scn = preload("res://scenes/gfx/OneShotAnimation.tscn")
 var cotter_scn = preload("res://scenes/gfx/GrenadeCotter.tscn")
@@ -11,7 +13,7 @@ var bullet_scn = preload("res://scenes/projectiles/BreakBlocksBullet.tscn")
 var used: bool = false
 
 func _ready() -> void:
-	throwVelocityModifiers = Vector2(5, 2)
+	throwVelocityModifiers = Vector2(4, 2)
 
 func _physics_process(delta: float) -> void:
 	._physics_process(delta)
@@ -40,7 +42,8 @@ func spawn_bullets_in_circle() -> void:
 		bullet.init(global_position, 
 				Vector2(point.x * 20,
 						point.y * 20),
-				10,
+				BULLET_LIFESPAN,
+				BULLET_DAMAGE,
 				world)
 		world.add_child(bullet)
 

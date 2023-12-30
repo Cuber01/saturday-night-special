@@ -27,6 +27,7 @@ var bulletScene: PackedScene = null # Scene from which we instantiate the bullet
 var bulletSpeed: int                # Bullet flying speed in x
 var bulletLifetime: int             # Time before the bullet goes into DEATH_STAGE_1
 var bulletSpread: float             # Determines max and min value of y bullet spread
+var bulletDamage: int				# Determines damage per bullet
 var ammoPerMag: int = 6             # Ammunition per each mag. Total ammo if there are no mags
 var reloadTime: int = 0             # How much time it takes to load a new mag
 var recoilForce: Vector2            # Force applied to the player upon shooting
@@ -82,6 +83,7 @@ func spawn_bullet() -> void:
 				Vector2(bulletSpeed if facing_right else -bulletSpeed,
 				Global.rng.randf_range(-bulletSpread, bulletSpread)),
 				bulletLifetime,
+				bulletDamage,
 				world)
 	world.add_child(bullet)
 

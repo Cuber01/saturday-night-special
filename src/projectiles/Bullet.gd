@@ -12,11 +12,14 @@ var state = -1
 var death_counter: int = 1	
 
 var lifetime: int
+var damage: int
 
-func init(pos: Vector2, vel: Vector2, lifespan: int, world: TileMap = null) -> void:
+func init(pos: Vector2, vel: Vector2, lifespan: int,
+		  damage: int,	 world: TileMap = null) -> void:
 	self.position = pos
 	self.velocity = vel
 	self.lifetime = lifespan
+	self.damage = damage
 	change_state(State.FLYING)
 
 func _physics_process(delta):		
@@ -47,9 +50,9 @@ func fly_or_collide(delta: float) -> bool:
 
 func collision_response(collision: KinematicCollision2D) -> void:
 	var colliding_body = collision.collider
-		
-	if colliding_body is Player:
-		colliding_body.die()
+	
+	if colliding_body.has_method("take_damage"):
+		colliding_body.take_damage(damage)
 
 func check_lifetime() -> bool:
 	if lifetime <= 0:
