@@ -4,6 +4,7 @@
 [ext_resource path="res://src/environment/WeaponSpawner.gd" type="Script" id=2]
 
 [node name="WeaponSpawner" type="Node2D"]
+z_index = -1
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

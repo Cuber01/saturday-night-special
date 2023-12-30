@@ -7,6 +7,7 @@
 extents = Vector2( 7, 6.5 )
 
 [node name="Uzi" type="KinematicBody2D"]
+z_index = 1
 collision_layer = 2
 script = ExtResource( 1 )
 

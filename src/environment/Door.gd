@@ -25,6 +25,9 @@ func close() -> void:
 	state = State.CLOSED
 
 func attempt_open(to_right: bool) -> void:
+	if state != State.CLOSED:
+		return
+	
 	var blocked_by: Array
 	
 	if to_right:
@@ -47,9 +50,6 @@ func _on_DetectLeft_body_entered(body: Node) -> void:
 		attempt_open(false)
 
 func _on_CloseTimer_timeout() -> void:
-	if state == State.CLOSED:
-		return
-	
 	# If something blocks door closing, we repeat the timer
 	if $DetectInDoor.get_overlapping_bodies():
 		$CloseTimer.start(CLOSE_TIME)

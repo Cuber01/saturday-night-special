@@ -66,6 +66,7 @@ animations = [ {
 } ]
 
 [node name="AnimatedSprite" type="AnimatedSprite"]
+z_index = 2
 frames = SubResource( 1 )
 animation = "explosion2"
 frame = 19
