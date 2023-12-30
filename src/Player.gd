@@ -146,11 +146,12 @@ func input_use() -> void:
 func pickup_object() -> void:
 	var objects: Array = $PickupZone.get_overlapping_areas()
 	
-	if objects.size() != 0:
-		var item: Object = objects[0].owner
+	for obj in objects:
+		var item: Object = obj.owner
 		if item is PickupableObject:
 			item._pick_up(self)
 			picked_object = item
+			break
 
 func drop_object() -> void:
 	picked_object._drop(velocity)
