@@ -28,6 +28,9 @@ func _use() -> void:
 	$Sprite.set_region_rect(Rect2(7,0,7,10))
 	$ExplodeTimer.start(TIME_UNTIL_EXPLOSION)
 	drop_cotter()
+	
+func _flip_additional_parts() -> void:
+	$Cotter.position.x = -$Cotter.position.x 
 
 func spawn_bullets_in_circle() -> void:
 	var points: Array = Global.calculate_points_in_circle(BULLET_SPEED, NUM_OF_BULLETS)
@@ -59,9 +62,6 @@ func destroy_blocks() -> void:
 			world.set_cellv(Vector2(top_right_cell.x+i, top_right_cell.y+j), -1)
 	
 	world.update_bitmask_area(current_cell) # TODO, not sure if we want this. Depends on the final tilemap
-
-func _flip_additional_parts() -> void:
-	$Cotter.position.x = -$Cotter.position.x 
 
 func _on_ExplodeTimer_timeout() -> void:
 	if holder:

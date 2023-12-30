@@ -148,11 +148,11 @@ func pickup_object() -> void:
 	
 	if objects.size() != 0:
 		var item: Object = objects[0].owner
-		item.pick_up(self)
+		item._pick_up(self)
 		picked_object = item
 
 func drop_object() -> void:
-	picked_object.drop(velocity)
+	picked_object._drop(velocity)
 	picked_object = null
 
 # --------------------------- Callbacks

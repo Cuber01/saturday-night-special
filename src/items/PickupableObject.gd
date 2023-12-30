@@ -7,7 +7,9 @@ var world: Object
 enum Type {
 		PISTOL,
 		SHOTGUN,
-		UZI
+		UZI,
+		GRENADE,
+		CRATE
 	}
 
 # Physics
@@ -60,6 +62,7 @@ func flip_direction(dir_right: bool) -> void:
 		_flip_additional_parts()
 		facing_right = not facing_right
 
+# Override
 func _flip_additional_parts() -> void:
 	pass
 
@@ -75,15 +78,17 @@ func handle_gravity(delta) -> void:
 func picked_update(newPos: Vector2) -> void:
 	position = newPos
 
-func pick_up(player: Player) -> void:
+# Override
+func _pick_up(player: Player) -> void:
 	$Hitbox.disabled = true
 	$PickupZone.get_node("PickupZoneShape").disabled = true
 	flip_direction(player.facing_right)
 	rotation = 0
 	holder = player
 	emit_signal("sig_picked_up")
-	
-func drop(throw_vel: Vector2) -> void:
+
+# Override
+func _drop(throw_vel: Vector2) -> void:
 	$Hitbox.disabled = false
 	$PickupZone.get_node("PickupZoneShape").disabled = false
 	velocity += throw_vel * throwVelocityModifiers

@@ -1,7 +1,7 @@
 extends BaseGun
 
 func _ready() -> void:
-	bulletScene = preload("res://scenes/projectiles/BreakBlocksBullet.tscn")
+	bulletScene = preload("res://scenes/projectiles/Bullet.tscn")
 	bulletSpeed = 120
 	bulletLifetime = 100
 	recoilForce = Vector2(100,-20)
