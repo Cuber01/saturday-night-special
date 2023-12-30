@@ -15,8 +15,8 @@ func init(pos: Vector2, vel: Vector2, lifespan: int,
 func collision_response(collision: KinematicCollision2D) -> void:
 	var colliding_body = collision.collider
 		
-	if colliding_body is Player:
-		colliding_body.die()
+	if colliding_body.has_method("take_damage"):
+		colliding_body.take_damage(damage)
 	elif colliding_body.name == "BasicTilemap":
 		var cell: Vector2 = tilemap.world_to_map(collision.position - collision.normal)
 		tilemap.set_cellv(cell, -1)

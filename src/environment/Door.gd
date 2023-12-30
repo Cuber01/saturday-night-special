@@ -9,6 +9,8 @@ enum State {
 const CLOSE_TIME: int = 2
 var state = State.CLOSED
 
+var hitpoints: int = 50
+
 func open(to_right: bool) -> void:
 	$Hitbox.set_deferred("disabled", true)
 	if to_right:
@@ -63,3 +65,9 @@ func _on_CloseTimer_timeout() -> void:
 			close()
 		else: 
 			$CloseTimer.start(CLOSE_TIME)
+			
+func take_damage(damage: int):
+	hitpoints -= damage
+
+	if hitpoints < 0:
+		queue_free()

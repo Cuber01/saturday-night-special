@@ -3,6 +3,8 @@ extends PickupableObject
 var held_hitbox:Vector2 = Vector2(2, 12)
 var normal_hitbox = Vector2(12,12)
 
+var hitpoints: int = 50
+
 func _use() -> void:
 	pass
 	
@@ -16,3 +18,9 @@ func _drop(throw_vel: Vector2) -> void:
 
 func _flip_additional_parts() -> void:
 	$HeldHitbox.position.x = -$HeldHitbox.position.x
+
+func take_damage(damage: int):
+	hitpoints -= damage
+	
+	if hitpoints < 0:
+		queue_free()
