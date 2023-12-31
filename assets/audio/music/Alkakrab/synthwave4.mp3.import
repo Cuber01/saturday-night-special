@@ -11,5 +11,5 @@ dest_files=[ "res://.import/synthwave4.mp3-6cb8dc732e86ad03f461a391ad87746c.mp3s
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

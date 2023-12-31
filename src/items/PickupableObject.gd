@@ -68,7 +68,7 @@ func apply_friction() -> void:
 		velocity.x = lerp(velocity.x, 0, FRICTION_FORCE/2)
 
 func handle_gravity(delta) -> void:
-	velocity.y += Global.GRAVITY_FORCE * delta
+	velocity.y += Util.GRAVITY_FORCE * delta
 	
 func picked_update(newPos: Vector2) -> void:
 	position = newPos

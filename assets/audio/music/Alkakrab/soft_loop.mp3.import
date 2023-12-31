@@ -11,5 +11,5 @@ dest_files=[ "res://.import/soft_loop.mp3-6ce6e6adaaa9c0a7b42adf1b94325d99.mp3st
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -36,7 +36,7 @@ func _flip_additional_parts() -> void:
 	$Cotter.position.x = -$Cotter.position.x 
 
 func spawn_bullets_in_circle() -> void:
-	var points: Array = Global.calculate_points_in_circle(BULLET_SPEED, NUM_OF_BULLETS)
+	var points: Array = Util.calculate_points_in_circle(BULLET_SPEED, NUM_OF_BULLETS)
 	for point in points:
 		var bullet: KinematicBody2D = bullet_scn.instance()
 		bullet.init(global_position, 

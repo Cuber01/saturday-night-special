@@ -67,7 +67,8 @@ run/main_scene="res://scenes/Match.tscn"
 
 [autoload]
 
-Global="*res://src/Global.gd"
+Util="*res://src/Global.gd"
+SoundManager="*res://src/game_loop/SoundManager.gd"
 
 [debug]
 

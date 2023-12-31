@@ -14,9 +14,9 @@ var sounds: Array = [
 					]
 
 var music_player: AudioStreamPlayer
-var current_track: int
+var current_track: int = -1
 var music_tracks: Array = [
-							preload("res://assets/audio/music/Alkakrab/soft_loop.mp3"),
+							#preload("res://assets/audio/music/Alkakrab/soft_loop.mp3"),
 							preload("res://assets/audio/music/Alkakrab/synthwave1.mp3"),
 							preload("res://assets/audio/music/Alkakrab/synthwave2.mp3"),
 							preload("res://assets/audio/music/Alkakrab/synthwave3.mp3"),
@@ -42,13 +42,24 @@ func init(audio_players_amount: int):
 		sfx_players.append(player)
 		add_child(player)
 
-func start_music() -> void:
-	pass
+func play_music() -> void:
+	var new_track: int = Util.rng.randi_range(0, music_tracks.size() - 1)
+	if new_track == current_track:
+		play_music()
+		return 
+	
+	current_track = new_track
+	music_player.stream = music_tracks[current_track]
+	music_player.play()
+	
+	yield(music_player, "finished")
+	play_music()
 	
 func play_sound(index: int) -> void:
 	for player in sfx_players:
 		if player.playing:
 			continue
-		
-		player.play_sound(sounds[index]) 
+			
+		player.stream = sounds[index]
+		player.play() 
 		break

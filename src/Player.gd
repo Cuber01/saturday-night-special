@@ -116,7 +116,7 @@ func input_down() -> void:
 		position.y += 1
 
 func handle_gravity_force(delta) -> void:
-	velocity.y += Global.GRAVITY_FORCE * delta
+	velocity.y += Util.GRAVITY_FORCE * delta
 
 func move_and_push() -> void:
 	velocity = move_and_slide(velocity, UP)

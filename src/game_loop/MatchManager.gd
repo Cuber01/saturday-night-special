@@ -18,11 +18,14 @@ func _ready() -> void:
 	reset_board(scoreboard, 0)
 	reset_board(alive_board, true)
 	
-	Global.rng.randomize()
+	Util.rng.randomize()
 	
 	level_manager = LevelManager.new(self)
 	#level_manager.load_level(rng.randi_range(0, level_manager.level_amount - 1))
 	level_manager.load_level(0)
+	
+	SoundManager.init(10)
+	SoundManager.play_music()
 
 
 func reset_board(board: Array, value) -> void:
@@ -52,4 +55,4 @@ func _on_NextRoundTimer_timeout():
 	
 	players_alive = player_amount
 	reset_board(alive_board, true)
-	level_manager.load_level(Global.rng.randi_range(0, level_manager.level_amount - 1))
+	level_manager.load_level(Util.rng.randi_range(0, level_manager.level_amount - 1))
