@@ -16,5 +16,5 @@ func bool_as_int(b: bool) -> int:
 		return 1
 	else: 
 		return -1
-		
+
 

@@ -35,6 +35,12 @@ ALPHA 4 — Enjoyable Version
 	- character x4
 	- tileset
 	- door
+- add sounds:
+	- shoot
+	- explosion
+	- reload
+	- jump
+	- player death
 X add doors
 X add pickupable boxes
 X make boxes pushable

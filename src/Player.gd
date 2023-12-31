@@ -4,6 +4,9 @@ class_name Player
 export var player_index: int = 0
 export var facing_right: bool = true
 
+# Sfx
+var jump_sfx: Resource = preload("res://assets/audio/sfx/jump.wav")
+
 # Movement Constants
 const SPEED: int = 100
 const JUMP_FORCE: int = 200
@@ -76,7 +79,7 @@ func _physics_process(delta) -> void:
 	
 	# Handle Movement
 	handle_gravity_force(delta)
-	move()
+	move_and_push()
 	
 	# Update held item
 	# Saying just '$HoldItemPosition.position' gives us position in relation to parent (Player)
@@ -115,7 +118,7 @@ func input_down() -> void:
 func handle_gravity_force(delta) -> void:
 	velocity.y += Global.GRAVITY_FORCE * delta
 
-func move() -> void:
+func move_and_push() -> void:
 	velocity = move_and_slide(velocity, UP)
 	
 	for i in get_slide_count():

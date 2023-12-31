@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/shoot1.wav-94fcafec04c0040755b587f73f9b8fe9.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/shoot1.wav"
+dest_files=[ "res://.import/shoot1.wav-94fcafec04c0040755b587f73f9b8fe9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

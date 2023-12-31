@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/synthwave1.mp3-d3757bbc129c2caac0a9061029256a93.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Alkakrab/synthwave1.mp3"
+dest_files=[ "res://.import/synthwave1.mp3-d3757bbc129c2caac0a9061029256a93.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/soft_loop.mp3-6ce6e6adaaa9c0a7b42adf1b94325d99.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Alkakrab/soft_loop.mp3"
+dest_files=[ "res://.import/soft_loop.mp3-6ce6e6adaaa9c0a7b42adf1b94325d99.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

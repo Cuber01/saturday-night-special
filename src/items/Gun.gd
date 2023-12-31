@@ -21,7 +21,6 @@ enum Mode {
 #	ammo_left = ammoPerMag
 #	mags_left = 
 
-
 # Stats (these are to be assigned only in _ready)
 var bulletScene: PackedScene = null # Scene from which we instantiate the bullet
 var bulletSpeed: int                # Bullet flying speed in x
