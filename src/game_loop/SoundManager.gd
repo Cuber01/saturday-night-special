@@ -63,3 +63,10 @@ func play_sound(index: int) -> void:
 		player.stream = sounds[index]
 		player.play() 
 		break
+
+func change_music_volume(volume: int) -> void:
+	music_player.volume_db = volume	
+	
+func change_sfx_volume(volume: int) -> void:
+	for player in sfx_players:
+		player.volume_db = volume

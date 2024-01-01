@@ -53,6 +53,7 @@ func _use() -> void:
 		return
 	
 	if ammo_left > 0:
+		SoundManager.play_sound(Util.rng.randi_range(3,5))
 		_shoot()
 		handle_recoil()
 		ammo_left -= 1

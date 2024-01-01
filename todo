@@ -36,11 +36,11 @@ ALPHA 4 — Enjoyable Version
 	- tileset
 	- door
 - add sounds:
-	- shoot
-	- explosion
+	X shoot
+	X explosion
 	- reload
-	- jump
-	- player death
+	X jump
+	X player death
 X add doors
 X add pickupable boxes
 X make boxes pushable

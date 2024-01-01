@@ -29,7 +29,8 @@ var use_action:    String
 var picked_object: Object = null
 
 # Other
-var match_manager
+var match_manager: Object
+var dead: bool = false
 
 signal sig_player_died(player_id)
 
@@ -109,6 +110,7 @@ func flip_direction(dir_right: bool) -> void:
 
 func input_jump() -> void:
 	if Input.is_action_pressed(up_action) and is_on_floor():
+		SoundManager.play_sound(2)
 		velocity.y = -JUMP_FORCE
 
 func input_down() -> void:
@@ -166,7 +168,12 @@ func drop_object() -> void:
 # --------------------------- Callbacks
 
 func take_damage(damage: int):
+	if dead:
+		return
+		
+	dead = true
 	emit_signal("sig_player_died", player_index)
+	SoundManager.play_sound(7)
 	match_manager.get_node("Camera").remove_target(self)
 	queue_free()
 

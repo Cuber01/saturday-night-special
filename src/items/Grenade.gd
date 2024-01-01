@@ -71,6 +71,7 @@ func _on_ExplodeTimer_timeout() -> void:
 	if holder:
 		holder.picked_object = null
 	
+	SoundManager.play_sound(Util.rng.randi_range(0,1))
 	spawn_explosion_gfx()
 	spawn_bullets_in_circle()
 	destroy_blocks()

@@ -41,5 +41,5 @@ position = Vector2( 2.00602, -3.49104 )
 position = Vector2( 0, 2 )
 shape = SubResource( 3 )
 
-[connection signal="timeout" from="ExplodeTimer" to="." method="_on_ExplodeTimer_timeout"]
 [connection signal="timeout" from="ExplodeTimer" to="." method="_on_DespawnTimer_timeout"]
+[connection signal="timeout" from="ExplodeTimer" to="." method="_on_ExplodeTimer_timeout"]

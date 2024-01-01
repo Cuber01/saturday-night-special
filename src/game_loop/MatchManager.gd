@@ -26,6 +26,8 @@ func _ready() -> void:
 	
 	SoundManager.init(10)
 	SoundManager.play_music()
+	SoundManager.change_music_volume(-50)
+	SoundManager.change_sfx_volume(-5)
 
 
 func reset_board(board: Array, value) -> void:
