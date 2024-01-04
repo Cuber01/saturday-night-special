@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name PickupableObject
 
+var despawn_gfx: Resource = preload("res://scenes/gfx/particles/Smoke.tscn")
+
 # We spawn stuff here
 var world: Object
 
@@ -97,4 +99,7 @@ func _on_DespawnTimer_timeout():
 	if holder:
 		can_despawn = true
 	else:
+		var eff: Object = despawn_gfx.instance()
+		eff.global_position = self.global_position
+		world.add_child(eff)
 		queue_free()

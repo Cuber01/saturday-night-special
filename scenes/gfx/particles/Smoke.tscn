@@ -33,9 +33,9 @@ linear_accel = -100.0
 scale_curve = SubResource( 5 )
 
 [node name="Particles2D" type="Particles2D"]
-amount = 5
-lifetime = 0.2
-speed_scale = 0.05
+lifetime = 0.15
+one_shot = true
+speed_scale = 0.1
 explosiveness = 1.0
 randomness = 0.1
 process_material = SubResource( 1 )

@@ -16,6 +16,7 @@ color = Color( 1, 0.92549, 0, 1 )
 
 [node name="Particles2D" type="Particles2D"]
 amount = 6
+one_shot = true
 speed_scale = 0.3
 explosiveness = 1.0
 process_material = SubResource( 1 )

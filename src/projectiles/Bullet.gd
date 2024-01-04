@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Bullet
 
+var spark_gfx = preload("res://scenes/gfx/particles/Spark.tscn")
+
 enum State {
 	FLYING, 
 	DEATH_PHASE_1, # We have collided, but we have to wait for the trail to get closer to the wall
@@ -11,15 +13,17 @@ var velocity: Vector2
 var state = -1
 var death_counter: int = 1	
 
+var world: TileMap
 var lifetime: int
 var damage: int
 
 func init(pos: Vector2, vel: Vector2, lifespan: int,
-		  damage: int,	 world: TileMap = null) -> void:
+		  damage: int,	 world: TileMap) -> void:
 	self.position = pos
 	self.velocity = vel
 	self.lifetime = lifespan
 	self.damage = damage
+	self.world = world
 	change_state(State.FLYING)
 
 func _physics_process(delta):		
@@ -48,12 +52,19 @@ func fly_or_collide(delta: float) -> bool:
 		
 	return false
 
+func spawn_spark_gfx() -> void:
+	var eff: Object = spark_gfx.instance()
+	eff.global_position = self.global_position
+	world.add_child(eff)
+
 func collision_response(collision: KinematicCollision2D) -> void:
 	var colliding_body = collision.collider
 	
 	if colliding_body.has_method("take_damage"):
 		colliding_body.take_damage(damage)
-
+		
+	spawn_spark_gfx()
+	
 func check_lifetime() -> bool:
 	if lifetime <= 0:
 		return true
@@ -72,7 +83,7 @@ func death_phase_one(delta) -> void:
 	
 func death_phase_two():
 	if get_node_or_null("Trail") == null:
-		queue_free()
+		die()
 
 func change_state(var new_state) -> void:
 	match new_state:
