@@ -11,6 +11,6 @@ func _ready() -> void:
 	
 	ammo_left = 6
 
-
 func _shoot():
+	SoundManager.play_sound(Util.rng.randi_range(10, 13))
 	spawn_bullet()

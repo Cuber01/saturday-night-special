@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/shoot4.wav-5cc25763f6a87c4dd9530d16e03c3c8a.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/shoot4.wav"
+dest_files=[ "res://.import/shoot4.wav-5cc25763f6a87c4dd9530d16e03c3c8a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

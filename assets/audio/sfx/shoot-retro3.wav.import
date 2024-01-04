@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/shoot-retro3.wav-b011d16377b9af4aa61c8549d2c7d870.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/shoot-retro3.wav"
+dest_files=[ "res://.import/shoot-retro3.wav-b011d16377b9af4aa61c8549d2c7d870.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

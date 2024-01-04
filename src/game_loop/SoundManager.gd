@@ -3,14 +3,21 @@ extends Node2D
 var sfx_players: Array
 var sfx_players_amount: int
 var sounds: Array = [
-						preload("res://assets/audio/sfx/explosion1.wav"),
-						preload("res://assets/audio/sfx/explosion2.wav"),
-						preload("res://assets/audio/sfx/jump.wav"),
-						preload("res://assets/audio/sfx/shoot1.wav"),
-						preload("res://assets/audio/sfx/shoot2.wav"),
-						preload("res://assets/audio/sfx/shoot3.wav"),
-						preload("res://assets/audio/sfx/ui_focus.wav"),
-						preload("res://assets/audio/sfx/victory.wav"),
+						preload("res://assets/audio/sfx/explosion1.wav"), # 0
+						preload("res://assets/audio/sfx/explosion2.wav"), # 1
+						preload("res://assets/audio/sfx/jump.wav"),		  # 2
+						preload("res://assets/audio/sfx/shoot1.wav"),	  # 3
+						preload("res://assets/audio/sfx/shoot2.wav"),	  # 4
+						preload("res://assets/audio/sfx/shoot3.wav"),	  # 5
+						preload("res://assets/audio/sfx/ui_focus.wav"),	  # 6
+						preload("res://assets/audio/sfx/victory.wav"),    # 7
+						preload("res://assets/audio/sfx/reload1.wav"),	  # 8
+						preload("res://assets/audio/sfx/reload2.wav"),	  # 9
+						preload("res://assets/audio/sfx/shoot1.wav"),	  # 10
+						preload("res://assets/audio/sfx/shoot2.wav"),	  # 11
+						preload("res://assets/audio/sfx/shoot3.wav"),	  # 12
+						preload("res://assets/audio/sfx/shoot4.wav"),	  # 13
+						preload("res://assets/audio/sfx/shoot-shotgun.wav"), # 14
 					]
 
 var music_player: AudioStreamPlayer

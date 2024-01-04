@@ -11,7 +11,7 @@ func _ready() -> void:
 	bulletSpread = 10.0
 	bulletDamage = 8
 	ammoPerMag = 1
-	reloadTime = 3
+	reloadTime = 0.6
 	recoilForce = Vector2(300,-60)
 	mode = Mode.MANUAL
 	
@@ -19,6 +19,7 @@ func _ready() -> void:
 	mags_left = 3
 
 func _shoot():
+	SoundManager.play_sound(14)
 	for i in BULLETS_PER_SHOT:
 		spawn_bullet()
 

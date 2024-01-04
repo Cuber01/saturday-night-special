@@ -26,7 +26,6 @@ ALPHA 4 — Enjoyable Version
 	- weapon spawn
 	- weapon despawn
 	- bullet breaking on wall 
-	- explosion
 - replace sprites
 	- shotgun
 	- pistol
@@ -35,10 +34,11 @@ ALPHA 4 — Enjoyable Version
 	- character x4
 	- tileset
 	- door
+	- explosion?
 - add sounds:
 	X shoot
 	X explosion
-	- reload
+	X reload
 	X jump
 	X player death
 X add doors
