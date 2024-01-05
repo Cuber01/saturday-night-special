@@ -24,8 +24,8 @@ X add shells dropping on the ground
 ALPHA 4 — Enjoyable Version
 - add particles 
 	- weapon spawn
-	- weapon despawn
-	- bullet breaking on wall 
+	X weapon despawn
+	X bullet breaking on wall 
 - replace sprites
 	- shotgun
 	- pistol
@@ -44,3 +44,14 @@ ALPHA 4 — Enjoyable Version
 X add doors
 X add pickupable boxes
 X make boxes pushable
+
+ALPHA 5 — Adding meaningful mechanics
+- add sliding
+- add weapon drop on slide
+- add proper breakable blocks
+- add fire
+- add pickupable coins
+- make coins dissappear at end of round
+- make upgrade system
+
+
