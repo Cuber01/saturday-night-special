@@ -6,6 +6,7 @@ var level_amount: int
 
 var my_match: Object
 var current_level: Object
+var tilemap_manager: Object
 
 const PATH = "res://scenes/levels/"
 
@@ -30,6 +31,7 @@ func prepare_levels() -> void:
 	
 func load_level(index: int) -> void:
 	var new_level = levels[index].instance()
+	tilemap_manager = TileMapManager.new(new_level, null)
 	
 	if current_level != null:
 		my_match.remove_child(current_level)

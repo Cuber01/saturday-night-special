@@ -40,7 +40,7 @@ _global_script_classes=[ {
 "path": "res://src/Player.gd"
 }, {
 "base": "Node",
-"class": "TilemapManager",
+"class": "TileMapManager",
 "language": "GDScript",
 "path": "res://src/game_loop/TilemapManager.gd"
 }, {
@@ -56,7 +56,7 @@ _global_script_class_icons={
 "LevelManager": "",
 "PickupableObject": "",
 "Player": "",
-"TilemapManager": "",
+"TileMapManager": "",
 "Trail": ""
 }
 
