@@ -12,17 +12,23 @@ class BurnableTile:
 
 # 2D array with all tiles and their respective hitpoints
 var main_map: Array = []
+var map_rect: Rect2
 
 # 2D array with all burnable tiles and whether they burn
 var burnable_map: Array
 var burnable_tilemap: TileMap
 
 func _init(main_tilemap: TileMap, burnable_tilemap: TileMap) -> void:
+	map_rect = main_tilemap.get_used_rect()
 	#self.burnable_tilemap = burnable_tilemap
-	init_map(main_map, 100, 100, 0) 
+	print(map_rect)
+	init_map(main_map, map_rect.size.x, map_rect.size.y, 0)
+	
 	#init_map(burnable_map, 100, 100, 0)
-	generate_map(main_tilemap, main_map, 100)
+	generate_map(main_tilemap, main_map, 1)
+	print(main_map) 
 	#generate_map(burnable_tilemap, main_map, BurnableTile.new())
+
 
 func init_map(map_ref: Array, width: int, height: int, value) -> void:
 	for x in range(width):
@@ -34,7 +40,7 @@ func generate_map(tilemap: TileMap, map_ref: Array, value) -> void:
 	var map_data: Array = tilemap.get_used_cells()
 	
 	for tile in map_data:
-		map_ref[tile.x][tile.y] = value
+		map_ref[tile.x-map_rect.position.x][tile.y-map_rect.position.y] = value
 
 func remove_tile(tilemap: TileMap, map_ref: Array, pos: Vector2):
 	tilemap.set_cellv(pos, -1)
