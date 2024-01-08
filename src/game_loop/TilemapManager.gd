@@ -50,8 +50,6 @@ func damage_tile(tilemap: TileMap, map_ref: Array, real_pos: Vector2, damage: in
 	var tile_hp = map_ref[map_pos.x][map_pos.y]
 	tile_hp -= damage
 	
-	print(tile_hp)
-	
 	if tile_hp <= 0:
 		remove_tile(tilemap, map_ref, map_pos, real_pos)
 	else:

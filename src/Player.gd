@@ -9,8 +9,14 @@ var jump_sfx: Resource = preload("res://assets/audio/sfx/jump.wav")
 
 # Movement Constants
 const SPEED: int = 100
-const JUMP_FORCE: int = 200
 const PUSH_FORCE: int = 10
+const MAX_JUMP_HEIGHT: int = 50
+const MIN_JUMP_HEIGHT: int = 5
+const JUMP_DURATION = 0.5
+
+var gravity: int = 2 * MAX_JUMP_HEIGHT / pow(JUMP_DURATION, 2)
+var max_jump_velocity: int = -sqrt(2*gravity*MAX_JUMP_HEIGHT)
+var min_jump_velocity: int = -sqrt(2*gravity*MIN_JUMP_HEIGHT)
 
 const UP: Vector2 = Vector2(0, -1) # for move_and_slide and is_on_floor to choose what is considered floor
 
@@ -34,7 +40,6 @@ var dead: bool = false
 
 signal sig_player_died(player_id)
 
-# We're preparing these for perforamance
 func _ready() -> void:
 	if not facing_right:
 		flip_direction(true)
@@ -109,9 +114,13 @@ func flip_direction(dir_right: bool) -> void:
 			picked_object.flip_direction(dir_right)
 
 func input_jump() -> void:
-	if Input.is_action_pressed(up_action) and is_on_floor():
-		SoundManager.play_sound(2)
-		velocity.y = -JUMP_FORCE
+	if Input.is_action_pressed(up_action):
+		if is_on_floor():
+			SoundManager.play_sound(2)
+			velocity.y = max_jump_velocity
+			
+	if Input.is_action_just_released(up_action) and velocity.y < min_jump_velocity:
+		velocity.y = min_jump_velocity 
 
 func input_down() -> void:
 	if Input.is_action_pressed(down_action) and is_on_floor():
