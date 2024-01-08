@@ -62,7 +62,10 @@ func collision_response(collision: KinematicCollision2D) -> void:
 	
 	if colliding_body.has_method("take_damage"):
 		colliding_body.take_damage(damage)
-		
+	elif colliding_body.name == "BasicTilemap":
+		var cell: Vector2 = world.world_to_map(collision.position - collision.normal)
+		world.damage_tile(world, world.main_map, cell, damage)
+	
 	spawn_spark_gfx()
 	
 func check_lifetime() -> bool:

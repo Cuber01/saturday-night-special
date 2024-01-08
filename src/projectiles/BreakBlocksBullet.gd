@@ -15,5 +15,4 @@ func collision_response(collision: KinematicCollision2D) -> void:
 	elif colliding_body.name == "BasicTilemap":
 		var cell: Vector2 = world.world_to_map(collision.position - collision.normal)
 		world.set_cellv(cell, -1)
-		world.update_bitmask_area(cell) # TODO, not sure if we want this. Depends on the final tilemap
-
+		world.update_bitmask_area(cell) 

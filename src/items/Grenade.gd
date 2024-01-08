@@ -8,7 +8,7 @@ const BULLET_DAMAGE: int = 100
 
 var boom_scn = preload("res://scenes/gfx/OneShotAnimation.tscn")
 var cotter_scn = preload("res://scenes/gfx/GrenadeCotter.tscn")
-var bullet_scn = preload("res://scenes/projectiles/BreakBlocksBullet.tscn")
+var bullet_scn = preload("res://scenes/projectiles/Bullet.tscn")
 
 var used: bool = false
 
@@ -56,17 +56,7 @@ func spawn_explosion_gfx() -> void:
 	var eff: AnimatedSprite = boom_scn.instance()
 	eff.init(position, "explosion1")
 	world.add_child(eff)
-
-func destroy_blocks() -> void:
-	var current_cell: Vector2 = world.world_to_map(position)
-	var top_right_cell = Vector2(current_cell.x-1, current_cell.y-1)
 	
-	for i in 3:
-		for j in 3:	
-			world.set_cellv(Vector2(top_right_cell.x+i, top_right_cell.y+j), -1)
-	
-	world.update_bitmask_area(current_cell) # TODO, not sure if we want this. Depends on the final tilemap
-
 func _on_ExplodeTimer_timeout() -> void:
 	if holder:
 		holder.picked_object = null
@@ -74,7 +64,6 @@ func _on_ExplodeTimer_timeout() -> void:
 	SoundManager.play_sound(Util.rng.randi_range(0,1))
 	spawn_explosion_gfx()
 	spawn_bullets_in_circle()
-	destroy_blocks()
 	
 	queue_free()
 

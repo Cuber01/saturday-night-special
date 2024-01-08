@@ -39,7 +39,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Player.gd"
 }, {
-"base": "Node",
+"base": "TileMap",
 "class": "TileMapManager",
 "language": "GDScript",
 "path": "res://src/game_loop/TilemapManager.gd"
