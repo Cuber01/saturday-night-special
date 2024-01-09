@@ -44,7 +44,8 @@ func remove_tile(tilemap: TileMap, map_ref: Array, map_pos: Vector2, real_pos: V
 	tilemap.set_cellv(real_pos, -1)
 	map_ref[map_pos.x][map_pos.y] = 0
 
-func damage_tile(tilemap: TileMap, map_ref: Array, real_pos: Vector2, damage: int) -> void:
+func damage_tile(tilemap: TileMap, map_ref: Array, 
+				real_pos: Vector2, damage: int) -> bool:
 	var map_pos: Vector2 = Vector2(	real_pos.x-map_rect.position.x, 
 									real_pos.y-map_rect.position.y)
 	var tile_hp = map_ref[map_pos.x][map_pos.y]
@@ -52,8 +53,10 @@ func damage_tile(tilemap: TileMap, map_ref: Array, real_pos: Vector2, damage: in
 	
 	if tile_hp <= 0:
 		remove_tile(tilemap, map_ref, map_pos, real_pos)
+		return true
 	else:
 		map_ref[map_pos.x][map_pos.y] = tile_hp
+		return false
 		
 # --------------------------------- BURNING ------------------------------------
 

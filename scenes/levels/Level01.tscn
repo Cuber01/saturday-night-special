@@ -16,8 +16,6 @@ script = ExtResource( 6 )
 
 [node name="Player0" parent="." instance=ExtResource( 3 )]
 position = Vector2( 56, 88 )
-player_index = 0
-facing_right = true
 
 [node name="Player1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 456, 88 )

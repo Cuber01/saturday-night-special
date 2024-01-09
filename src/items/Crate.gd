@@ -20,8 +20,11 @@ func _drop(throw_vel: Vector2) -> void:
 func _flip_additional_parts() -> void:
 	$HeldHitbox.position.x = -$HeldHitbox.position.x
 
-func take_damage(damage: int):
+func take_damage(damage: int) -> bool:
 	hitpoints -= damage
 	
 	if hitpoints < 0:
 		queue_free()
+		return true
+	else:
+		return false

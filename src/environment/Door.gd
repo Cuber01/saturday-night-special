@@ -66,8 +66,11 @@ func _on_CloseTimer_timeout() -> void:
 		else: 
 			$CloseTimer.start(CLOSE_TIME)
 			
-func take_damage(damage: int):
+func take_damage(damage: int) -> bool:
 	hitpoints -= damage
-
+	
 	if hitpoints < 0:
 		queue_free()
+		return true
+	else:
+		return false

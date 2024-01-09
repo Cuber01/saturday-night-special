@@ -9,6 +9,7 @@ var jump_sfx: Resource = preload("res://assets/audio/sfx/jump.wav")
 
 # Movement Constants
 const SPEED: int = 100
+const SLIDE_ADDED_SPEED: int = 150
 const PUSH_FORCE: int = 10
 const MAX_JUMP_HEIGHT: int = 50
 const MIN_JUMP_HEIGHT: int = 5
@@ -81,7 +82,8 @@ func _physics_process(delta) -> void:
 	input_jump()
 	input_pickup()
 	input_use()
-	input_down()
+	input_slide()
+	input_go_down()
 	
 	# Handle Movement
 	handle_gravity_force(delta)
@@ -114,18 +116,26 @@ func flip_direction(dir_right: bool) -> void:
 			picked_object.flip_direction(dir_right)
 
 func input_jump() -> void:
-	if Input.is_action_pressed(up_action):
-		if is_on_floor():
+	if (Input.is_action_pressed(up_action) 
+		and not Input.is_action_pressed(down_action)
+		and is_on_floor()):
 			SoundManager.play_sound(2)
 			velocity.y = max_jump_velocity
 			
 	if Input.is_action_just_released(up_action) and velocity.y < min_jump_velocity:
 		velocity.y = min_jump_velocity 
 
-func input_down() -> void:
-	if Input.is_action_pressed(down_action) and is_on_floor():
+func input_go_down() -> void:
+	if Input.is_action_pressed(down_action) and Input.is_action_pressed(up_action):
 		position.y += 1
 
+func input_slide() -> void:
+	if Input.is_action_pressed(down_action):
+		if velocity.x > 50:
+			velocity.x += SLIDE_ADDED_SPEED
+		elif velocity.x < -50:
+			velocity.x -= SLIDE_ADDED_SPEED
+	
 func handle_gravity_force(delta) -> void:
 	velocity.y += Util.GRAVITY_FORCE * delta
 
@@ -139,7 +149,14 @@ func move_and_push() -> void:
 			col.collider.force_update_transform()
 			
 			move_and_collide(col.remainder)
+
+# --------------------------- Sliding
+
+func enter_slide() -> void:
+	pass
 	
+func exit_slide() -> void:
+	pass
 
 # --------------------------- Item Management
 
@@ -176,13 +193,14 @@ func drop_object() -> void:
 
 # --------------------------- Callbacks
 
-func take_damage(damage: int):
+func take_damage(damage: int) -> bool:
 	if dead:
-		return
+		return true
 		
 	dead = true
 	emit_signal("sig_player_died", player_index)
 	SoundManager.play_sound(7)
 	match_manager.get_node("Camera").remove_target(self)
 	queue_free()
+	return true
 

@@ -39,7 +39,7 @@ func flying(delta: float) -> void:
 	if check_lifetime(): 
 		change_state(State.DEATH_PHASE_1)
 		return
-	if fly_or_collide(delta):
+	if not fly_or_collide(delta):
 		change_state(State.DEATH_PHASE_1)
 
 
@@ -47,26 +47,26 @@ func fly_or_collide(delta: float) -> bool:
 	var collision_info: KinematicCollision2D = move_and_collide(velocity * delta)
 	
 	if collision_info != null:
-		collision_response(collision_info)
-		return true
+		var pierce: bool = collision_response(collision_info)
+		return pierce
 		
-	return false
+	return true
 
 func spawn_spark_gfx() -> void:
 	var eff: Object = spark_gfx.instance()
 	eff.global_position = self.global_position
 	world.add_child(eff)
 
-func collision_response(collision: KinematicCollision2D) -> void:
+func collision_response(collision: KinematicCollision2D) -> bool:
 	var colliding_body = collision.collider
 	
 	if colliding_body.has_method("take_damage"):
-		colliding_body.take_damage(damage)
+		return colliding_body.take_damage(damage) 
 	elif colliding_body.name == "BasicTilemap":
 		var cell: Vector2 = world.world_to_map(collision.position - collision.normal)
-		world.damage_tile(world, world.main_map, cell, damage)
-	
-	spawn_spark_gfx()
+		return world.damage_tile(world, world.main_map, cell, damage)
+		
+	return false
 	
 func check_lifetime() -> bool:
 	if lifetime <= 0:
@@ -93,6 +93,7 @@ func change_state(var new_state) -> void:
 		State.FLYING:
 			continue
 		State.DEATH_PHASE_1:
+			spawn_spark_gfx()
 			remove_child($Hitbox)
 		State.DEATH_PHASE_2:
 			$Trail.stop()
