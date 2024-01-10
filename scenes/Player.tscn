@@ -4,26 +4,27 @@
 [ext_resource path="res://src/Player.gd" type="Script" id=2]
 [ext_resource path="res://src/gfx/shaders/PlayerMaterial.tres" type="Material" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 19.2, 37.3333 )
+[sub_resource type="RectangleShape2D" id=4]
+resource_local_to_scene = true
+extents = Vector2( 19, 37.8 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 23.4667, 16.5333 )
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 9.53674e-07, 9.53674e-07 )
+position = Vector2( -1, 3 )
 scale = Vector2( 0.234375, 0.234375 )
 collision_layer = 4
 collision_mask = 17
 script = ExtResource( 2 )
 
-[node name="HitboxStanding" type="CollisionShape2D" parent="."]
-position = Vector2( 4.26666, -13.8667 )
-shape = SubResource( 1 )
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2( 4, -12.2 )
+shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 3 )
-position = Vector2( 4.26666, -12.8 )
+position = Vector2( 4, -12 )
 scale = Vector2( 4.78333, 4.78333 )
 texture = ExtResource( 1 )
 
@@ -32,7 +33,8 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="Hitbox" type="CollisionShape2D" parent="PickupZone"]
-position = Vector2( 4.26666, 9.06666 )
+modulate = Color( 0.262745, 0.662745, 0.117647, 1 )
+position = Vector2( 4.26666, 8.53333 )
 shape = SubResource( 3 )
 
 [node name="HoldItemPosition" type="Node2D" parent="."]

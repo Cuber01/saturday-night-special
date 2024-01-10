@@ -7,22 +7,29 @@ export var facing_right: bool = true
 # Sfx
 var jump_sfx: Resource = preload("res://assets/audio/sfx/jump.wav")
 
-# Movement Constants
+# Movement
 const SPEED: int = 100
 const SLIDE_ADDED_SPEED: int = 150
 const PUSH_FORCE: int = 10
 const MAX_JUMP_HEIGHT: int = 50
 const MIN_JUMP_HEIGHT: int = 5
 const JUMP_DURATION = 0.5
-
 var gravity: int = 2 * MAX_JUMP_HEIGHT / pow(JUMP_DURATION, 2)
 var max_jump_velocity: int = -sqrt(2*gravity*MAX_JUMP_HEIGHT)
 var min_jump_velocity: int = -sqrt(2*gravity*MIN_JUMP_HEIGHT)
 
 const UP: Vector2 = Vector2(0, -1) # for move_and_slide and is_on_floor to choose what is considered floor
 
-# Movement vars
 var velocity: Vector2 = Vector2()
+
+# Collision
+var hitbox_normal_extents: Vector2 = Vector2(19, 37.8)
+var hitbox_normal_position: Vector2 = Vector2(4, -12.2)
+var hitbox_normal_rotation: float = 0
+
+var hitbox_slide_extents: Vector2 = Vector2(19, 37.8)
+var hitbox_slide_position: Vector2 = Vector2(4.267, 7.3)
+var hitbox_slide_rotation: float = 90
 
 # Action names
 var right_action:  String
@@ -38,6 +45,7 @@ var picked_object: Object = null
 # Other
 var match_manager: Object
 var dead: bool = false
+var is_sliding: bool = false
 
 signal sig_player_died(player_id)
 
@@ -48,7 +56,6 @@ func _ready() -> void:
 	set_color()
 		
 	match_manager = get_parent().get_parent()
-# warning-ignore:return_value_discarded
 	connect("sig_player_died", match_manager, "_on_player_died")
 	match_manager.get_node("Camera").add_target(self)
 	
@@ -118,9 +125,12 @@ func flip_direction(dir_right: bool) -> void:
 func input_jump() -> void:
 	if (Input.is_action_pressed(up_action) 
 		and not Input.is_action_pressed(down_action)
-		and is_on_floor()):
+		and is_on_floor()):			
 			SoundManager.play_sound(2)
 			velocity.y = max_jump_velocity
+			
+			if is_sliding:
+				exit_slide()
 			
 	if Input.is_action_just_released(up_action) and velocity.y < min_jump_velocity:
 		velocity.y = min_jump_velocity 
@@ -130,11 +140,16 @@ func input_go_down() -> void:
 		position.y += 1
 
 func input_slide() -> void:
-	if Input.is_action_pressed(down_action):
+	if Input.is_action_pressed(down_action) and is_on_floor():
 		if velocity.x > 50:
+			enter_slide()
 			velocity.x += SLIDE_ADDED_SPEED
 		elif velocity.x < -50:
+			enter_slide()
 			velocity.x -= SLIDE_ADDED_SPEED
+			
+	if is_sliding and Input.is_action_just_released(down_action):		
+		exit_slide()
 	
 func handle_gravity_force(delta) -> void:
 	velocity.y += Util.GRAVITY_FORCE * delta
@@ -153,10 +168,18 @@ func move_and_push() -> void:
 # --------------------------- Sliding
 
 func enter_slide() -> void:
-	pass
+	is_sliding = true
+	$Hitbox.position = hitbox_slide_position
+	$Hitbox.shape.extents = hitbox_slide_extents
+	$Hitbox.rotation_degrees = hitbox_slide_rotation
+	$Sprite.rotation_degrees = hitbox_slide_rotation
 	
 func exit_slide() -> void:
-	pass
+	is_sliding = false
+	$Hitbox.position = hitbox_normal_position
+	$Hitbox.shape.extents = hitbox_normal_extents
+	$Hitbox.rotation_degrees = hitbox_normal_rotation
+	$Sprite.rotation_degrees = hitbox_normal_rotation
 
 # --------------------------- Item Management
 
@@ -165,7 +188,7 @@ func input_pickup() -> void:
 		if picked_object == null:
 			pickup_object()
 		else:
-			drop_object()
+			drop_object(velocity)
 
 func input_use() -> void:
 	if is_instance_valid(picked_object):
@@ -187,9 +210,10 @@ func pickup_object() -> void:
 			picked_object = item
 			break
 
-func drop_object() -> void:
-	picked_object._drop(velocity)
-	picked_object = null
+func drop_object(vel: Vector2) -> void:
+	if picked_object:
+		picked_object._drop(vel)
+		picked_object = null
 
 # --------------------------- Callbacks
 
@@ -203,4 +227,3 @@ func take_damage(damage: int) -> bool:
 	match_manager.get_node("Camera").remove_target(self)
 	queue_free()
 	return true
-
