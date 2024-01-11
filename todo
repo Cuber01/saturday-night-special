@@ -47,6 +47,10 @@ X make boxes pushable
 
 ALPHA 5 — Adding meaningful mechanics
 - add sliding
+	- slide state intead of update per frame
+	- slide + jumping interaction
+	- slide makes player drop weapon
+	- slide makes enemies drop weapon
 - add weapon drop on slide
 - add proper breakable blocks
 - add fire

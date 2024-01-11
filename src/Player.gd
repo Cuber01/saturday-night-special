@@ -8,9 +8,11 @@ export var facing_right: bool = true
 var jump_sfx: Resource = preload("res://assets/audio/sfx/jump.wav")
 
 # Movement
-const SPEED: int = 100
-const SLIDE_ADDED_SPEED: int = 150
-const PUSH_FORCE: int = 10
+const SPEED: int = 50
+const FRICTION_FORCE: float = 0.25
+const SLIDING_FRICTION_FORCE: float = 0.10
+const MIN_SLIDE_EXIT_VELOCITY: int = 15
+
 const MAX_JUMP_HEIGHT: int = 50
 const MIN_JUMP_HEIGHT: int = 5
 const JUMP_DURATION = 0.5
@@ -23,9 +25,9 @@ const UP: Vector2 = Vector2(0, -1) # for move_and_slide and is_on_floor to choos
 var velocity: Vector2 = Vector2()
 
 # Collision
-var hitbox_normal_extents: Vector2 = Vector2(19, 37.8)
-var hitbox_normal_position: Vector2 = Vector2(4, -12.2)
-var hitbox_normal_rotation: float = 0
+var hitbox_standing_extents: Vector2 = Vector2(19, 37.8)
+var hitbox_standing_position: Vector2 = Vector2(4, -12.2)
+var hitbox_standing_rotation: float = 0
 
 var hitbox_slide_extents: Vector2 = Vector2(19, 37.8)
 var hitbox_slide_position: Vector2 = Vector2(4.267, 7.3)
@@ -40,6 +42,7 @@ var pickup_action: String
 var use_action:    String
 
 # Pickup system vars
+var can_pickup: bool = true
 var picked_object: Object = null
 
 # Other
@@ -94,6 +97,8 @@ func _physics_process(delta) -> void:
 	
 	# Handle Movement
 	handle_gravity_force(delta)
+	apply_friction()
+	slide_update()
 	move_and_push()
 	
 	# Update held item
@@ -112,7 +117,14 @@ func input_move() -> void:
 	elif direction_x > 0:
 		flip_direction(true)
 	
-	velocity.x = direction_x * SPEED
+	velocity.x += direction_x * SPEED
+
+func apply_friction() -> void:
+	if is_sliding:
+		velocity.x = lerp(velocity.x, 0, SLIDING_FRICTION_FORCE)
+	else:
+		velocity.x = lerp(velocity.x, 0, FRICTION_FORCE)
+	
 
 func flip_direction(dir_right: bool) -> void:
 	if facing_right != dir_right:
@@ -140,19 +152,21 @@ func input_go_down() -> void:
 		position.y += 1
 
 func input_slide() -> void:
-	if Input.is_action_pressed(down_action) and is_on_floor():
+	if not is_sliding and Input.is_action_pressed(down_action) and is_on_floor():
 		if velocity.x > 50:
 			enter_slide()
-			velocity.x += SLIDE_ADDED_SPEED
 		elif velocity.x < -50:
 			enter_slide()
-			velocity.x -= SLIDE_ADDED_SPEED
 			
 	if is_sliding and Input.is_action_just_released(down_action):		
 		exit_slide()
 	
 func handle_gravity_force(delta) -> void:
 	velocity.y += Util.GRAVITY_FORCE * delta
+
+func slide_update() -> void:
+	if is_sliding and abs(velocity.x) < MIN_SLIDE_EXIT_VELOCITY:
+		exit_slide()
 
 func move_and_push() -> void:
 	velocity = move_and_slide(velocity, UP)
@@ -168,23 +182,37 @@ func move_and_push() -> void:
 # --------------------------- Sliding
 
 func enter_slide() -> void:
+	var col: Array = $SlideArea.get_overlapping_bodies()
+	if col:
+		# Unable to slide — there's not enough space
+		return
+	
+	drop_object(velocity)
+	
 	is_sliding = true
 	$Hitbox.position = hitbox_slide_position
 	$Hitbox.shape.extents = hitbox_slide_extents
 	$Hitbox.rotation_degrees = hitbox_slide_rotation
 	$Sprite.rotation_degrees = hitbox_slide_rotation
+	can_pickup = false
 	
 func exit_slide() -> void:
+	var col: Array = $StandingArea.get_overlapping_bodies()
+	if col:
+		# Unable to get up — there's not enough space
+		return
+	
 	is_sliding = false
-	$Hitbox.position = hitbox_normal_position
-	$Hitbox.shape.extents = hitbox_normal_extents
-	$Hitbox.rotation_degrees = hitbox_normal_rotation
-	$Sprite.rotation_degrees = hitbox_normal_rotation
+	$Hitbox.position = hitbox_standing_position
+	$Hitbox.shape.extents = hitbox_standing_extents
+	$Hitbox.rotation_degrees = hitbox_standing_rotation
+	$Sprite.rotation_degrees = hitbox_standing_rotation
+	can_pickup = true
 
 # --------------------------- Item Management
 
 func input_pickup() -> void:
-	if Input.is_action_just_pressed(pickup_action):
+	if can_pickup and Input.is_action_just_pressed(pickup_action):
 		if picked_object == null:
 			pickup_object()
 		else:
