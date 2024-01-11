@@ -28,7 +28,7 @@ var can_despawn: bool = false
 const TIME_UNTIL_DESPAWN: float = 5.0
 
 # Other
-var facing_right: bool = false
+var facing_right: bool
 var button_released: bool = false
 
 func _ready() -> void:
@@ -86,8 +86,8 @@ func _pick_up(player: Object) -> void:
 
 # Override
 func _drop(throw_vel: Vector2) -> void:
-	$Hitbox.disabled = false
-	$PickupZone.get_node("PickupZoneShape").disabled = false
+	$Hitbox.set_deferred("disabled", false)
+	$PickupZone.get_node("PickupZoneShape").set_deferred("disabled", false)
 	velocity += throw_vel * throwVelocityModifiers
 	holder = null
 

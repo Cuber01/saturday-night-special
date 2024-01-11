@@ -52,11 +52,11 @@ var is_sliding: bool = false
 
 signal sig_player_died(player_id)
 
-func _ready() -> void:
-	if not facing_right:
-		flip_direction(true)
-		
+func _ready() -> void:		
 	set_color()
+	
+	if not facing_right:
+		scale.x = scale.x * -1
 		
 	match_manager = get_parent().get_parent()
 	connect("sig_player_died", match_manager, "_on_player_died")
@@ -164,10 +164,6 @@ func input_slide() -> void:
 func handle_gravity_force(delta) -> void:
 	velocity.y += Util.GRAVITY_FORCE * delta
 
-func slide_update() -> void:
-	if is_sliding and abs(velocity.x) < MIN_SLIDE_EXIT_VELOCITY:
-		exit_slide()
-
 func move_and_push() -> void:
 	velocity = move_and_slide(velocity, UP)
 	
@@ -180,6 +176,10 @@ func move_and_push() -> void:
 			move_and_collide(col.remainder)
 
 # --------------------------- Sliding
+
+func slide_update() -> void:
+	if is_sliding and abs(velocity.x) < MIN_SLIDE_EXIT_VELOCITY:
+		exit_slide()
 
 func enter_slide() -> void:
 	var col: Array = $SlideArea.get_overlapping_bodies()
@@ -208,6 +208,7 @@ func exit_slide() -> void:
 	$Hitbox.rotation_degrees = hitbox_standing_rotation
 	$Sprite.rotation_degrees = hitbox_standing_rotation
 	can_pickup = true
+
 
 # --------------------------- Item Management
 
@@ -255,3 +256,7 @@ func take_damage(damage: int) -> bool:
 	match_manager.get_node("Camera").remove_target(self)
 	queue_free()
 	return true
+
+func _on_PlayerDetection_body_entered(body: Node) -> void:
+	if is_sliding:
+		body.drop_object(body.velocity)
