@@ -13,7 +13,7 @@ const FRICTION_FORCE: float = 0.25
 const SLIDING_FRICTION_FORCE: float = 0.10
 const MIN_SLIDE_EXIT_VELOCITY: int = 15
 
-const MAX_JUMP_HEIGHT: int = 50
+const MAX_JUMP_HEIGHT: int = 75
 const MIN_JUMP_HEIGHT: int = 5
 const JUMP_DURATION = 0.5
 var gravity: int = 2 * MAX_JUMP_HEIGHT / pow(JUMP_DURATION, 2)
@@ -161,7 +161,7 @@ func flip_direction(dir_right: bool) -> void:
 			picked_object.flip_direction(dir_right)
 
 func handle_gravity_force(delta) -> void:
-	velocity.y += Util.GRAVITY_FORCE * delta
+	velocity.y += gravity * delta
 
 func move_and_push() -> void:
 	velocity = move_and_slide(velocity, UP)
