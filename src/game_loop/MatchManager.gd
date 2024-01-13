@@ -11,11 +11,14 @@ var player_amount: int = 2
 var players_alive: int = 2
 
 var scoreboard: Array = [0, 0, 0, 0]
+var money_board: Array = [0, 0, 0, 0]
 var alive_board: Array = [null, null, null, null]
 
+signal sig_round_end
 
 func _ready() -> void:
 	reset_board(scoreboard, 0)
+	reset_board(money_board, 0)
 	reset_board(alive_board, true)
 	
 	Util.rng.randomize()
@@ -36,14 +39,18 @@ func reset_board(board: Array, value) -> void:
 
 func print_scoreboard() -> void:
 	print("ROUND " + str(round_count))
-	print("p0: " + str(scoreboard[0]))
-	print("p1: " + str(scoreboard[1]))
+	print("p0: " + str(scoreboard[0]) + " : " + str(money_board[0]))
+	print("p1: " + str(scoreboard[1]) + " : " + str(money_board[1]))
+
+func _on_collected_coin(player_index: int, worth: int) -> void:
+	money_board[player_index] += worth
 
 func _on_player_died(player_index: int) -> void:
 	players_alive -= 1
 	alive_board[player_index] = false
 	
 	if players_alive <= 1:
+		emit_signal("sig_round_end")
 		timer.start(TIME_TIL_NEXT_ROUND)
 
 func _on_NextRoundTimer_timeout():

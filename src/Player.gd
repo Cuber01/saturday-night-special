@@ -119,21 +119,6 @@ func input_move() -> void:
 	
 	velocity.x += direction_x * SPEED
 
-func apply_friction() -> void:
-	if is_sliding:
-		velocity.x = lerp(velocity.x, 0, SLIDING_FRICTION_FORCE)
-	else:
-		velocity.x = lerp(velocity.x, 0, FRICTION_FORCE)
-	
-
-func flip_direction(dir_right: bool) -> void:
-	if facing_right != dir_right:
-		scale.x = scale.x * -1
-		facing_right = not facing_right
-		
-		if is_instance_valid(picked_object):
-			picked_object.flip_direction(dir_right)
-
 func input_jump() -> void:
 	if (Input.is_action_pressed(up_action) 
 		and not Input.is_action_pressed(down_action)
@@ -160,7 +145,21 @@ func input_slide() -> void:
 			
 	if is_sliding and Input.is_action_just_released(down_action):		
 		exit_slide()
-	
+
+func apply_friction() -> void:
+	if is_sliding:
+		velocity.x = lerp(velocity.x, 0, SLIDING_FRICTION_FORCE)
+	else:
+		velocity.x = lerp(velocity.x, 0, FRICTION_FORCE)
+
+func flip_direction(dir_right: bool) -> void:
+	if facing_right != dir_right:
+		scale.x = scale.x * -1
+		facing_right = not facing_right
+		
+		if is_instance_valid(picked_object):
+			picked_object.flip_direction(dir_right)
+
 func handle_gravity_force(delta) -> void:
 	velocity.y += Util.GRAVITY_FORCE * delta
 
@@ -208,7 +207,6 @@ func exit_slide() -> void:
 	$Hitbox.rotation_degrees = hitbox_standing_rotation
 	$Sprite.rotation_degrees = hitbox_standing_rotation
 	can_pickup = true
-
 
 # --------------------------- Item Management
 
