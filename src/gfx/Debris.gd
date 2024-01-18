@@ -1,0 +1,10 @@
+extends RigidBody2D
+
+func init(pos: Vector2) -> void:
+	global_position = pos
+
+func _on_Debris_body_entered(body: Node) -> void:
+	$Sprite.playing = true
+
+func _on_Sprite_animation_finished() -> void:
+	queue_free()

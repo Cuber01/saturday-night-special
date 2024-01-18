@@ -2,6 +2,7 @@
 extends TileMap
 class_name TileMapManager
 
+var debrisScene: PackedScene = preload("res://scenes/gfx/Debris.tscn")
 const FIRE_DAMAGE: int = 1
 
 # It's possible to optimize out frames til spread with hp manipulation
@@ -40,19 +41,31 @@ func generate_map(tilemap: TileMap, map_ref: Array, value) -> void:
 	for tile in map_data:
 		map_ref[tile.x-map_rect.position.x][tile.y-map_rect.position.y] = value
 
-func remove_tile(tilemap: TileMap, map_ref: Array, map_pos: Vector2, real_pos: Vector2):
-	tilemap.set_cellv(real_pos, -1)
+func destroy_tile(tilemap: TileMap, map_ref: Array, map_pos: Vector2, tm_pos: Vector2):
+	if map_ref[map_pos.x][map_pos.y] == 0:
+		return
+	
+	tilemap.set_cellv(tm_pos, -1)
+	spawn_debris(8, map_to_world(tm_pos)+Vector2(8,8))
 	map_ref[map_pos.x][map_pos.y] = 0
 
+func spawn_debris(amount: int, around: Vector2):
+	for i in amount:
+		var debris = debrisScene.instance()
+		debris.init(Vector2(around.x+Util.rng.randf_range(-8.0, 8.0),
+							around.y+Util.rng.randf_range(-8.0, 8.0)))
+		add_child(debris)
+
 func damage_tile(tilemap: TileMap, map_ref: Array, 
-				real_pos: Vector2, damage: int) -> bool:
-	var map_pos: Vector2 = Vector2(	real_pos.x-map_rect.position.x, 
-									real_pos.y-map_rect.position.y)
-	var tile_hp = map_ref[map_pos.x][map_pos.y]
+				tm_pos: Vector2, damage: int) -> bool:
+	
+	var map_pos: Vector2 = Vector2(tm_pos.x-map_rect.position.x, tm_pos.y-map_rect.position.y)
+
+	var tile_hp: int = map_ref[map_pos.x][map_pos.y]
 	tile_hp -= damage
 	
 	if tile_hp <= 0:
-		remove_tile(tilemap, map_ref, map_pos, real_pos)
+		destroy_tile(tilemap, map_ref, map_pos, tm_pos)
 		return true
 	else:
 		map_ref[map_pos.x][map_pos.y] = tile_hp

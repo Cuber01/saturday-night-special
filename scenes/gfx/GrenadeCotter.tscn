@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1.39757, 1.66406 )
 
-[node name="ShotgunShell" type="RigidBody2D"]
+[node name="GrenadeCotter" type="RigidBody2D"]
 collision_layer = 32
+can_sleep = false
 applied_torque = 3.0
 script = ExtResource( 2 )
 time_to_dissappear = 3.0
