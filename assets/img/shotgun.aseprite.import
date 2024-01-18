@@ -1,0 +1,17 @@
+[remap]
+
+importer="aseprite_wizard.plugin"
+type="SpriteFrames"
+path="res://.import/shotgun.aseprite-2561001d041870939b6eacdeb2d55891.res"
+
+[deps]
+
+source_file="res://assets/img/shotgun.aseprite"
+dest_files=[ "res://.import/shotgun.aseprite-2561001d041870939b6eacdeb2d55891.res" ]
+
+[params]
+
+split_layers=false
+exclude_layers_pattern=""
+only_visible_layers=false
+sheet_type="Packed"

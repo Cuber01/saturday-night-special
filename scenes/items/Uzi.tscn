@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/items/Uzi.gd" type="Script" id=1]
-[ext_resource path="res://assets/img/weapons/Jestan/uzi.png" type="Texture" id=2]
+[ext_resource path="res://assets/img/weapons/uzi.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7, 6.5 )
+extents = Vector2( 8.625, 6.875 )
 
 [node name="Uzi" type="KinematicBody2D"]
 z_index = 1
@@ -32,6 +32,6 @@ shape = SubResource( 1 )
 [node name="DespawnTimer" type="Timer" parent="."]
 
 [node name="ShootPoint" type="Node2D" parent="."]
-position = Vector2( -7, -5 )
+position = Vector2( 10, -3 )
 
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_DespawnTimer_timeout"]

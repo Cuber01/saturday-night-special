@@ -28,7 +28,7 @@ var can_despawn: bool = false
 const TIME_UNTIL_DESPAWN: float = 5.0
 
 # Other
-var facing_right: bool
+var facing_right: bool = true
 var button_released: bool = false
 
 func _ready() -> void:

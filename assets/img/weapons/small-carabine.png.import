@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bullet.png-3356f270ce3f04bca4c953a1f57e4fea.stex"
+path="res://.import/small-carabine.png-b4d04341a21a2baf20283ac2cfee30fa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/bullet.png"
-dest_files=[ "res://.import/bullet.png-3356f270ce3f04bca4c953a1f57e4fea.stex" ]
+source_file="res://assets/img/weapons/small-carabine.png"
+dest_files=[ "res://.import/small-carabine.png-b4d04341a21a2baf20283ac2cfee30fa.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

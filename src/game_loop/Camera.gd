@@ -4,7 +4,7 @@ const MOVE_SPEED: float = 0.5  # camera position lerp speed
 const ZOOM_SPEED: float = 0.1  # camera zoom lerp speed
 const MIN_ZOOM: int = 4  # camera won't zoom closer than this
 const MAX_ZOOM: int = 8  # camera won't zoom farther than this
-const MARGIN: Vector2 = Vector2(100, 50)  # include some buffer area around targets
+const MARGIN: Vector2 = Vector2(200, 50)  # include some buffer area around targets
 
 var targets = [] 
 
