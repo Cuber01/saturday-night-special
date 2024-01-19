@@ -13,7 +13,7 @@ var bullet_scn = preload("res://scenes/projectiles/Bullet.tscn")
 var used: bool = false
 
 func _ready() -> void:
-	throwVelocityModifiers = Vector2(4, 2)
+	throwVelocity = Vector2(350, 200)
 
 func _physics_process(delta: float) -> void:
 	._physics_process(delta)

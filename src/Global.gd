@@ -1,7 +1,7 @@
 extends Node2D
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-const GRAVITY_FORCE: int = 275
+const GRAVITY_FORCE: int = 5
 
 func calculate_points_in_circle(r: int, point_num: int):
 	var points = []

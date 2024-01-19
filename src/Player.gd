@@ -186,7 +186,7 @@ func enter_slide() -> void:
 		# Unable to slide — there's not enough space
 		return
 	
-	drop_object(velocity)
+	drop_object(velocity.snapped(Vector2(1,1)))
 	
 	is_sliding = true
 	$Hitbox.position = hitbox_slide_position
@@ -215,7 +215,7 @@ func input_pickup() -> void:
 		if picked_object == null:
 			pickup_object()
 		else:
-			drop_object(velocity)
+			drop_object(velocity.snapped(Vector2(1,1)))
 
 func input_use() -> void:
 	if is_instance_valid(picked_object):
