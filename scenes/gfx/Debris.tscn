@@ -46,5 +46,10 @@ frames = SubResource( 1 )
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 6 )
 
+[node name="DespawnTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_Debris_body_entered"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_DespawnTimer_timeout"]

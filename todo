@@ -53,8 +53,12 @@ X add sliding
 	X slide makes enemies drop weapon
 X add weapon drop on slide
 X add proper breakable blocks
-- add fire
 X add pickupable coins
 X make coins dissappear at end of round
 
+ALPHA 6 — Polish
+- make better camera movement
+- kill player after he falls down
+X kill debris on a timer
+- make explosions push debris
 

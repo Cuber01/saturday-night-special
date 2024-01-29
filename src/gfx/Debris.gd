@@ -9,3 +9,6 @@ func _on_Debris_body_entered(body: Node) -> void:
 
 func _on_Sprite_animation_finished() -> void:
 	queue_free()
+	
+func _on_DespawnTimer_timeout() -> void:
+	queue_free()
