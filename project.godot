@@ -89,6 +89,7 @@ window/stretch/shrink=4.0
 Window=false
 Layers=false
 layer=false
+Scene=false
 
 [gui]
 

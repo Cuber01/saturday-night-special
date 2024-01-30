@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/environment/WeaponSpawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/tiles/PlatformTilemap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/BasicTileset.tres" type="TileSet" id=4]
+[ext_resource path="res://scenes/tiles/PlatformTileset.tres" type="TileSet" id=5]
+[ext_resource path="res://scenes/items/Crate.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/game_loop/TilemapManager.gd" type="Script" id=10]
+
+[node name="BasicTilemap" type="TileMap"]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 196623, 15, 1, 196624, 15, 131073, 262158, 15, 0, 262160, 15, 65539, 327696, 15, 65539, 393218, 0, 18, 393219, 0, 262146, 393223, 0, 262144, 393224, 0, 19, 393230, 1, 65539, 393232, 15, 65539, 393251, 0, 18, 393252, 0, 262146, 393256, 0, 262144, 393257, 0, 19, 458754, 0, 65540, 458760, 0, 131076, 458768, 15, 65539, 458787, 0, 131076, 458793, 0, 65540, 524290, 0, 65540, 524302, 1, 196609, 524304, 15, 196608, 524329, 0, 65540, 589826, 0, 65540, 589831, 15, 0, 589832, 15, 0, 589836, 0, 4, 589855, 0, 4, 589865, 0, 65540, 655362, 0, 262162, 655363, 0, 262146, 655367, 0, 262144, 655368, 0, 262145, 655369, 0, 262145, 655370, 0, 262145, 655371, 0, 196626, 655372, 0, 65555, 655391, 0, 65554, 655392, 0, 196626, 655393, 0, 262145, 655394, 0, 262145, 655395, 0, 262145, 655396, 0, 262146, 655400, 0, 262144, 655401, 0, 196627, 720898, 0, 65540, 720907, 0, 131076, 720928, 0, 131076, 720937, 0, 65540, 786434, 0, 65540, 786473, 0, 65540, 851970, 0, 65540, 852009, 0, 65540, 917506, 0, 65554, 917507, 0, 262145, 917508, 0, 262145, 917509, 0, 262145, 917510, 0, 262145, 917511, 0, 262145, 917512, 0, 262145, 917513, 0, 262145, 917514, 0, 262145, 917515, 0, 262145, 917516, 0, 262146, 917535, 0, 262144, 917536, 0, 262145, 917537, 0, 262145, 917538, 0, 262145, 917539, 0, 262145, 917540, 0, 262145, 917541, 0, 262145, 917542, 0, 262145, 917543, 0, 262145, 917544, 0, 262145, 917545, 0, 65555 )
+script = ExtResource( 10 )
+
+[node name="PlatformTilemap" parent="." instance=ExtResource( 2 )]
+tile_set = ExtResource( 5 )
+tile_data = PoolIntArray( 131086, 0, 0, 131087, 0, 1, 131088, 0, 1, 131089, 0, 1, 131090, 0, 1, 131091, 0, 1, 131092, 0, 1, 131093, 0, 1, 131094, 0, 1, 131095, 0, 1, 131096, 0, 1, 131097, 0, 1, 131098, 0, 1, 131099, 0, 1, 131100, 0, 1, 131101, 0, 2, 262158, 0, 0, 262159, 0, 1, 262160, 0, 1, 262161, 0, 1, 262162, 0, 1, 262163, 0, 1, 262164, 0, 1, 262165, 0, 1, 262166, 0, 1, 262167, 0, 1, 262168, 0, 1, 262169, 0, 1, 262170, 0, 1, 262171, 0, 1, 262172, 0, 1, 262173, 0, 2, 393220, 0, 0, 393221, 0, 1, 393222, 0, 2, 393230, 0, 0, 393231, 0, 1, 393232, 0, 1, 393233, 0, 1, 393234, 0, 1, 393235, 0, 1, 393236, 0, 1, 393237, 0, 1, 393238, 0, 1, 393239, 0, 1, 393240, 0, 1, 393241, 0, 1, 393242, 0, 1, 393243, 0, 1, 393244, 0, 1, 393245, 0, 2, 393253, 0, 0, 393254, 0, 1, 393255, 0, 2, 524302, 0, 0, 524303, 0, 1, 524304, 0, 1, 524305, 0, 1, 524306, 0, 1, 524307, 0, 1, 524308, 0, 1, 524309, 0, 1, 524310, 0, 1, 524311, 0, 1, 524312, 0, 1, 524313, 0, 1, 524314, 0, 1, 524315, 0, 1, 524316, 0, 1, 524317, 0, 2, 655364, 0, 0, 655365, 0, 1, 655366, 0, 2, 655374, 0, 0, 655375, 0, 1, 655376, 0, 1, 655377, 0, 1, 655378, 0, 1, 655379, 0, 1, 655380, 0, 1, 655381, 0, 1, 655382, 0, 1, 655383, 0, 1, 655384, 0, 1, 655385, 0, 1, 655386, 0, 1, 655387, 0, 1, 655388, 0, 1, 655389, 0, 2, 655397, 0, 0, 655398, 0, 1, 655399, 0, 2, 786446, 0, 0, 786447, 0, 1, 786448, 0, 1, 786449, 0, 1, 786450, 0, 1, 786451, 0, 1, 786452, 0, 1, 786453, 0, 1, 786454, 0, 1, 786455, 0, 1, 786456, 0, 1, 786457, 0, 1, 786458, 0, 1, 786459, 0, 1, 786460, 0, 1, 786461, 0, 2 )
+
+[node name="Player0" parent="." instance=ExtResource( 3 )]
+position = Vector2( 88, 152 )
+
+[node name="Player1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 616, 152 )
+player_index = 1
+facing_right = false
+
+[node name="WeaponSpawnPoint" parent="." instance=ExtResource( 1 )]
+position = Vector2( 57, 218 )
+type = 2
+
+[node name="WeaponSpawnPoint3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 648, 216 )
+type = 2
+
+[node name="Box" parent="." instance=ExtResource( 8 )]
+position = Vector2( 272, 184 )
+
+[node name="Box2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 336, 120 )
+
+[node name="Box3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 248, 24 )
+
+[node name="Box4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 448, 88 )
+
+[node name="WeaponSpawnPoint2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 664, 88 )
+type = 3
+
+[node name="WeaponSpawnPoint4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 40, 88 )
+type = 3
