@@ -44,7 +44,8 @@ func spawn_bullets_in_circle() -> void:
 						point.y * 20),
 				BULLET_LIFESPAN,
 				BULLET_DAMAGE,
-				world)
+				world,
+				true)
 		world.add_child(bullet)
 
 func drop_cotter() -> void:

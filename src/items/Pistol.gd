@@ -5,7 +5,7 @@ func _ready() -> void:
 	bulletSpeed = 300
 	bulletLifetime = 120
 	recoilForce = Vector2(100,-20)
-	bulletSpread = 1.0
+	bulletSpread = 0
 	bulletDamage = 10
 	mode = Mode.MANUAL
 	

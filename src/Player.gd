@@ -46,6 +46,8 @@ var can_pickup: bool = true
 var picked_object: Object = null
 
 # Other
+const VOID_Y: int = 800 # Player dies when reaching this coordinate
+
 var match_manager: Object
 var dead: bool = false
 var is_sliding: bool = false
@@ -87,6 +89,10 @@ func set_color() -> void:
 	$Sprite.set_material(mat_override)
 
 func _physics_process(delta) -> void:	
+	
+	if position.y >= VOID_Y:
+		take_damage(1) # Player dies when falling into void
+	
 	# Check for input and do certain actions
 	input_move()
 	input_jump()

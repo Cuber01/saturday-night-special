@@ -16,14 +16,16 @@ var death_counter: int = 1
 var world: TileMap
 var lifetime: int
 var damage: int
+var piercing: bool
 
 func init(pos: Vector2, vel: Vector2, lifespan: int,
-		  damage: int,	 world: TileMap) -> void:
+		  damage: int, world: TileMap, piercing: bool=false) -> void:
 	self.position = pos
 	self.velocity = vel
 	self.lifetime = lifespan
 	self.damage = damage
 	self.world = world
+	self.piercing = piercing
 	change_state(State.FLYING)
 
 func _physics_process(delta):		
@@ -61,7 +63,11 @@ func collision_response(collision: KinematicCollision2D) -> bool:
 	var colliding_body = collision.collider
 	
 	if colliding_body.has_method("take_damage"):
-		return colliding_body.take_damage(damage) 
+			var was_pierced: bool = colliding_body.take_damage(damage)
+			if piercing:
+				return was_pierced
+			else:
+				 return false
 	elif colliding_body.name == "BasicTilemap":
 		var cell: Vector2 = world.world_to_map(collision.position - collision.normal)
 		return world.damage_tile(world, world.main_map, cell, damage)

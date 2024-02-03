@@ -56,9 +56,15 @@ X add proper breakable blocks
 X add pickupable coins
 X make coins dissappear at end of round
 
+ALPHA 5 — Playable
+X add 5 levels
+X make bullets faster
+- fix throwing 
+- fix boxes
+X kill player after he falls down
+
 ALPHA 6 — Polish
 - make better camera movement
-- kill player after he falls down
 X kill debris on a timer
 - make explosions push debris
 

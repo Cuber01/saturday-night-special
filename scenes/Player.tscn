@@ -76,6 +76,4 @@ position = Vector2( 4.26667, 8.53333 )
 rotation = 1.57448
 shape = SubResource( 8 )
 
-[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="."]
-
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_PlayerDetection_body_entered"]
