@@ -81,7 +81,7 @@ func spawn_bullet() -> void:
 	var bullet: KinematicBody2D = bulletScene.instance()
 	bullet.init($ShootPoint.global_position, 
 				Vector2(bulletSpeed if facing_right else -bulletSpeed,
-				Util.rng.randf_range(-bulletSpread, bulletSpread)),
+				Util.rng.randf_range(-bulletSpread*bulletSpeed, bulletSpread*bulletSpeed)),
 				bulletLifetime,
 				bulletDamage,
 				world)
