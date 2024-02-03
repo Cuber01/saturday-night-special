@@ -28,7 +28,7 @@ shape = SubResource( 1 )
 
 [node name="HeldHitbox" type="CollisionShape2D" parent="."]
 modulate = Color( 0.0627451, 0.419608, 0.878431, 1 )
-position = Vector2( -6, -1.5 )
+position = Vector2( 6, 0 )
 shape = SubResource( 3 )
 disabled = true
 

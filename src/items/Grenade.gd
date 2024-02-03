@@ -31,7 +31,14 @@ func _use() -> void:
 	$Sprite.set_region_rect(Rect2(7,0,7,10))
 	$ExplodeTimer.start(TIME_UNTIL_EXPLOSION)
 	drop_cotter()
+
+func _drop(throw_dir: Vector2) -> void:
+	$Hitbox.set_deferred("disabled", false)
+	$PickupZone.get_node("PickupZoneShape").set_deferred("disabled", false)
 	
+	velocity += Vector2(sign(throw_dir.x), -0.5) * throwVelocity
+	holder = null
+
 func _flip_additional_parts() -> void:
 	$Cotter.position.x = -$Cotter.position.x 
 

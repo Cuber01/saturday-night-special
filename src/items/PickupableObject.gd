@@ -88,6 +88,7 @@ func _pick_up(player: Object) -> void:
 func _drop(throw_dir: Vector2) -> void:
 	$Hitbox.set_deferred("disabled", false)
 	$PickupZone.get_node("PickupZoneShape").set_deferred("disabled", false)
+		
 	velocity += Vector2(sign(throw_dir.x), sign(throw_dir.y)) * throwVelocity
 	holder = null
 
