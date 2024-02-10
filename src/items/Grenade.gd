@@ -1,6 +1,6 @@
 extends PickupableObject
 
-const TIME_UNTIL_EXPLOSION: int = 5
+const TIME_UNTIL_EXPLOSION: int = 3
 const NUM_OF_BULLETS: int = 8
 const BULLET_SPEED: int = 8
 const BULLET_LIFESPAN: int = 10

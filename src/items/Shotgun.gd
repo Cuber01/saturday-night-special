@@ -7,8 +7,8 @@ const BULLETS_PER_SHOT = 8
 func _ready() -> void:
 	bulletScene = preload("res://scenes/projectiles/Bullet.tscn")
 	bulletSpeed = 300
-	bulletLifetime = 6
-	bulletSpread = 0.2
+	bulletLifetime = 7
+	bulletSpread = 0.3
 	bulletDamage = 8
 	ammoPerMag = 1
 	reloadTime = 0.6

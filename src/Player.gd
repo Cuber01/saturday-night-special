@@ -255,6 +255,7 @@ func take_damage(damage: int) -> bool:
 		return true
 		
 	dead = true
+	drop_object(velocity)
 	emit_signal("sig_player_died", player_index)
 	SoundManager.play_sound(7)
 	match_manager.get_node("Camera").remove_target(self)

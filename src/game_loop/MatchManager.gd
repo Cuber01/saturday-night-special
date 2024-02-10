@@ -12,7 +12,7 @@ var players_alive: int = 2
 
 var scoreboard: Array = [0, 0, 0, 0]
 var money_board: Array = [0, 0, 0, 0]
-var alive_board: Array = [null, null, null, null]
+var alive_board: Array = [true, true, true, true]
 
 signal sig_round_end
 
@@ -29,7 +29,7 @@ func _ready() -> void:
 	
 	SoundManager.init(10)
 	SoundManager.play_music()
-	SoundManager.change_music_volume(-50)
+
 	SoundManager.change_sfx_volume(-5)
 
 
@@ -55,7 +55,7 @@ func _on_player_died(player_index: int) -> void:
 
 func _on_NextRoundTimer_timeout():
 	# Count a point for everyone who's alive
-	for i in (player_amount - 1):
+	for i in player_amount:
 		if alive_board[i] == true:
 			scoreboard[i] += 1
 	
