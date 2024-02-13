@@ -59,6 +59,7 @@ func spawn_spark_gfx() -> void:
 	eff.global_position = self.global_position
 	world.add_child(eff)
 
+# Override
 func collision_response(collision: KinematicCollision2D) -> bool:
 	var colliding_body = collision.collider
 	
