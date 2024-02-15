@@ -228,6 +228,7 @@ func input_use() -> void:
 		if Input.is_action_pressed(use_action):
 			picked_object._use()	
 			
+	if is_instance_valid(picked_object):
 		if Input.is_action_just_released(use_action):
 			picked_object.button_released = true
 		else:

@@ -92,6 +92,7 @@ layer=false
 Scene=false
 stretch=false
 "Pixel Snap"=false
+Layer=false
 
 [gui]
 
@@ -225,6 +226,7 @@ debug_button={
 2d_physics/layer_4="Bullets"
 2d_physics/layer_5="Environment"
 2d_physics/layer_6="Particles"
+2d_physics/layer_7="OtherBulletHittable"
 
 [physics]
 

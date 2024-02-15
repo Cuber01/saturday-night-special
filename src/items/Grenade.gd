@@ -51,8 +51,8 @@ func spawn_explosion_gfx() -> void:
 	var eff: AnimatedSprite = boom_scn.instance()
 	eff.init(position, "explosion1")
 	world.add_child(eff)
-	
-func _on_ExplodeTimer_timeout() -> void:
+
+func explode() -> void:
 	if holder:
 		holder.picked_object = null
 	
@@ -63,4 +63,7 @@ func _on_ExplodeTimer_timeout() -> void:
 								world, global_position)
 	
 	queue_free()
+
+func _on_ExplodeTimer_timeout() -> void:
+	explode()
 

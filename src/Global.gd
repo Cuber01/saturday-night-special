@@ -30,4 +30,4 @@ func spawn_bullets_in_circle(amount: int, speed: int, lifespan: int,
 				damage,
 				world,
 				true)
-		world.add_child(bullet)
+		world.call_deferred("add_child", bullet)

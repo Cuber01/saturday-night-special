@@ -28,7 +28,7 @@ func _ready() -> void:
 	level_manager.load_level(2) # 2
 	
 	SoundManager.init(10)
-	SoundManager.play_music()
+	#SoundManager.play_music()
 
 	SoundManager.change_sfx_volume(-5)
 

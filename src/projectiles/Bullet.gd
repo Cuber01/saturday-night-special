@@ -63,6 +63,9 @@ func spawn_spark_gfx() -> void:
 func collision_response(collision: KinematicCollision2D) -> bool:
 	var colliding_body = collision.collider
 	
+	if colliding_body.has_method("explode"):
+		colliding_body.explode()
+	
 	if colliding_body.has_method("take_damage"):
 			var was_pierced: bool = colliding_body.take_damage(damage)
 			if piercing:
