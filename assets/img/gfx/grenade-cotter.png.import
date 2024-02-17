@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grenade-cotter.png-da58d7beb2b1cd62bce6f6ac4c47c18a.stex"
+path="res://.import/grenade-cotter.png-af47913f566f0e98b310aa346edac2e5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/weapons/Jestan/grenade-cotter.png"
-dest_files=[ "res://.import/grenade-cotter.png-da58d7beb2b1cd62bce6f6ac4c47c18a.stex" ]
+source_file="res://assets/img/gfx/grenade-cotter.png"
+dest_files=[ "res://.import/grenade-cotter.png-af47913f566f0e98b310aa346edac2e5.stex" ]
 
 [params]
 

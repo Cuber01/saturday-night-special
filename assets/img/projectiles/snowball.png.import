@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/snow-tileset.png-73dc7f996fe039f8e78f2ac5669b58c9.stex"
+path="res://.import/snowball.png-8f79afc3630c41281edc19e0d1e8de22.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/snow-tileset.png"
-dest_files=[ "res://.import/snow-tileset.png-73dc7f996fe039f8e78f2ac5669b58c9.stex" ]
+source_file="res://assets/img/projectiles/snowball.png"
+dest_files=[ "res://.import/snowball.png-8f79afc3630c41281edc19e0d1e8de22.stex" ]
 
 [params]
 

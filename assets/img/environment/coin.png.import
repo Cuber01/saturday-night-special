@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grass-tileset.png-36266244b1fc4d0f39bf52a9c610cc53.stex"
+path="res://.import/coin.png-64af6210a05fd020697fd502beca00e6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/grass-tileset.png"
-dest_files=[ "res://.import/grass-tileset.png-36266244b1fc4d0f39bf52a9c610cc53.stex" ]
+source_file="res://assets/img/environment/coin.png"
+dest_files=[ "res://.import/coin.png-64af6210a05fd020697fd502beca00e6.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

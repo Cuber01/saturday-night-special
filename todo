@@ -64,11 +64,19 @@ X fix boxes
 X kill player after he falls down
 
 ALPHA 6 — Polish
-- make better camera movement
 X shotgun more range and spread
 X grenade shorter timer
 X fix grenade crash when exploding after holder died
 X fix not counting points for p1
 X kill debris on a timer
-- make explosions push debris
 
+ALPHA 7
+X landmines
+- freeze gun
+X bazzoka
+- 5 more levels
+- gun empty sound
+- mine activate sound
+
+Stretch: make explosions push debries and items
+Stretch: better camera movement

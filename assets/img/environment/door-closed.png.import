@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/coin.png-a838fe802d5210c0f483381a75f04a7b.stex"
+path="res://.import/door-closed.png-90367dc6c826ef1375b004b370852fc6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/coin.png"
-dest_files=[ "res://.import/coin.png-a838fe802d5210c0f483381a75f04a7b.stex" ]
+source_file="res://assets/img/environment/door-closed.png"
+dest_files=[ "res://.import/door-closed.png-90367dc6c826ef1375b004b370852fc6.stex" ]
 
 [params]
 

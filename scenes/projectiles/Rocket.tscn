@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/projectiles/Rocket.gd" type="Script" id=1]
+[ext_resource path="res://assets/img/projectiles/rocket.png" type="Texture" id=2]
 [ext_resource path="res://scenes/gfx/Trail.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1, 0.5 )
+extents = Vector2( 4.5, 3.5 )
 
 [node name="Rocket" type="KinematicBody2D"]
 collision_layer = 8
@@ -15,3 +16,8 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Trail" parent="." instance=ExtResource( 3 )]
+position = Vector2( -3.5, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )

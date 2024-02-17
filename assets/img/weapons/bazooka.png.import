@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shotgun.png-6c2a57a079d46242f7fd81763c718e08.stex"
+path="res://.import/bazooka.png-c5435ddd48c28b034ee89efd59fec86c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/weapons/Jestan/shotgun.png"
-dest_files=[ "res://.import/shotgun.png-6c2a57a079d46242f7fd81763c718e08.stex" ]
+source_file="res://assets/img/weapons/bazooka.png"
+dest_files=[ "res://.import/bazooka.png-c5435ddd48c28b034ee89efd59fec86c.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/white-debris.png-9c02398b4b0689732dff59820d1d10d7.stex"
+path="res://.import/platform-tileset.png-e3a01dd7a43a888f7b1b2a2e431564a0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/white-debris.png"
-dest_files=[ "res://.import/white-debris.png-9c02398b4b0689732dff59820d1d10d7.stex" ]
+source_file="res://assets/img/tilesets/platform-tileset.png"
+dest_files=[ "res://.import/platform-tileset.png-e3a01dd7a43a888f7b1b2a2e431564a0.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rocket.png-9ad80d731efbeff221d28bcbd84005e9.stex"
+path="res://.import/white-debris.png-b456e24026c493f4fa4c6719ab4b63bf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/weapons/rocket.png"
-dest_files=[ "res://.import/rocket.png-9ad80d731efbeff221d28bcbd84005e9.stex" ]
+source_file="res://assets/img/gfx/white-debris.png"
+dest_files=[ "res://.import/white-debris.png-b456e24026c493f4fa4c6719ab4b63bf.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

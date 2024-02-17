@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/door-closed.png-885476ef7c9d00f76af363fe8db071ce.stex"
+path="res://.import/shotgun-shell.png-81c8f814c147e820b20d8ad4151ec1bc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/door-closed.png"
-dest_files=[ "res://.import/door-closed.png-885476ef7c9d00f76af363fe8db071ce.stex" ]
+source_file="res://assets/img/gfx/shotgun-shell.png"
+dest_files=[ "res://.import/shotgun-shell.png-81c8f814c147e820b20d8ad4151ec1bc.stex" ]
 
 [params]
 

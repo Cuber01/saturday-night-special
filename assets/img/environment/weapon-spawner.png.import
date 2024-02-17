@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/door-open-right.png-9f74a2e72e0d6567461ed3ec3e2373d4.stex"
+path="res://.import/weapon-spawner.png-27b3e05212606bb58737a75440fcf38f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/door-open-right.png"
-dest_files=[ "res://.import/door-open-right.png-9f74a2e72e0d6567461ed3ec3e2373d4.stex" ]
+source_file="res://assets/img/environment/weapon-spawner.png"
+dest_files=[ "res://.import/weapon-spawner.png-27b3e05212606bb58737a75440fcf38f.stex" ]
 
 [params]
 

@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/uzi.png-276d9f9b1c7abf6b1acc77af6561bdb7.stex"
+path="res://.import/basic-tileset.png-c86d3233c1e956d518624154102402b6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/weapons/Jestan/uzi.png"
-dest_files=[ "res://.import/uzi.png-276d9f9b1c7abf6b1acc77af6561bdb7.stex" ]
+source_file="res://assets/img/tilesets/basic-tileset.png"
+dest_files=[ "res://.import/basic-tileset.png-c86d3233c1e956d518624154102402b6.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

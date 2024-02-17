@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/img/weapon-spawner.png" type="Texture" id=1]
+[ext_resource path="res://assets/img/environment/weapon-spawner.png" type="Texture" id=1]
 [ext_resource path="res://src/environment/WeaponSpawner.gd" type="Script" id=2]
 
 [node name="WeaponSpawner" type="Node2D"]

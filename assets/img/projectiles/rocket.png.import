@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/door-open-left.png-7a4e890c471a52c72237131df2defe2a.stex"
+path="res://.import/rocket.png-15fa5164b750c101309366d2a06e44ed.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/door-open-left.png"
-dest_files=[ "res://.import/door-open-left.png-7a4e890c471a52c72237131df2defe2a.stex" ]
+source_file="res://assets/img/projectiles/rocket.png"
+dest_files=[ "res://.import/rocket.png-15fa5164b750c101309366d2a06e44ed.stex" ]
 
 [params]
 
