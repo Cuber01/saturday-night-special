@@ -81,7 +81,7 @@ func spawn_bullet() -> void:
 	var bullet: KinematicBody2D = bulletScene.instance()
 	bullet.init($ShootPoint.global_position, 
 				Vector2(bulletSpeed if facing_right else -bulletSpeed,
-				Util.rng.randf_range(-bulletSpread*bulletSpeed, bulletSpread*bulletSpeed)),
+				Global.rng.randf_range(-bulletSpread*bulletSpeed, bulletSpread*bulletSpeed)),
 				bulletLifetime,
 				bulletDamage,
 				world)
@@ -89,7 +89,7 @@ func spawn_bullet() -> void:
 
 func reload() -> void:
 	reloading = true
-	SoundManager.play_sound(Util.rng.randi_range(8,9))
+	SoundManager.play_sound(Global.rng.randi_range(8,9))
 	$ReloadTimer.start(reloadTime)
 
 func _physics_process(delta: float) -> void:

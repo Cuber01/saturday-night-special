@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/img/weapons/landmine.png" type="Texture" id=1]
-[ext_resource path="res://scenes/environment/Landmine.gd" type="Script" id=2]
+[ext_resource path="res://src/environment/Landmine.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7, 2.5 )

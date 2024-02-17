@@ -21,7 +21,7 @@ func _ready() -> void:
 	reset_board(money_board, 0)
 	reset_board(alive_board, true)
 	
-	Util.rng.randomize()
+	Global.rng.randomize()
 	
 	level_manager = LevelManager.new(self)
 	#level_manager.load_level(rng.randi_range(0, level_manager.level_amount - 1))
@@ -64,4 +64,4 @@ func _on_NextRoundTimer_timeout():
 	
 	players_alive = player_amount
 	reset_board(alive_board, true)
-	level_manager.load_level(Util.rng.randi_range(0, level_manager.level_amount - 1))
+	level_manager.load_level(Global.rng.randi_range(0, level_manager.level_amount - 1))

@@ -1,6 +1,10 @@
 extends Node2D
 
-var bullet_scn = preload("res://scenes/projectiles/Bullet.tscn")
+enum DamageType {
+	HURT,
+	FREEZE
+}
+
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 const GRAVITY_FORCE: int = 5
 
@@ -12,15 +16,11 @@ func calculate_points_in_circle(r: int, point_num: int):
 							r*sin((i*2*PI)/point_num)))
 	return points
 
-func bool_as_int(b: bool) -> int:
-	if b:
-		return 1
-	else: 
-		return -1
 
 func spawn_bullets_in_circle(amount: int, speed: int, lifespan: int, 
 							damage: int, world: Object, pos: Vector2) -> void:
-	var points: Array = Util.calculate_points_in_circle(speed, amount)
+	var bullet_scn = preload("res://scenes/projectiles/Bullet.tscn")
+	var points: Array = Global.calculate_points_in_circle(speed, amount)
 	for point in points:
 		var bullet: KinematicBody2D = bullet_scn.instance()
 		bullet.init(pos, 

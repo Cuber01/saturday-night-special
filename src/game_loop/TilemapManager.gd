@@ -52,8 +52,8 @@ func destroy_tile(tilemap: TileMap, map_ref: Array, map_pos: Vector2, tm_pos: Ve
 func spawn_debris(amount: int, around: Vector2):
 	for i in amount:
 		var debris = debrisScene.instance()
-		debris.init(Vector2(around.x+Util.rng.randf_range(-8.0, 8.0),
-							around.y+Util.rng.randf_range(-8.0, 8.0)))
+		debris.init(Vector2(around.x+Global.rng.randf_range(-8.0, 8.0),
+							around.y+Global.rng.randf_range(-8.0, 8.0)))
 		add_child(debris)
 
 func damage_tile(tilemap: TileMap, map_ref: Array, 

@@ -50,7 +50,7 @@ func init(audio_players_amount: int):
 		add_child(player)
 
 func play_music() -> void:
-	var new_track: int = Util.rng.randi_range(0, music_tracks.size() - 1)
+	var new_track: int = Global.rng.randi_range(0, music_tracks.size() - 1)
 	if new_track == current_track:
 		play_music()
 		return 

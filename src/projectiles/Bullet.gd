@@ -49,7 +49,7 @@ func fly_or_collide(delta: float) -> bool:
 	var collision_info: KinematicCollision2D = move_and_collide(velocity * delta)
 	
 	if collision_info != null:
-		var pierce: bool = collision_response(collision_info)
+		var pierce: bool = _collision_response(collision_info)
 		return pierce
 		
 	return true
@@ -60,7 +60,7 @@ func spawn_spark_gfx() -> void:
 	world.add_child(eff)
 
 # Override
-func collision_response(collision: KinematicCollision2D) -> bool:
+func _collision_response(collision: KinematicCollision2D) -> bool:
 	var colliding_body = collision.collider
 	
 	if colliding_body.has_method("explode"):
