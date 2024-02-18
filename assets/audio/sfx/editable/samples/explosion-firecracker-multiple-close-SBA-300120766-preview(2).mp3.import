@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/explosion-firecracker-multiple-close-SBA-300120766-preview(2).mp3-c9930880e6f28341cc67e8d3967b7d38.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/editable/samples/explosion-firecracker-multiple-close-SBA-300120766-preview(2).mp3"
+dest_files=[ "res://.import/explosion-firecracker-multiple-close-SBA-300120766-preview(2).mp3-c9930880e6f28341cc67e8d3967b7d38.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

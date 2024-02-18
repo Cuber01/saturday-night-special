@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/firecracker-104159.mp3-3bbe80200585d6bbfb34b5986e4667ba.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/editable/samples/firecracker-104159.mp3"
+dest_files=[ "res://.import/firecracker-104159.mp3-3bbe80200585d6bbfb34b5986e4667ba.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

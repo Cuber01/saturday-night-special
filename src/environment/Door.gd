@@ -66,7 +66,7 @@ func _on_CloseTimer_timeout() -> void:
 		else: 
 			$CloseTimer.start(CLOSE_TIME)
 			
-func take_damage(damage: int) -> bool:
+func take_damage(damage: int, damage_type: int = Global.DamageType.HURT) -> bool:
 	hitpoints -= damage
 	
 	if hitpoints < 0:

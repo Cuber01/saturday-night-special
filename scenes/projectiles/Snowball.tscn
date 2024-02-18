@@ -16,8 +16,7 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Trail" parent="." instance=ExtResource( 3 )]
-position = Vector2( -13.5, -2 )
-points = PoolVector2Array( 10, 2 )
+position = Vector2( -3.5, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.5, 0.5 )

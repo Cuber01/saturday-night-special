@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hq-explosion-6288.mp3-dd1f2ea9d32b0c2ebaa293759f20e87e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/editable/samples/hq-explosion-6288.mp3"
+dest_files=[ "res://.import/hq-explosion-6288.mp3-dd1f2ea9d32b0c2ebaa293759f20e87e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

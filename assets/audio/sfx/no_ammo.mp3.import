@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/no_ammo.mp3-fbc278a9b9fc2026bc1c5b42dcfdf846.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/no_ammo.mp3"
+dest_files=[ "res://.import/no_ammo.mp3-fbc278a9b9fc2026bc1c5b42dcfdf846.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

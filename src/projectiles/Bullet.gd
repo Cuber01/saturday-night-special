@@ -56,7 +56,7 @@ func fly_or_collide(delta: float) -> bool:
 
 func spawn_spark_gfx() -> void:
 	var eff: Object = spark_gfx.instance()
-	eff.global_position = self.global_position
+	eff.global_position = Vector2(self.global_position.x + 2, self.global_position.y)
 	world.add_child(eff)
 
 # Override
@@ -105,6 +105,8 @@ func change_state(var new_state) -> void:
 		State.DEATH_PHASE_1:
 			spawn_spark_gfx()
 			remove_child($Hitbox)
+			if get_node_or_null("Sprite"):
+				remove_child($Sprite)
 		State.DEATH_PHASE_2:
 			$Trail.stop()
 		

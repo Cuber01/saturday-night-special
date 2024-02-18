@@ -41,16 +41,17 @@ var down_action:   String
 var pickup_action: String
 var use_action:    String
 
-# Pickup system vars
+# State
+var is_dead: bool = false
+var is_sliding: bool = false
 var can_pickup: bool = true
 var picked_object: Object = null
+var freeze_hitpoints: int = 2
+var is_frozen: bool = false
 
 # Other
 const VOID_Y: int = 800 # Player dies when reaching this coordinate
-
 var match_manager: Object
-var dead: bool = false
-var is_sliding: bool = false
 
 signal sig_player_died(player_id)
 
@@ -94,12 +95,13 @@ func _physics_process(delta) -> void:
 		take_damage(1) # Player dies when falling into void
 	
 	# Check for input and do certain actions
-	input_move()
-	input_jump()
-	input_pickup()
-	input_use()
-	input_slide()
-	input_go_down()
+	if not is_frozen:
+		input_move()
+		input_jump()
+		input_pickup()
+		input_use()
+		input_slide()
+		input_go_down()
 	
 	# Handle Movement
 	handle_gravity_force(delta)
@@ -249,19 +251,39 @@ func drop_object(vel: Vector2) -> void:
 		picked_object._drop(vel)
 		picked_object = null
 
-# --------------------------- Callbacks
+# --------------------------- Death and Freezing
 
-func take_damage(damage: int) -> bool:
-	if dead:
-		return true
-		
-	dead = true
+func die() -> void:
+	is_dead = true
 	drop_object(velocity)
 	emit_signal("sig_player_died", player_index)
 	SoundManager.play_sound(7)
 	match_manager.get_node("Camera").remove_target(self)
 	queue_free()
-	return true
+
+func freeze() -> void:
+	is_frozen = true
+
+func take_freeze_dmg(damage: int) -> void:
+	freeze_hitpoints -= 1
+	
+	if freeze_hitpoints == 0:
+		freeze()
+
+# --------------------------- Callbacks
+
+func take_damage(damage: int, damage_type: int = Global.DamageType.HURT) -> bool:
+	if is_dead:
+		return true
+	
+	if damage_type == Global.DamageType.HURT:
+		die()
+		return true
+	elif damage_type == Global.DamageType.FREEZE:
+		take_freeze_dmg(damage)
+		return false
+		
+	return false
 
 func _on_PlayerDetection_body_entered(body: Node) -> void:
 	if is_sliding:
