@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/shoot-shotgun.wav-9bd07cf88a4bc88238e1c65516c20f86.sample"
+path="res://.import/no_ammo.wav-d986e5997f5e1ef225dae98e84b62d19.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/shoot-shotgun.wav"
-dest_files=[ "res://.import/shoot-shotgun.wav-9bd07cf88a4bc88238e1c65516c20f86.sample" ]
+source_file="res://assets/audio/sfx/no_ammo.wav"
+dest_files=[ "res://.import/no_ammo.wav-d986e5997f5e1ef225dae98e84b62d19.sample" ]
 
 [params]
 

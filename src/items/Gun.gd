@@ -28,7 +28,7 @@ var bulletLifetime: int             # Time before the bullet goes into DEATH_STA
 var bulletSpread: float             # Determines max and min value of y bullet spread
 var bulletDamage: int				# Determines damage per bullet
 var ammoPerMag: int = 6             # Ammunition per each mag. Total ammo if there are no mags
-var reloadTime: float = 0             # How much time it takes to load a new mag
+var reloadTime: float = 0           # How much time it takes to load a new mag
 var recoilForce: Vector2            # Force applied to the player upon shooting
 var delayBetweenShots: int          # Delay between shots for AUTOMATIC weapons
 var mode                            # MANUAL or AUTOMATIC shooting mode
@@ -53,7 +53,6 @@ func _use() -> void:
 		return
 	
 	if ammo_left > 0:
-		SoundManager.play_sound(10)
 		_shoot()
 		handle_recoil()
 		ammo_left -= 1
@@ -67,6 +66,8 @@ func _use() -> void:
 			can_despawn = true
 	elif mags_left > 0:
 		reload()
+	else:
+		SoundManager.play_sound(21)
 
 # Override
 func _shoot() -> void:

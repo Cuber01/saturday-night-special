@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/shoot-retro2.wav-c6489d63615778bd8df2322dfe9abe8f.sample"
+path="res://.import/shoot_shotgun.wav-ea1ced2f40653e2815c52ded68c941a4.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/shoot-retro2.wav"
-dest_files=[ "res://.import/shoot-retro2.wav-c6489d63615778bd8df2322dfe9abe8f.sample" ]
+source_file="res://assets/audio/sfx/shoot_shotgun.wav"
+dest_files=[ "res://.import/shoot_shotgun.wav-ea1ced2f40653e2815c52ded68c941a4.sample" ]
 
 [params]
 

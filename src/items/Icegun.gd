@@ -14,4 +14,5 @@ func _ready() -> void:
 	mags_left = 0
 
 func _shoot():
+	SoundManager.play_sound(Global.rng.randi_range(17, 19))
 	spawn_bullet()

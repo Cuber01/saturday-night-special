@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/shoot-retro3.wav-b011d16377b9af4aa61c8549d2c7d870.sample"
+path="res://.import/icegun_shoot3.wav-5c047511f0429e5a1e9918815551e124.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/shoot-retro3.wav"
-dest_files=[ "res://.import/shoot-retro3.wav-b011d16377b9af4aa61c8549d2c7d870.sample" ]
+source_file="res://assets/audio/sfx/icegun_shoot3.wav"
+dest_files=[ "res://.import/icegun_shoot3.wav-5c047511f0429e5a1e9918815551e124.sample" ]
 
 [params]
 

@@ -4,6 +4,8 @@ func _ready() -> void:
 	spark_gfx = preload("res://scenes/gfx/particles/SnowballHit.tscn")
 
 func _collision_response(collision: KinematicCollision2D) -> bool:
+	SoundManager.play_sound(Global.rng.randi_range(15, 16))
+	
 	var colliding_body = collision.collider
 	
 	if colliding_body.has_method("take_damage"):

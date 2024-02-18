@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/shoot-retro1.wav-429f939716d4eb9b6ab06f408a5794b9.sample"
+path="res://.import/snowball_hit2.wav-338c3c99535c92cf93aea642ca00f300.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/shoot-retro1.wav"
-dest_files=[ "res://.import/shoot-retro1.wav-429f939716d4eb9b6ab06f408a5794b9.sample" ]
+source_file="res://assets/audio/sfx/snowball_hit2.wav"
+dest_files=[ "res://.import/snowball_hit2.wav-338c3c99535c92cf93aea642ca00f300.sample" ]
 
 [params]
 

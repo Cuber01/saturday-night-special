@@ -46,10 +46,13 @@ var is_dead: bool = false
 var is_sliding: bool = false
 var can_pickup: bool = true
 var picked_object: Object = null
-var freeze_hitpoints: int = 2
+var freeze_hitpoints: int = FREEZE_HP_WARMED
 var is_frozen: bool = false
 
 # Other
+const MAX_FREEZE_HP: int = 60
+const FREEZE_HP_WARMED: int = -15
+const FREEZE_DECAY: int = 1
 const VOID_Y: int = 800 # Player dies when reaching this coordinate
 var match_manager: Object
 
@@ -262,13 +265,29 @@ func die() -> void:
 	queue_free()
 
 func freeze() -> void:
+	SoundManager.play_sound(20)
+	is_frozen = true
+	
+func unfreeze() -> void:
+	SoundManager.play_sound(22)
 	is_frozen = true
 
-func take_freeze_dmg(damage: int) -> void:
-	freeze_hitpoints -= 1
+func frozen_update() -> void:
+	freeze_hitpoints -= FREEZE_DECAY
 	
-	if freeze_hitpoints == 0:
-		freeze()
+	if freeze_hitpoints <= 0:
+		freeze_hitpoints = FREEZE_HP_WARMED
+		unfreeze() 
+
+func take_freeze_dmg(freeze_points: int) -> void:
+	freeze_hitpoints += freeze_points
+	
+	if is_frozen:
+		if freeze_hitpoints > MAX_FREEZE_HP:
+			freeze_hitpoints = MAX_FREEZE_HP
+	else:
+		if freeze_hitpoints > 0:
+			freeze()
 
 # --------------------------- Callbacks
 
