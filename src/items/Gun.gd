@@ -67,6 +67,7 @@ func _use() -> void:
 	elif mags_left > 0:
 		reload()
 	else:
+		shooting_blocked = true
 		SoundManager.play_sound(21)
 
 # Override

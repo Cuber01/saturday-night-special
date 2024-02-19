@@ -50,8 +50,8 @@ var freeze_hitpoints: int = FREEZE_HP_WARMED
 var is_frozen: bool = false
 
 # Other
-const MAX_FREEZE_HP: int = 60
-const FREEZE_HP_WARMED: int = -15
+const MAX_FREEZE_HP: int = 800
+const FREEZE_HP_WARMED: int = -210
 const FREEZE_DECAY: int = 1
 const VOID_Y: int = 800 # Player dies when reaching this coordinate
 var match_manager: Object
@@ -105,6 +105,8 @@ func _physics_process(delta) -> void:
 		input_use()
 		input_slide()
 		input_go_down()
+	else:
+		frozen_update()
 	
 	# Handle Movement
 	handle_gravity_force(delta)
@@ -266,11 +268,13 @@ func die() -> void:
 
 func freeze() -> void:
 	SoundManager.play_sound(20)
+	$FreezeEffect.visible = true
 	is_frozen = true
 	
 func unfreeze() -> void:
 	SoundManager.play_sound(22)
-	is_frozen = true
+	$FreezeEffect.visible = false
+	is_frozen = false
 
 func frozen_update() -> void:
 	freeze_hitpoints -= FREEZE_DECAY
