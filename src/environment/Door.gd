@@ -44,11 +44,11 @@ func attempt_open(to_right: bool) -> void:
 		open(to_right)
 
 func _on_DetectRight_body_entered(body: Node) -> void:
-	if body is Player:
+	if body is Player and not body.is_frozen:
 		attempt_open(true)
 
 func _on_DetectLeft_body_entered(body: Node) -> void:
-	if body is Player:
+	if body is Player and not body.is_frozen:
 		attempt_open(false)
 
 func _on_CloseTimer_timeout() -> void:

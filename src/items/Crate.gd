@@ -3,6 +3,9 @@ class_name Crate
 
 var hitpoints: int = 50
 
+func _ready() -> void:
+	throwVelocity = Vector2(0, 0)
+
 func _use() -> void:
 	pass
 	

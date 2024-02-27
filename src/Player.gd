@@ -9,7 +9,8 @@ var jump_sfx: Resource = preload("res://assets/audio/sfx/jump.wav")
 
 # Movement
 const SPEED: int = 50
-const FRICTION_FORCE: float = 0.25
+const NORMAL_FRICTION_FORCE: float = 0.25
+const FROZEN_FRICTION_FORCE: float = 0.001
 const SLIDING_FRICTION_FORCE: float = 0.10
 const MIN_SLIDE_EXIT_VELOCITY: int = 15
 
@@ -48,6 +49,7 @@ var can_pickup: bool = true
 var picked_object: Object = null
 var freeze_hitpoints: int = FREEZE_HP_WARMED
 var is_frozen: bool = false
+var current_friction: float = NORMAL_FRICTION_FORCE
 
 # Other
 const MAX_FREEZE_HP: int = 800
@@ -58,7 +60,7 @@ var match_manager: Object
 
 signal sig_player_died(player_id)
 
-func _ready() -> void:		
+func _ready() -> void:
 	set_color()
 	
 	if not facing_right:
@@ -160,10 +162,7 @@ func input_slide() -> void:
 		exit_slide()
 
 func apply_friction() -> void:
-	if is_sliding:
-		velocity.x = lerp(velocity.x, 0, SLIDING_FRICTION_FORCE)
-	else:
-		velocity.x = lerp(velocity.x, 0, FRICTION_FORCE)
+	velocity.x = lerp(velocity.x, 0, current_friction)
 
 func flip_direction(dir_right: bool) -> void:
 	if facing_right != dir_right:
@@ -186,6 +185,8 @@ func move_and_push() -> void:
 			col.collider.force_update_transform()
 			
 			move_and_collide(col.remainder)
+		elif col.collider.has_method("get_pushed"):
+			col.collider.get_pushed(Vector2(col.remainder.x, 0))
 
 # --------------------------- Sliding
 
@@ -201,6 +202,7 @@ func enter_slide() -> void:
 	
 	drop_object(velocity.snapped(Vector2(1,1)))
 	
+	current_friction = SLIDING_FRICTION_FORCE
 	is_sliding = true
 	$Hitbox.position = hitbox_slide_position
 	$Hitbox.shape.extents = hitbox_slide_extents
@@ -214,6 +216,7 @@ func exit_slide() -> void:
 		# Unable to get up — there's not enough space
 		return
 	
+	current_friction = NORMAL_FRICTION_FORCE
 	is_sliding = false
 	$Hitbox.position = hitbox_standing_position
 	$Hitbox.shape.extents = hitbox_standing_extents
@@ -265,15 +268,23 @@ func die() -> void:
 	SoundManager.play_sound(7)
 	match_manager.get_node("Camera").remove_target(self)
 	queue_free()
+	
+func get_pushed(push_factor: Vector2):
+	velocity.x += push_factor.x * 80
 
 func freeze() -> void:
 	SoundManager.play_sound(20)
 	$FreezeEffect.visible = true
+	set_collision_layer_bit(4, true)
+	drop_object(velocity)
+	current_friction = FROZEN_FRICTION_FORCE
 	is_frozen = true
 	
 func unfreeze() -> void:
 	SoundManager.play_sound(22)
 	$FreezeEffect.visible = false
+	set_collision_layer_bit(4, false)
+	current_friction = NORMAL_FRICTION_FORCE
 	is_frozen = false
 
 func frozen_update() -> void:
@@ -309,5 +320,5 @@ func take_damage(damage: int, damage_type: int = Global.DamageType.HURT) -> bool
 	return false
 
 func _on_PlayerDetection_body_entered(body: Node) -> void:
-	if is_sliding:
+	if body.is_sliding:
 		body.drop_object(body.velocity)
