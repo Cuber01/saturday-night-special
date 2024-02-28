@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/environment/WeaponSpawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/tiles/PlatformTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/BasicTileset.tres" type="TileSet" id=4]
+[ext_resource path="res://scenes/tiles/PlatformTilemap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_loop/TilemapManager.gd" type="Script" id=10]
+
+[node name="BasicTilemap" type="TileMap"]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 196623, 15, 1, 196624, 15, 131073, 262158, 15, 0, 262160, 15, 65539, 327696, 15, 65539, 393230, 0, 262144, 393231, 0, 262145, 393232, 0, 262146, 393235, 0, 262144, 393236, 0, 262145, 393237, 0, 262146, 458768, 15, 65539, 524299, 0, 18, 524300, 0, 262146, 524302, 1, 196609, 524304, 15, 196608, 524311, 0, 262144, 524312, 0, 19, 589831, 15, 0, 589832, 15, 0, 589835, 0, 131076, 589848, 0, 131076, 655367, 0, 262144, 655368, 0, 262145, 655369, 0, 262146, 655371, 15, 0, 655386, 0, 262144, 655387, 0, 262145, 655388, 0, 262146, 851972, 0, 4, 851999, 0, 4, 917508, 0, 262159, 917509, 0, 196615, 917510, 0, 1, 917511, 0, 1, 917512, 0, 196614, 917513, 0, 1, 917514, 0, 196615, 917515, 0, 196614, 917516, 0, 196614, 917517, 0, 196614, 917518, 0, 1, 917519, 0, 196614, 917520, 0, 196615, 917521, 0, 1, 917522, 0, 1, 917523, 0, 1, 917524, 0, 1, 917525, 0, 196615, 917526, 0, 196615, 917527, 0, 1, 917528, 0, 196615, 917529, 0, 1, 917530, 0, 1, 917531, 0, 196615, 917532, 0, 1, 917533, 0, 196614, 917534, 0, 1, 917535, 0, 196621, 983044, 0, 131072, 983045, 0, 131073, 983046, 0, 262150, 983047, 0, 262150, 983048, 0, 262151, 983049, 0, 262150, 983050, 0, 131073, 983051, 0, 262150, 983052, 0, 262150, 983053, 0, 262150, 983054, 0, 131073, 983055, 0, 262151, 983056, 0, 262150, 983057, 0, 262151, 983058, 0, 131073, 983059, 0, 262151, 983060, 0, 262151, 983061, 0, 262150, 983062, 0, 262150, 983063, 0, 262151, 983064, 0, 262150, 983065, 0, 262151, 983066, 0, 131073, 983067, 0, 131073, 983068, 0, 262151, 983069, 0, 262151, 983070, 0, 262150, 983071, 0, 131074 )
+script = ExtResource( 10 )
+
+[node name="Player0" parent="." instance=ExtResource( 3 )]
+position = Vector2( 96, 216 )
+
+[node name="Player1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 480, 216 )
+player_index = 1
+facing_right = false
+
+[node name="WeaponSpawnPoint" parent="." instance=ExtResource( 1 )]
+position = Vector2( 288, 88 )
+type = 1
+
+[node name="WeaponSpawnPoint3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 352, 168 )
+type = 7
+
+[node name="WeaponSpawnPoint4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 224, 168 )
+type = 7
+
+[node name="PlatformTilemap" parent="." instance=ExtResource( 5 )]
+tile_set = ExtResource( 2 )
+tile_data = PoolIntArray( 393233, 0, 0, 393234, 0, 2, 524301, 0, 0, 524302, 0, 1, 524303, 0, 1, 524304, 0, 1, 524305, 0, 1, 524306, 0, 1, 524307, 0, 1, 524308, 0, 1, 524309, 0, 1, 524310, 0, 2, 720909, 0, 0, 720910, 0, 1, 720911, 0, 1, 720912, 0, 1, 720913, 0, 1, 720914, 0, 1, 720915, 0, 1, 720916, 0, 1, 720917, 0, 1, 720918, 0, 2 )

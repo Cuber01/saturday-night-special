@@ -32,6 +32,7 @@ type = 4
 
 [node name="WeaponSpawnPoint2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 88, 120 )
+type = 5
 
 [node name="WeaponSpawnPoint3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 376, 184 )
@@ -39,3 +40,4 @@ type = 4
 
 [node name="WeaponSpawnPoint4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 440, 120 )
+type = 5

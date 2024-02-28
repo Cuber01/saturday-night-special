@@ -15,7 +15,7 @@ extents = Vector2( 23.4667, 16.5333 )
 extents = Vector2( 14.7833, 37.8 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 19, 39 )
+extents = Vector2( 20.1667, 38.7 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 14.7833, 37.8 )
@@ -65,7 +65,7 @@ collision_layer = 0
 collision_mask = 17
 
 [node name="Hitbox" type="CollisionShape2D" parent="StandingArea"]
-position = Vector2( 4.26667, -12.8 )
+position = Vector2( 4.26667, -13.1 )
 shape = SubResource( 7 )
 
 [node name="PlayerDetection" type="Area2D" parent="."]

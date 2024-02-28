@@ -72,16 +72,19 @@ X kill debris on a timer
 
 ALPHA 7
 X landmines
-- freeze gun
+X freeze gun
 X bazzoka
 - 5 more levels
 X gun empty sound
 - mine activate sound
+- spikes
+
+BETA 1:
+- better looks
 
 Stretch:
 - better cam
 - airstrike
 - driller super piercing weapon
+- make explosions push debries and items
 
-Stretch: make explosions push debries and items
-Stretch: better camera movement

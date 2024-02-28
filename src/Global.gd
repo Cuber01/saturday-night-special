@@ -1,5 +1,7 @@
 extends Node2D
 
+const DAMAGE_KILL: int = 9999
+
 enum DamageType {
 	HURT,
 	FREEZE

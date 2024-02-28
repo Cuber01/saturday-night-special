@@ -3,7 +3,7 @@ extends PickupableObject
 const TIME_UNTIL_EXPLOSION: int = 3
 const NUM_OF_BULLETS: int = 8
 const BULLET_SPEED: int = 8
-const BULLET_LIFESPAN: int = 10
+const BULLET_LIFESPAN: int = 12
 const BULLET_DAMAGE: int = 100
 
 var boom_scn:   PackedScene = preload("res://scenes/gfx/OneShotAnimation.tscn")

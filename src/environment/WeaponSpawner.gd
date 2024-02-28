@@ -22,6 +22,12 @@ func _ready():
 			weapon_scn = preload("res://scenes/items/Uzi.tscn")
 		PickupableObject.Type.CRATE:
 			weapon_scn = preload("res://scenes/items/Crate.tscn")
+		PickupableObject.Type.BAZOOKA:
+			weapon_scn = preload("res://scenes/items/Bazooka.tscn")
+		PickupableObject.Type.LANDMINE:
+			weapon_scn = preload("res://scenes/items/LandMineItem.tscn")
+		PickupableObject.Type.ICE_GUN:
+			weapon_scn = preload("res://scenes/items/Icegun.tscn")
 			
 	world = get_parent()
 	spawn()

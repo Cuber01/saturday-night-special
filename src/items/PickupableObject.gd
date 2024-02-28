@@ -11,7 +11,10 @@ enum Type {
 		SHOTGUN,
 		UZI,
 		GRENADE,
-		CRATE
+		CRATE,
+		BAZOOKA,
+		LANDMINE,
+		ICE_GUN
 	}
 
 # Physics
