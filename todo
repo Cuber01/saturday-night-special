@@ -74,17 +74,23 @@ ALPHA 7
 X landmines
 X freeze gun
 X bazzoka
-- 5 more levels
+X 5 more levels
 X gun empty sound
-- mine activate sound
-- spikes
+X spikes
 
-BETA 1:
-- better looks
+BETA 1 — Game feel:
+- directional particles
+- screenshake on explosions
+- choose a color palette and simpplify the sprites
+- add lightning
+X make the game faster
+- mine activate sound
+- squishy sound for player death
 
 Stretch:
+- make explosions push debries and items
 - better cam
 - airstrike
 - driller super piercing weapon
-- make explosions push debries and items
+
 

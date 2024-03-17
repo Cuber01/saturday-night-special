@@ -51,3 +51,6 @@ func add_target(tar: Object) -> void:
 func remove_target(tar: Object) -> void:
 	if tar in targets:
 		targets.erase(tar)
+
+func clear_targets() -> void:
+	targets.clear()

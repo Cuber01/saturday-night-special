@@ -100,7 +100,7 @@ func _use() -> void:
 	push_error("_use(): No override")
 
 func _on_DespawnTimer_timeout():
-	if holder or not is_on_floor():
+	if holder != null:
 		can_despawn = true
 	else:
 		var eff: Object = despawn_gfx.instance()

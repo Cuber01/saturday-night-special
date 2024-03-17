@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/environment/WeaponSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tiles/PlatformTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/BasicTileset.tres" type="TileSet" id=4]
 [ext_resource path="res://scenes/tiles/PlatformTilemap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/environment/Spikes.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/items/Grenade.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/game_loop/TilemapManager.gd" type="Script" id=10]
 
@@ -106,3 +107,75 @@ position = Vector2( 120, 280 )
 [node name="PlatformTilemap" parent="." instance=ExtResource( 5 )]
 tile_set = ExtResource( 2 )
 tile_data = PoolIntArray( 917505, 0, 0, 917506, 0, 2, 917533, 0, 0, 917534, 0, 2 )
+
+[node name="Spikes" parent="." instance=ExtResource( 6 )]
+position = Vector2( 72, 344 )
+
+[node name="Spikes2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 296, 344 )
+
+[node name="Spikes3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 280, 344 )
+
+[node name="Spikes4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 264, 344 )
+
+[node name="Spikes5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 248, 344 )
+
+[node name="Spikes6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 232, 344 )
+
+[node name="Spikes7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 216, 344 )
+
+[node name="Spikes8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 200, 344 )
+
+[node name="Spikes9" parent="." instance=ExtResource( 6 )]
+position = Vector2( 184, 344 )
+
+[node name="Spikes10" parent="." instance=ExtResource( 6 )]
+position = Vector2( 168, 344 )
+
+[node name="Spikes11" parent="." instance=ExtResource( 6 )]
+position = Vector2( 152, 344 )
+
+[node name="Spikes12" parent="." instance=ExtResource( 6 )]
+position = Vector2( 136, 344 )
+
+[node name="Spikes13" parent="." instance=ExtResource( 6 )]
+position = Vector2( 120, 344 )
+
+[node name="Spikes14" parent="." instance=ExtResource( 6 )]
+position = Vector2( 104, 344 )
+
+[node name="Spikes15" parent="." instance=ExtResource( 6 )]
+position = Vector2( 88, 344 )
+
+[node name="Spikes16" parent="." instance=ExtResource( 6 )]
+position = Vector2( 424, 344 )
+
+[node name="Spikes24" parent="." instance=ExtResource( 6 )]
+position = Vector2( 440, 344 )
+
+[node name="Spikes17" parent="." instance=ExtResource( 6 )]
+position = Vector2( 408, 344 )
+
+[node name="Spikes18" parent="." instance=ExtResource( 6 )]
+position = Vector2( 392, 344 )
+
+[node name="Spikes19" parent="." instance=ExtResource( 6 )]
+position = Vector2( 376, 344 )
+
+[node name="Spikes20" parent="." instance=ExtResource( 6 )]
+position = Vector2( 360, 344 )
+
+[node name="Spikes21" parent="." instance=ExtResource( 6 )]
+position = Vector2( 344, 344 )
+
+[node name="Spikes22" parent="." instance=ExtResource( 6 )]
+position = Vector2( 328, 344 )
+
+[node name="Spikes23" parent="." instance=ExtResource( 6 )]
+position = Vector2( 312, 344 )

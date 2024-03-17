@@ -8,7 +8,7 @@ export var facing_right: bool = true
 var jump_sfx: Resource = preload("res://assets/audio/sfx/jump.wav")
 
 # Movement
-const SPEED: int = 50
+const SPEED: int = 75
 const NORMAL_FRICTION_FORCE: float = 0.25
 const FROZEN_FRICTION_FORCE: float = 0.001
 const SLIDING_FRICTION_FORCE: float = 0.10
@@ -301,7 +301,7 @@ func take_freeze_dmg(freeze_points: int) -> void:
 		if freeze_hitpoints > MAX_FREEZE_HP:
 			freeze_hitpoints = MAX_FREEZE_HP
 	else:
-		if freeze_hitpoints > 0:
+		if freeze_hitpoints > 0 and not is_frozen:
 			freeze()
 
 # --------------------------- Callbacks

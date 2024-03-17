@@ -2,8 +2,8 @@ extends BaseGun
 
 func _ready() -> void:
 	bulletScene = preload("res://scenes/projectiles/Snowball.tscn")
-	bulletSpeed = 300
-	bulletLifetime = 30
+	bulletSpeed = 400
+	bulletLifetime = 20
 	bulletSpread = 0
 	ammoPerMag = 10
 	bulletDamage = 200
