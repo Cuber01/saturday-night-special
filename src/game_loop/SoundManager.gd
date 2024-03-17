@@ -26,6 +26,7 @@ var sounds: Array = [
 					preload("res://assets/audio/sfx/freeze.wav"),        # 20 
 					preload("res://assets/audio/sfx/no_ammo.wav"),       # 21
 					preload("res://assets/audio/sfx/unfreeze.wav"),      # 22 
+					preload("res://assets/audio/sfx/activate_mine.wav"), # 23
 					]
 
 var music_player: AudioStreamPlayer

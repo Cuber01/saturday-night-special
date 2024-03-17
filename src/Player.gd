@@ -6,6 +6,9 @@ export var facing_right: bool = true
 
 # Sfx
 var jump_sfx: Resource = preload("res://assets/audio/sfx/jump.wav")
+var blood_gfx: Resource = preload("res://assets/audio/sfx/jump.wav")
+var guts_gfx: Resource = preload("res://assets/audio/sfx/jump.wav")
+var ice_break_gfx: Resource = preload("res://assets/audio/sfx/jump.wav")
 
 # Movement
 const SPEED: int = 75

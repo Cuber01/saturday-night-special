@@ -22,6 +22,7 @@ func init(pos: Vector2, time_til_arm: float):
 	is_armed = false
 	ArmedTimer = Timer.new()
 	ArmedTimer.autostart = true
+	ArmedTimer.one_shot = true
 	ArmedTimer.wait_time = time_til_arm
 	ArmedTimer.connect("timeout", self, "_on_ArmedTimer_timeout")
 	add_child(ArmedTimer)
@@ -52,4 +53,5 @@ func _on_DetectionArea_body_entered(body: Node) -> void:
 
 func _on_ArmedTimer_timeout() -> void:
 	$Sprite.set_region_rect(Rect2(0,0,14,7))
+	SoundManager.play_sound(23)
 	is_armed = true
