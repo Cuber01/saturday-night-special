@@ -18,7 +18,6 @@ func calculate_points_in_circle(r: int, point_num: int):
 							r*sin((i*2*PI)/point_num)))
 	return points
 
-
 func spawn_bullets_in_circle(amount: int, speed: int, lifespan: int, 
 							damage: int, world: Object, pos: Vector2) -> void:
 	var bullet_scn = preload("res://scenes/projectiles/Bullet.tscn")
@@ -33,3 +32,24 @@ func spawn_bullets_in_circle(amount: int, speed: int, lifespan: int,
 				world,
 				true)
 		world.call_deferred("add_child", bullet)
+		
+func velocity_to_direction(vel: Vector2):
+	var dir: Vector2 = Vector2(0,0)
+	
+	if vel.x > 0:
+		dir.x = 1
+	elif vel.x < 0:
+		dir.x = -1
+	else:
+		dir.x = 0
+		
+	if vel.y > 0:
+		dir.y = 1
+	elif vel.y < 0:
+		dir.y = -1
+	else:
+		dir.y = 0
+		
+	return vel
+	
+	

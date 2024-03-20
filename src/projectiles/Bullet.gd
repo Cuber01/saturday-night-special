@@ -67,7 +67,9 @@ func _collision_response(collision: KinematicCollision2D) -> bool:
 		colliding_body.explode()
 	
 	if colliding_body.has_method("take_damage"):
-			var was_pierced: bool = colliding_body.take_damage(damage)
+			var was_pierced: bool = colliding_body.take_damage(damage,
+									Global.DamageType.HURT,
+									velocity)
 			if piercing:
 				return was_pierced
 			else:

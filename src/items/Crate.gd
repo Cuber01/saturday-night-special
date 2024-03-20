@@ -20,7 +20,9 @@ func _drop(throw_vel: Vector2) -> void:
 func _flip_additional_parts() -> void:
 	$HeldHitbox.position.x = -$HeldHitbox.position.x
 
-func take_damage(damage: int, damage_type: int = Global.DamageType.HURT) -> bool:
+func take_damage(damage: int,
+				 damage_type: int = Global.DamageType.HURT,
+				 direction: Vector2 = Vector2(0,-1)) -> bool:
 	hitpoints -= damage
 	
 	if hitpoints < 0:

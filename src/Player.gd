@@ -6,9 +6,9 @@ export var facing_right: bool = true
 
 # Sfx
 var jump_sfx: Resource = preload("res://assets/audio/sfx/jump.wav")
-var blood_gfx: Resource = preload("res://assets/audio/sfx/jump.wav")
-var guts_gfx: Resource = preload("res://assets/audio/sfx/jump.wav")
-var ice_break_gfx: Resource = preload("res://assets/audio/sfx/jump.wav")
+var blood_gfx: Resource = preload("res://scenes/gfx/particles/Blood.tscn")
+var guts_gfx: Resource = preload("res://scenes/gfx/particles/Guts.tscn")
+var ice_break_gfx: Resource = preload("res://scenes/gfx/particles/IceBreak.tscn")
 
 # Movement
 const SPEED: int = 75
@@ -60,6 +60,7 @@ const FREEZE_HP_WARMED: int = -210
 const FREEZE_DECAY: int = 1
 const VOID_Y: int = 800 # Player dies when reaching this coordinate
 var match_manager: Object
+var world: Object
 
 signal sig_player_died(player_id)
 
@@ -68,6 +69,8 @@ func _ready() -> void:
 	
 	if not facing_right:
 		scale.x = scale.x * -1
+		
+	world = get_parent()
 		
 	match_manager = get_parent().get_parent()
 	connect("sig_player_died", match_manager, "_on_player_died")
@@ -100,7 +103,7 @@ func set_color() -> void:
 func _physics_process(delta) -> void:	
 	
 	if position.y >= VOID_Y:
-		take_damage(1) # Player dies when falling into void
+		take_damage(Global.DAMAGE_KILL) # Player dies when falling into void
 	
 	# Check for input and do certain actions
 	if not is_frozen:
@@ -264,14 +267,27 @@ func drop_object(vel: Vector2) -> void:
 
 # --------------------------- Death and Freezing
 
-func die() -> void:
+func die(dir: Vector2 = Vector2(0,-1)) -> void:
 	is_dead = true
+	
+	if is_frozen:
+		spawn_death_particle(ice_break_gfx, Vector2(0,-1))
+	else:	
+		spawn_death_particle(guts_gfx, dir)
+		spawn_death_particle(blood_gfx, dir)
+		
 	drop_object(velocity)
 	emit_signal("sig_player_died", player_index)
-	SoundManager.play_sound(7)
+	SoundManager.play_sound(24)
 	match_manager.get_node("Camera").remove_target(self)
 	queue_free()
-	
+
+func spawn_death_particle(particles: Object, dir: Vector2):
+	var eff: Object = particles.instance() 
+	eff.process_material.set("direction", Vector3(dir.x, dir.y, 0))
+	eff.global_position = Vector2(self.global_position.x, self.global_position.y)
+	world.add_child(eff)
+
 func get_pushed(push_factor: Vector2):
 	velocity.x += push_factor.x * 80
 
@@ -309,12 +325,14 @@ func take_freeze_dmg(freeze_points: int) -> void:
 
 # --------------------------- Callbacks
 
-func take_damage(damage: int, damage_type: int = Global.DamageType.HURT) -> bool:
+func take_damage(damage: int,
+				 damage_type: int = Global.DamageType.HURT,
+				 direction: Vector2 = Vector2(0,-1)) -> bool:
 	if is_dead:
 		return true
 	
 	if damage_type == Global.DamageType.HURT:
-		die()
+		die(direction)
 		return true
 	elif damage_type == Global.DamageType.FREEZE:
 		take_freeze_dmg(damage)

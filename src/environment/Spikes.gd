@@ -2,7 +2,9 @@ extends StaticBody2D
 
 var hitpoints: int = 10
 
-func take_damage(damage: int, damage_type: int = Global.DamageType.HURT) -> bool:
+func take_damage(damage: int,
+				 damage_type: int = Global.DamageType.HURT,
+				 direction: Vector2 = Vector2(0,-1)) -> bool:
 	hitpoints -= damage
 	
 	if hitpoints < 0:

@@ -50,8 +50,8 @@ scale = 6.0
 scale_curve = SubResource( 7 )
 color = Color( 0.952941, 0.0941176, 0.0117647, 1 )
 
-[node name="Particles2D" type="Particles2D"]
-amount = 100
+[node name="Blood" type="Particles2D"]
+amount = 30
 lifetime = 2.0
 one_shot = true
 speed_scale = 1.8
