@@ -64,5 +64,6 @@ func _on_NextRoundTimer_timeout():
 	
 	players_alive = player_amount
 	reset_board(alive_board, true)
+	$Surface.clear_surface()
 	$Camera.clear_targets()
 	level_manager.load_level(Global.rng.randi_range(0, level_manager.level_amount - 1))
