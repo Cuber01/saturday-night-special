@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/game_loop/MatchManager.gd" type="Script" id=1]
 [ext_resource path="res://src/game_loop/Camera.gd" type="Script" id=2]
+[ext_resource path="res://scenes/gfx/Surface.tscn" type="PackedScene" id=3]
 
 [node name="Match" type="Node2D"]
 script = ExtResource( 1 )
@@ -12,5 +13,10 @@ one_shot = true
 [node name="Camera" type="Camera2D" parent="."]
 current = true
 script = ExtResource( 2 )
+
+[node name="Surface" parent="." instance=ExtResource( 3 )]
+z_index = 4096
+z_as_relative = false
+centered = false
 
 [connection signal="timeout" from="NextRoundTimer" to="." method="_on_NextRoundTimer_timeout"]

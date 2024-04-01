@@ -7,6 +7,7 @@ export var facing_right: bool = true
 # Sfx
 var jump_sfx: Resource = preload("res://assets/audio/sfx/jump.wav")
 var blood_gfx: Resource = preload("res://scenes/gfx/particles/Blood.tscn")
+var dynamic_blood: Resource = preload("res://scenes/gfx/DynamicBlood.tscn")
 var guts_gfx: Resource = preload("res://scenes/gfx/particles/Guts.tscn")
 var ice_break_gfx: Resource = preload("res://scenes/gfx/particles/IceBreak.tscn")
 
@@ -275,6 +276,7 @@ func die(dir: Vector2 = Vector2(0,-1)) -> void:
 	else:	
 		spawn_death_particle(guts_gfx, dir)
 		spawn_death_particle(blood_gfx, dir)
+		spawn_dynamic_blood(120, dir)
 		
 	drop_object(velocity)
 	emit_signal("sig_player_died", player_index)
@@ -287,6 +289,18 @@ func spawn_death_particle(particles: Object, dir: Vector2):
 	eff.process_material.set("direction", Vector3(dir.x, dir.y, 0))
 	eff.global_position = Vector2(self.global_position.x, self.global_position.y)
 	world.add_child(eff)
+
+func spawn_dynamic_blood(amount: int, dir: Vector2):
+	for i in range(amount):
+			var blood_instance = dynamic_blood.instance()
+			
+			if dir.x < 0:
+				blood_instance.hspeed = rand_range(-3,1)
+			else:
+				blood_instance.hspeed = rand_range(-1, 3)
+				
+			blood_instance.global_position = self.global_position
+			world.get_parent().get_node("Surface").add_child(blood_instance)
 
 func get_pushed(push_factor: Vector2):
 	velocity.x += push_factor.x * 80
