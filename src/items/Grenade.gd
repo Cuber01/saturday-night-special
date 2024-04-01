@@ -56,6 +56,7 @@ func explode() -> void:
 		holder.picked_object = null
 	
 	SoundManager.play_sound(Global.rng.randi_range(0,1))
+	MCamera.add_trauma(0.5)
 	spawn_explosion_gfx()
 	Global.spawn_bullets_in_circle(NUM_OF_BULLETS, BULLET_SPEED, 
 								BULLET_LIFESPAN, BULLET_DAMAGE, 

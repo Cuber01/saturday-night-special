@@ -14,6 +14,7 @@ func spawn_explosion_gfx() -> void:
 	world.add_child(eff)
 
 func _collision_response(collision: KinematicCollision2D) -> bool:
+	MCamera.add_trauma(0.5)
 	SoundManager.play_sound(Global.rng.randi_range(0,1))
 	spawn_explosion_gfx()
 	Global.spawn_bullets_in_circle(NUM_OF_BULLETS, BULLET_SPEED, 
