@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if is_colliding:
-		draw_surface.draw_blood(position) 
+		draw_surface.draw_blood(global_position) 
 		
 		lifetime -= 1
 		if(lifetime <= 0):

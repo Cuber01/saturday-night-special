@@ -47,13 +47,15 @@ func destroy_tile(tilemap: TileMap, map_ref: Array, map_pos: Vector2, tm_pos: Ve
 	
 	tilemap.set_cellv(tm_pos, -1)
 	spawn_debris(8, map_to_world(tm_pos)+Vector2(8,8))
+	get_node("/root/Surface").remove_blood(Rect2(map_to_world(tm_pos), 
+											Vector2(16,16)))
 	map_ref[map_pos.x][map_pos.y] = 0
 
 func spawn_debris(amount: int, around: Vector2):
 	for i in amount:
 		var debris = debrisScene.instance()
-		debris.init(Vector2(around.x+Global.rng.randf_range(-8.0, 8.0),
-							around.y+Global.rng.randf_range(-8.0, 8.0)))
+		debris.init(Vector2(around.x+rand_range(-8.0, 8.0),
+							around.y+rand_range(-8.0, 8.0)))
 		add_child(debris)
 
 func damage_tile(tilemap: TileMap, map_ref: Array, 
