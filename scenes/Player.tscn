@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/img/player.png" type="Texture" id=1]
 [ext_resource path="res://src/Player.gd" type="Script" id=2]
@@ -7,6 +7,75 @@
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 19, 38.2 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 12, 17 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 1 )
+region = Rect2( 12, 0, 12, 17 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 1 )
+region = Rect2( 24, 0, 12, 17 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 1 )
+region = Rect2( 36, 0, 12, 17 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 12, 17 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 1 )
+region = Rect2( 60, 0, 12, 17 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 1 )
+region = Rect2( 72, 0, 12, 17 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 1 )
+region = Rect2( 84, 0, 12, 17 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 0, 12, 17 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 12, 17 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 12, 17 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 1 )
+region = Rect2( 36, 17, 12, 17 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 1 )
+region = Rect2( 24, 17, 12, 17 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 12, 17 )
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": false,
+"name": "jump",
+"speed": 60.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 21 ) ],
+"loop": false,
+"name": "move",
+"speed": 10.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 23.4667, 16.5333 )
@@ -31,11 +100,12 @@ script = ExtResource( 2 )
 position = Vector2( 4, -12 )
 shape = SubResource( 6 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 3 )
 position = Vector2( 4, -12 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 1 )
+frames = SubResource( 19 )
+animation = "jump"
 
 [node name="PickupZone" type="Area2D" parent="."]
 collision_layer = 4

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/img/pixel.png" type="Texture" id=1]
+[ext_resource path="res://assets/img/gfx/pixel.png" type="Texture" id=1]
 
 [sub_resource type="Curve" id=2]
 min_value = -360.0

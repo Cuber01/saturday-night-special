@@ -146,6 +146,7 @@ func input_jump() -> void:
 		and not Input.is_action_pressed(down_action)
 		and is_on_floor()):			
 			SoundManager.play_sound(2)
+			play_animation("jump")
 			velocity.y = max_jump_velocity
 			
 			if is_sliding:
@@ -336,6 +337,13 @@ func take_freeze_dmg(freeze_points: int) -> void:
 	else:
 		if freeze_hitpoints > 0 and not is_frozen:
 			freeze()
+
+# --------------------------- Animation
+
+func play_animation(name: String) -> void:
+	$Sprite.stop()
+	$Sprite.frame = 0
+	$Sprite.play(name)
 
 # --------------------------- Callbacks
 
