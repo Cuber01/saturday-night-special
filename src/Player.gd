@@ -62,6 +62,7 @@ const FREEZE_DECAY: int = 1
 const VOID_Y: int = 800 # Player dies when reaching this coordinate
 var match_manager: Object
 var world: Object
+var moved_last_frame: bool = false
 
 signal sig_player_died(player_id)
 
@@ -134,10 +135,19 @@ func input_move() -> void:
 	var direction_x: float = 0
 	direction_x = Input.get_action_strength(right_action) - Input.get_action_strength(left_action)
 	
+	if direction_x != 0 and not moved_last_frame:
+			play_animation("move")
+	
+	if direction_x == 0:
+		moved_last_frame = false
+	else:
+		moved_last_frame = true
+			
 	if direction_x < 0:
 		flip_direction(false)
 	elif direction_x > 0:
 		flip_direction(true)
+		
 	
 	velocity.x += direction_x * SPEED
 

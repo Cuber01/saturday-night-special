@@ -4,7 +4,7 @@ func _ready() -> void:
 	bulletScene = preload("res://scenes/projectiles/Bullet.tscn")
 	bulletSpeed = 500
 	bulletLifetime = 80
-	recoilForce = Vector2(100,-20)
+	recoilForce = Vector2(200,-30)
 	bulletSpread = 0
 	bulletDamage = 10
 	mode = Mode.MANUAL
