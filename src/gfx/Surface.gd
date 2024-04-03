@@ -23,7 +23,6 @@ func _ready() -> void:
 	texture = surface_texture
 	
 func draw_blood(draw_pos: Vector2) -> void:
-	print("Help")
 	surface_image.blit_rect(blood_image,
 							Rect2(Vector2(0,0), Vector2(1,1)),
 							draw_pos)
