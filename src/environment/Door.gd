@@ -13,6 +13,7 @@ var hitpoints: int = 50
 
 func open(to_right: bool) -> void:
 	$Hitbox.set_deferred("disabled", true)
+	$LightOccluder2D.light_mask = 0
 	if to_right:
 		$AnimatedSprite.frame = 1
 		state = State.OPEN_TO_RIGHT
@@ -22,6 +23,7 @@ func open(to_right: bool) -> void:
 	$CloseTimer.start(CLOSE_TIME)
 
 func close() -> void:
+	$LightOccluder2D.light_mask = 5
 	$Hitbox.set_deferred("disabled", false)
 	$AnimatedSprite.frame = 0
 	state = State.CLOSED

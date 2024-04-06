@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/img/environment/crate.png" type="Texture" id=1]
 [ext_resource path="res://src/items/Crate.gd" type="Script" id=2]
@@ -11,6 +11,9 @@ extents = Vector2( 1, 5.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 9.78262, 5 )
+
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( -7, -7, -7, 7, 7, 7, 7, -7 )
 
 [node name="Crate" type="KinematicBody2D"]
 z_index = 1
@@ -41,3 +44,6 @@ modulate = Color( 0.105882, 0.654902, 0.027451, 0.682353 )
 position = Vector2( 1.19209e-07, 0 )
 scale = Vector2( 0.919999, 1 )
 shape = SubResource( 2 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 4 )

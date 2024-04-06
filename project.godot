@@ -102,6 +102,7 @@ stretch=false
 "Pixel Snap"=false
 Layer=false
 background=false
+default=false
 
 [gui]
 

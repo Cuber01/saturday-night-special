@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/environment/WeaponSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tiles/PlatformTileset.tres" type="TileSet" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://scenes/tiles/PlatformTilemap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/environment/Spikes.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/items/Grenade.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/img/light2.png" type="Texture" id=8]
+[ext_resource path="res://assets/img/environment/background.png" type="Texture" id=9]
 [ext_resource path="res://src/game_loop/TilemapManager.gd" type="Script" id=10]
 
 [node name="BasicTilemap" type="TileMap"]
@@ -179,3 +181,25 @@ position = Vector2( 328, 344 )
 
 [node name="Spikes23" parent="." instance=ExtResource( 6 )]
 position = Vector2( 312, 344 )
+
+[node name="LightRelated" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite" parent="LightRelated"]
+position = Vector2( 288, 216 )
+z_index = -4096
+texture = ExtResource( 9 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="LightRelated"]
+
+[node name="Light2D" type="Light2D" parent="LightRelated"]
+position = Vector2( 0, 64 )
+texture = ExtResource( 8 )
+texture_scale = 20.0
+energy = 0.5
+range_height = 100.0
+range_z_min = -4096
+range_z_max = 4096
+range_layer_min = -512
+range_layer_max = 512
+shadow_enabled = true
+shadow_filter_smooth = 11.2

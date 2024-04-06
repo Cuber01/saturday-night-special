@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/environment/WeaponSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tiles/PlatformTilemap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/BasicTileset.tres" type="TileSet" id=4]
 [ext_resource path="res://scenes/tiles/PlatformTileset.tres" type="TileSet" id=5]
+[ext_resource path="res://assets/img/light2.png" type="Texture" id=6]
+[ext_resource path="res://assets/img/environment/background.png" type="Texture" id=7]
 [ext_resource path="res://scenes/items/Crate.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/environment/Door.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/game_loop/TilemapManager.gd" type="Script" id=10]
@@ -57,3 +59,24 @@ position = Vector2( 136, 144 )
 [node name="WeaponSpawnPoint4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 224, 250 )
 type = 1
+
+[node name="LightRelated" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite" parent="LightRelated"]
+position = Vector2( 288, 216 )
+z_index = -4096
+texture = ExtResource( 7 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="LightRelated"]
+
+[node name="Light2D" type="Light2D" parent="LightRelated"]
+texture = ExtResource( 6 )
+texture_scale = 20.0
+energy = 0.5
+range_height = 100.0
+range_z_min = -4096
+range_z_max = 4096
+range_layer_min = -512
+range_layer_max = 512
+shadow_enabled = true
+shadow_filter_smooth = 11.2

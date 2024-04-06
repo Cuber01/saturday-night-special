@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/environment/WeaponSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/items/Bazooka.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://scenes/environment/Door.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/game_loop/TilemapManager.gd" type="Script" id=10]
 [ext_resource path="res://scenes/tiles/PlatformTilemap.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/img/light2.png" type="Texture" id=12]
+[ext_resource path="res://assets/img/environment/background.png" type="Texture" id=13]
 
 [node name="BasicTilemap" type="TileMap"]
 tile_set = ExtResource( 4 )
@@ -70,3 +72,25 @@ position = Vector2( 104, 184 )
 
 [node name="Pistol2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 472, 184 )
+
+[node name="LightRelated" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite" parent="LightRelated"]
+position = Vector2( 288, 216 )
+z_index = -4096
+texture = ExtResource( 13 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="LightRelated"]
+
+[node name="Light2D" type="Light2D" parent="LightRelated"]
+position = Vector2( 576, 0 )
+texture = ExtResource( 12 )
+texture_scale = 20.0
+energy = 0.5
+range_height = 100.0
+range_z_min = -4096
+range_z_max = 4096
+range_layer_min = -512
+range_layer_max = 512
+shadow_enabled = true
+shadow_filter_smooth = 11.2
