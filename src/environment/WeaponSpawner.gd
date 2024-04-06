@@ -37,6 +37,9 @@ func _process(_delta) -> void:
 		SpawnTimer.start(SPAWN_DELAY)
 	
 func spawn() -> void:
+	$AnimatedSprite.frame = 0
+	$AnimatedSprite.stop()
+	$AnimatedSprite.play("spawned_weapon")
 	weapon = weapon_scn.instance()
 	weapon.init(self.global_position, self)
 	world.call_deferred("add_child", weapon)

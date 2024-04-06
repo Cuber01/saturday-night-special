@@ -23,18 +23,8 @@ X add shells dropping on the ground
 
 ALPHA 4 — Enjoyable Version
 - add particles 
-	- weapon spawn
 	X weapon despawn
 	X bullet breaking on wall 
-- replace sprites
-	- shotgun
-	- pistol
-	- uzi
-	- crate
-	- character x4
-	- tileset
-	- door
-	- explosion?
 - add sounds:
 	X shoot
 	X explosion
@@ -80,18 +70,25 @@ X spikes
 
 BETA 1 — Game feel:
 X directional particles
-- screenshake on explosions
-- choose a color palette and simpplify the sprites
-- add lightning
+X change color palette of environment
+X add lightning
 X make the game faster
 X mine activate sound
 X squishy sound for player death
-- dynamic blood
+1/2 dynamic blood
+- screenshake on explosions
+- change sprites
+- change particles
+- grenade armed sound effect
+- new explosion sound effect
+- remove the scoring system
+- make bullets explode in the right
+- clean up
 
 Stretch:
-- make explosions push debries and items
-- better cam
+- make explosions push debris and items
 - airstrike
 - driller super piercing weapon
+- fire
 
 
