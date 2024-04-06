@@ -13,7 +13,7 @@ var ice_break_gfx: Resource = preload("res://scenes/gfx/particles/IceBreak.tscn"
 
 # Movement
 const SPEED: int = 75
-const NORMAL_FRICTION_FORCE: float = 0.25
+const NORMAL_FRICTION_FORCE: float = 0.22
 const FROZEN_FRICTION_FORCE: float = 0.001
 const SLIDING_FRICTION_FORCE: float = 0.10
 const MIN_SLIDE_EXIT_VELOCITY: int = 15
