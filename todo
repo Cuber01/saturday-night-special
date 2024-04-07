@@ -75,14 +75,16 @@ X add lightning
 X make the game faster
 X mine activate sound
 X squishy sound for player death
+X change sprites
+X pixel perfect camera
 1/2 dynamic blood
 - screenshake on explosions
-- change sprites
 - change particles
 - grenade armed sound effect
 - new explosion sound effect
 - remove the scoring system
 - make bullets explode in the right
+- Door sound effects
 - clean up
 
 Stretch:

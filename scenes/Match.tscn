@@ -12,6 +12,7 @@ one_shot = true
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
+smoothing_enabled = true
 script = ExtResource( 2 )
 
 [node name="Surface" parent="." instance=ExtResource( 3 )]

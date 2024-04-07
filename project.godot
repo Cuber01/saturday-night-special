@@ -70,6 +70,7 @@ _global_script_class_icons={
 
 config/name="Saturday Night Special"
 run/main_scene="res://scenes/Match.tscn"
+boot_splash/use_filter=false
 
 [autoload]
 
@@ -85,12 +86,12 @@ shapes/collision/shape_color=Color( 1, 1, 1, 0.560784 )
 [display]
 
 window/size/width=400
-window/size/height=225
+window/size/height=220
+window/size/resizable=false
 window/size/test_width=1600
 window/size/test_height=900
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
-window/stretch/shrink=4.0
 
 [global]
 
@@ -103,6 +104,7 @@ stretch=false
 Layer=false
 background=false
 default=false
+viewport=false
 
 [gui]
 
@@ -250,5 +252,6 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 2d/snapping/use_gpu_pixel_snap=true
+quality/shadows/filter_mode=0
 environment/default_clear_color=Color( 0.156863, 0.156863, 0.180392, 1 )
 environment/default_environment="res://default_env.tres"
