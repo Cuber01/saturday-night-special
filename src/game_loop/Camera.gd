@@ -1,7 +1,7 @@
 extends Camera2D
 
-onready var noise = OpenSimplexNoise.new()
-var noise_y = 0
+var noise: OpenSimplexNoise
+var noise_y: int = 0
 
 const MOVE_SPEED: float = 0.5  # camera position lerp speed
 const ZOOM_SPEED: float = 0.1  # camera zoom lerp speed
@@ -9,7 +9,7 @@ const MIN_ZOOM: int = 1  # camera won't zoom closer than this
 const MAX_ZOOM: int = 16  # camera won't zoom farther than this
 const MARGIN: Vector2 = Vector2(200, 50)  # include some buffer area around targets
 
-const DECAY = 0.8  # How quickly the shaking stops [0, 1].
+const DECAY = 0.9  # How quickly the shaking stops [0, 1].
 const MAX_OFFSET = Vector2(100, 75)  # Maximum hor/ver shake in pixels.
 const MAX_ROLL = 0.1  # Maximum rotation in radians (use sparingly).
 
@@ -26,6 +26,10 @@ onready var screen_size = get_viewport_rect().size
 
 func _ready():
 	randomize()
+	noise = OpenSimplexNoise.new()
+	noise.seed = randi()
+	noise.period = 4
+	noise.octaves = 2
 
 func add_trauma(amount):
 	trauma = min(trauma + amount, 1.0)
@@ -34,33 +38,27 @@ func _process(_delta):
 	if !targets:
 		return
 	
-	move_to_center(_delta)
+	move_to_center()
 	handle_zoom()
 	
-	trauma = 10
-	if trauma:
-		#trauma = max(trauma * DECAY, 0)
+	if trauma > 0:
+		trauma = max(trauma * DECAY, 0)
 		shake()
+
 
 func shake():
 	var amount = pow(trauma, trauma_power)
+	noise_y += 1
 	rotation = MAX_ROLL * amount * noise.get_noise_2d(noise.seed, noise_y)
-	offset.x = MAX_OFFSET.x * amount * noise.get_noise_2d(noise.seed, noise_y)
-	offset.y = MAX_OFFSET.y * amount * noise.get_noise_2d(noise.seed, noise_y)
+	offset.x = MAX_OFFSET.x * amount * noise.get_noise_2d(noise.seed*2, noise_y)
+	offset.y = MAX_OFFSET.y * amount * noise.get_noise_2d(noise.seed*3, noise_y)
 
-func move_to_center(delta) -> void:
+func move_to_center() -> void:
 	var new_pos: Vector2 = Vector2.ZERO
 	for target in targets:
 		new_pos += target.position
 	new_pos = new_pos / targets.size()
 	position = lerp(position, new_pos, MOVE_SPEED)
-	
-	
-#	var cam_pos: Vector2 = lerp(position, new_pos, MOVE_SPEED)
-#	actual_cam_pos = lerp(actual_cam_pos, cam_pos, 5*delta)
-#	var cam_subpixel_pos = actual_cam_pos.round() - actual_cam_pos
-#	get_parent().get_node("ViewportContainer").material.set_shader_param("cam_offset", cam_subpixel_pos )
-#	position = actual_cam_pos.round()
 
 func handle_zoom() -> void:
 	var cam_fov: Rect2 = Rect2(position, Vector2.ONE)

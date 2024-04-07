@@ -8,6 +8,7 @@ func _ready() -> void:
 	bulletSpread = 0
 	bulletDamage = 10
 	mode = Mode.MANUAL
+	traumaOnShot = 0.2
 	
 	ammo_left = 6
 

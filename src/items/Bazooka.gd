@@ -9,6 +9,7 @@ func _ready() -> void:
 	ammo_left = 3
 	recoilForce = Vector2(400,-60)
 	mode = Mode.MANUAL
+	traumaOnShot = 0.0
 
 func _shoot():
 	SoundManager.play_sound(14)

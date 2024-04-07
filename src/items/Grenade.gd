@@ -9,6 +9,7 @@ const BULLET_DAMAGE: int = 100
 var boom_scn:   PackedScene = preload("res://scenes/gfx/OneShotAnimation.tscn")
 var cotter_scn: PackedScene = preload("res://scenes/gfx/GrenadeCotter.tscn")
 
+onready var camera = world.get_parent().get_node("Camera")
 var used: bool = false
 
 func _ready() -> void:
@@ -56,7 +57,7 @@ func explode() -> void:
 		holder.picked_object = null
 	
 	SoundManager.play_sound(Global.rng.randi_range(0,1))
-	MCamera.add_trauma(0.5)
+	camera.add_trauma(1.0)
 	spawn_explosion_gfx()
 	Global.spawn_bullets_in_circle(NUM_OF_BULLETS, BULLET_SPEED, 
 								BULLET_LIFESPAN, BULLET_DAMAGE, 

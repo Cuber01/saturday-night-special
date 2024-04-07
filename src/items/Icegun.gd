@@ -9,6 +9,7 @@ func _ready() -> void:
 	bulletDamage = 200
 	recoilForce = Vector2(0,0)
 	mode = Mode.MANUAL
+	traumaOnShot = 0
 
 	ammo_left = ammoPerMag
 	mags_left = 0

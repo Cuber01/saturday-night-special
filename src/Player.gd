@@ -61,18 +61,18 @@ const FREEZE_HP_WARMED: int = -210
 const FREEZE_DECAY: int = 1
 const VOID_Y: int = 800 # Player dies when reaching this coordinate
 var match_manager: Object
-var world: Object
 var moved_last_frame: bool = false
 
 signal sig_player_died(player_id)
+
+onready var world = get_parent()
+onready var surface = world.get_parent().get_node("Surface")
 
 func _ready() -> void:
 	set_color()
 	
 	if not facing_right:
 		scale.x = scale.x * -1
-		
-	world = get_parent()
 		
 	match_manager = get_parent().get_parent()
 	connect("sig_player_died", match_manager, "_on_player_died")
@@ -311,7 +311,7 @@ func spawn_dynamic_blood(amount: int, dir: Vector2):
 				blood_instance.hspeed = rand_range(-1, 3)
 				
 			blood_instance.global_position = self.global_position
-			world.get_parent().get_node("Surface").add_child(blood_instance)
+			surface.call_deferred("add_child", blood_instance)
 
 func get_pushed(push_factor: Vector2):
 	velocity.x += push_factor.x * 80

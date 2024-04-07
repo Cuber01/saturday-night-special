@@ -14,6 +14,7 @@ func _ready() -> void:
 	reloadTime = 0.6
 	recoilForce = Vector2(600,-100)
 	mode = Mode.MANUAL
+	traumaOnShot = 0.4
 	
 	ammo_left = ammoPerMag
 	mags_left = 3

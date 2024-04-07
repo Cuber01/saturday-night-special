@@ -5,14 +5,15 @@ const BULLET_SPEED: int = 8
 const BULLET_LIFESPAN: int = 10
 const BULLET_DAMAGE: int = 100
 
+onready var world: Object = get_parent()
+onready var camera: Object = world.get_parent().get_node("Camera")
+
 var boom_scn:   PackedScene = preload("res://scenes/gfx/OneShotAnimation.tscn")
 var bullet_scn: PackedScene = preload("res://scenes/projectiles/Bullet.tscn")
 
-var world: Object
-var velocity: Vector2
-
 var ArmedTimer: Timer
 var is_armed: bool = true
+var velocity: Vector2
 
 func init(pos: Vector2, time_til_arm: float):
 	global_position = pos
@@ -45,6 +46,7 @@ func _on_DetectionArea_body_entered(body: Node) -> void:
 	
 	SoundManager.play_sound(Global.rng.randi_range(0,1))
 	spawn_explosion_gfx()
+	camera.add_trauma(0.8)
 	Global.spawn_bullets_in_circle(NUM_OF_BULLETS, BULLET_SPEED, 
 								BULLET_LIFESPAN, BULLET_DAMAGE, 
 								world, global_position)

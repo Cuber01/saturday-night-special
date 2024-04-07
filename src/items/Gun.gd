@@ -21,6 +21,8 @@ enum Mode {
 #	ammo_left = ammoPerMag
 #	mags_left = 
 
+onready var camera = world.get_parent().get_node("Camera")
+
 # Stats (these are to be assigned only in _ready)
 var bulletScene: PackedScene = null # Scene from which we instantiate the bullet
 var bulletSpeed: int                # Bullet flying speed in x
@@ -32,6 +34,7 @@ var reloadTime: float = 0           # How much time it takes to load a new mag
 var recoilForce: Vector2            # Force applied to the player upon shooting
 var delayBetweenShots: int          # Delay between shots for AUTOMATIC weapons
 var mode                            # MANUAL or AUTOMATIC shooting mode
+var traumaOnShot: float				# Trauma value added to the camera upon shooting
 
 # Ammo management
 var ammo_left: int     # Ammo left in current mag
@@ -55,6 +58,7 @@ func _use() -> void:
 	if ammo_left > 0:
 		_shoot()
 		handle_recoil()
+		camera.add_trauma(traumaOnShot)
 		ammo_left -= 1
 		
 		if mode == Mode.MANUAL:

@@ -10,6 +10,7 @@ func _ready() -> void:
 	recoilForce = Vector2(200,-30)
 	delayBetweenShots = 10
 	mode = Mode.AUTOMATIC
+	traumaOnShot = 0.2
 
 	ammo_left = ammoPerMag
 	mags_left = 0
