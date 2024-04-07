@@ -25,7 +25,7 @@ func _ready() -> void:
 	
 	level_manager = LevelManager.new(self)
 	#level_manager.load_level(rng.randi_range(0, level_manager.level_amount - 1))
-	level_manager.load_level(5) # 2
+	level_manager.load_level(8) # 2
 	
 	SoundManager.init(10)
 	#SoundManager.play_music()
