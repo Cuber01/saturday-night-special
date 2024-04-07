@@ -21,7 +21,7 @@ script = ExtResource( 10 )
 
 [node name="PlatformTilemap" parent="." instance=ExtResource( 2 )]
 tile_set = ExtResource( 5 )
-tile_data = PoolIntArray( 131073, 0, 0, 131084, 0, 0, 131085, 0, 2, 131096, 0, 0, 327681, 0, 0, 327692, 0, 0, 327693, 0, 2, 327704, 0, 0, 524289, 0, 0, 524300, 0, 0, 524301, 0, 2, 524312, 0, 0, 720897, 0, 0, 720908, 0, 0, 720909, 0, 2, 720920, 0, 0 )
+tile_data = PoolIntArray( 131073, 1, 0, 131084, 0, 0, 131085, 0, 2, 131096, 1, 0, 327681, 1, 0, 327692, 0, 0, 327693, 0, 2, 327704, 1, 0, 524289, 1, 0, 524300, 0, 0, 524301, 0, 2, 524312, 1, 0, 720897, 1, 0, 720908, 0, 0, 720909, 0, 2, 720920, 1, 0 )
 
 [node name="Player0" parent="." instance=ExtResource( 3 )]
 position = Vector2( 136, 168 )
@@ -98,10 +98,10 @@ position = Vector2( 232, 112 )
 position = Vector2( 376, 160 )
 
 [node name="Box2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 56, 72 )
+position = Vector2( 49, 73 )
 
 [node name="Box3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 168, 72 )
+position = Vector2( 174, 73 )
 
 [node name="Box4" parent="." instance=ExtResource( 8 )]
 position = Vector2( 272, 72 )
@@ -125,7 +125,7 @@ texture = ExtResource( 11 )
 [node name="CanvasModulate" type="CanvasModulate" parent="LightRelated"]
 
 [node name="Light2D" type="Light2D" parent="LightRelated"]
-position = Vector2( -56, 112 )
+position = Vector2( -40, 112 )
 texture = ExtResource( 7 )
 texture_scale = 20.0
 energy = 0.5

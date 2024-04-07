@@ -78,14 +78,16 @@ X squishy sound for player death
 X change sprites
 X pixel perfect camera
 X screenshake on explosions
+X Door sound effects
 1/2 dynamic blood
 - change particles
 - grenade armed sound effect
 - new explosion sound effect
-- remove the scoring system
-- make bullets explode in the right
-- Door sound effects
+- make bullets explode in the right place
 - clean up
+	- remove the scoring system print
+	- _ready => onready var
+	X remove unused assets
 
 Stretch:
 - make explosions push debris and items

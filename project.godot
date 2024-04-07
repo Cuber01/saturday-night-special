@@ -76,7 +76,6 @@ boot_splash/use_filter=false
 
 Global="*res://src/Global.gd"
 SoundManager="*res://src/game_loop/SoundManager.gd"
-MCamera="*res://src/game_loop/Camera.gd"
 Surface="*res://scenes/gfx/Surface.tscn"
 
 [debug]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/0008.png-9fbcf41f6c1ed4c459dbeac97d14f3f2.stex"
+path="res://.import/debris.png-a24899137323327e7e4b6a7f451a52a0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/gfx/explosion2/0008.png"
-dest_files=[ "res://.import/0008.png-9fbcf41f6c1ed4c459dbeac97d14f3f2.stex" ]
+source_file="res://assets/img/gfx/debris.png"
+dest_files=[ "res://.import/debris.png-a24899137323327e7e4b6a7f451a52a0.stex" ]
 
 [params]
 

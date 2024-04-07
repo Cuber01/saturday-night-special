@@ -14,6 +14,8 @@ var hitpoints: int = 50
 func open(to_right: bool) -> void:
 	$Hitbox.set_deferred("disabled", true)
 	$LightOccluder2D.light_mask = 0
+	SoundManager.play_sound(25)
+	
 	if to_right:
 		$AnimatedSprite.frame = 1
 		state = State.OPEN_TO_RIGHT
@@ -40,8 +42,7 @@ func attempt_open(to_right: bool) -> void:
 		blocked_by = $DetectRight.get_overlapping_bodies()
 	
 	if blocked_by:
-		pass
-		# Door locked sound
+		SoundManager.play_sound(26)
 	else: 
 		open(to_right)
 
