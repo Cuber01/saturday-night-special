@@ -28,8 +28,9 @@ var sounds: Array = [
 					preload("res://assets/audio/sfx/unfreeze.wav"),      # 22 
 					preload("res://assets/audio/sfx/activate_mine.wav"), # 23
 					preload("res://assets/audio/sfx/squish_death.wav"),  # 24
-					preload("res://assets/audio/sfx/door-open.wav"),     # 25
-					preload("res://assets/audio/sfx/door-blocked.wav")   # 26
+					preload("res://assets/audio/sfx/door_open.wav"),     # 25
+					preload("res://assets/audio/sfx/door_blocked.wav"),  # 26
+					preload("res://assets/audio/sfx/arm_grenade.wav")	 # 27
 					]
 
 var music_player: AudioStreamPlayer

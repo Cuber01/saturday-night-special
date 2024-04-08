@@ -79,16 +79,18 @@ X change sprites
 X pixel perfect camera
 X screenshake on explosions
 X Door sound effects
+X grenade armed sound effect
 1/2 dynamic blood
 - change particles
 - change player color
-- grenade armed sound effect
 - new explosion sound effect
 - make bullets explode in the right place
+- get better blood textures
 - clean up
 	- remove the scoring system print
 	- _ready => onready var
 	X remove unused assets
+	- remove spawning blood with mouse
 
 Stretch:
 - make explosions push debris and items

@@ -40,8 +40,7 @@ func _physics_process(delta):
 func flying(delta: float) -> void:
 	if check_lifetime(): 
 		change_state(State.DEATH_PHASE_1)
-		return
-	if not fly_or_collide(delta):
+	elif not fly_or_collide(delta):
 		change_state(State.DEATH_PHASE_1)
 
 

@@ -28,6 +28,7 @@ func _use() -> void:
 		return
 	
 	used = true
+	SoundManager.play_sound(27)
 	$Sprite.set_region_rect(Rect2(7,0,7,10))
 	$ExplodeTimer.start(TIME_UNTIL_EXPLOSION)
 	drop_cotter()

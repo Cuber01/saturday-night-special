@@ -49,7 +49,7 @@ func _on_DetectionArea_body_entered(body: Node) -> void:
 	camera.add_trauma(0.8)
 	Global.spawn_bullets_in_circle(NUM_OF_BULLETS, BULLET_SPEED, 
 								BULLET_LIFESPAN, BULLET_DAMAGE, 
-								world, global_position)
+								world, Vector2(global_position.x, global_position.y+5)) # The +5 is to fix a very specific collision bug that resulted in all bullets spawning inside the ground while the player was somehow pushing the mine into the ground
 	
 	queue_free()
 

@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/door-blocked.wav-7538d0d0822b0a5fc1bd9d299c008fd8.sample"
+path="res://.import/arm_grenade.wav-0ed6b13099b6e3a6560ad94c8d6043d2.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/door-blocked.wav"
-dest_files=[ "res://.import/door-blocked.wav-7538d0d0822b0a5fc1bd9d299c008fd8.sample" ]
+source_file="res://assets/audio/sfx/arm_grenade.wav"
+dest_files=[ "res://.import/arm_grenade.wav-0ed6b13099b6e3a6560ad94c8d6043d2.sample" ]
 
 [params]
 
