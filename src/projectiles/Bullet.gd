@@ -41,7 +41,7 @@ func flying(delta: float) -> void:
 	if check_lifetime(): 
 		change_state(State.DEATH_PHASE_1)
 	elif not fly_or_collide(delta):
-		change_state(State.DEATH_PHASE_1)
+		change_state(State.DEATH_PHASE_1, true)
 
 
 func fly_or_collide(delta: float) -> bool:
@@ -99,13 +99,14 @@ func death_phase_two():
 	if get_node_or_null("Trail") == null:
 		die()
 
-func change_state(var new_state) -> void:
+func change_state(var new_state, var death_by_collision = false) -> void:
 	match new_state:
 		State.FLYING:
 			continue
 		State.DEATH_PHASE_1:
-			spawn_spark_gfx()
 			remove_child($Hitbox)
+			if death_by_collision:
+				spawn_spark_gfx()
 			if get_node_or_null("Sprite"):
 				remove_child($Sprite)
 		State.DEATH_PHASE_2:

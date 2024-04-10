@@ -18,5 +18,6 @@ script = ExtResource( 2 )
 [node name="Surface" parent="." instance=ExtResource( 3 )]
 z_index = 4096
 z_as_relative = false
+centered = false
 
 [connection signal="timeout" from="NextRoundTimer" to="." method="_on_NextRoundTimer_timeout"]

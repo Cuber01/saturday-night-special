@@ -40,6 +40,7 @@ color_initial_ramp = SubResource( 5 )
 
 [node name="Particles2D" type="Particles2D"]
 one_shot = true
+speed_scale = 1.27
 explosiveness = 1.0
 process_material = SubResource( 1 )
 texture = ExtResource( 1 )

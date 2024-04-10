@@ -39,9 +39,9 @@ func reset_board(board: Array, value) -> void:
 
 func print_scoreboard() -> void:
 	pass # Doesn't work properly
-	print("ROUND " + str(round_count))
-	print("p0: " + str(scoreboard[0]) + " : " + str(money_board[0]))
-	print("p1: " + str(scoreboard[1]) + " : " + str(money_board[1]))
+#	print("ROUND " + str(round_count))
+#	print("p0: " + str(scoreboard[0]) + " : " + str(money_board[0]))
+#	print("p1: " + str(scoreboard[1]) + " : " + str(money_board[1]))
 
 func _on_collected_coin(player_index: int, worth: int) -> void:
 	money_board[player_index] += worth
