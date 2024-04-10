@@ -48,11 +48,6 @@ _global_script_classes=[ {
 "class": "Trail",
 "language": "GDScript",
 "path": "res://src/gfx/Trail.gd"
-}, {
-"base": "Sprite",
-"class": "paint",
-"language": "GDScript",
-"path": "res://src/gfx/Surface.gd"
 } ]
 _global_script_class_icons={
 "BaseGun": "",
@@ -62,8 +57,7 @@ _global_script_class_icons={
 "PickupableObject": "",
 "Player": "",
 "TileMapManager": "",
-"Trail": "",
-"paint": ""
+"Trail": ""
 }
 
 [application]

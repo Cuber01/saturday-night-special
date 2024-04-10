@@ -81,11 +81,12 @@ X screenshake on explosions
 X Door sound effects
 X grenade armed sound effect
 X new explosion sound effect
+X get better blood textures
+- change blood color
 1/2 dynamic blood
 - change particles
 - change player color
 - make bullets explode in the right place
-- get better blood textures
 - clean up
 	X remove the scoring system print
 	X _ready => onready var
