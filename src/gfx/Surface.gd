@@ -22,16 +22,20 @@ func _ready() -> void:
 	
 	texture = surface_texture
 	
+var a = true
+	
 func draw_blood(draw_pos: Vector2) -> void:
+	if not a: return
 	surface_image.blit_rect(blood_image,
 							Rect2(Vector2(0,0), Vector2(1,1)),
 							draw_pos)
 
 func remove_blood(rect: Rect2) -> void:
+	a = false
 	surface_image.fill_rect(Rect2(Vector2(rect.position.x+SURFACE_IMG_WIDTH/2, 
 							rect.position.y+SURFACE_IMG_HEIGHT/2), 
 							rect.size), 
-							Color(0,0,0,1))
+							Color(1,1,1,0))
 	
 func clear_surface() -> void:
 	surface_image.fill(Color(0,0,0,0))
