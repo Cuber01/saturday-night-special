@@ -13,7 +13,7 @@ class BurnableTile:
 
 # 2D array with all tiles and their respective hitpoints
 var main_map: Array = []
-var map_rect: Rect2
+onready var map_rect: Rect2 = self.get_used_rect()
 
 # 2D array with all burnable tiles and whether they burn
 var burnable_map: Array
@@ -21,9 +21,6 @@ var burnable_tilemap: TileMap
 
 func _ready() -> void:
 	#self.burnable_tilemap = burnable_tilemap
-	
-	map_rect = self.get_used_rect()
-	
 	init_map(main_map, map_rect.size.x, map_rect.size.y, 0)
 	init_map(burnable_map, map_rect.size.x, map_rect.size.y, 0)
 	generate_map(self, main_map, 25)

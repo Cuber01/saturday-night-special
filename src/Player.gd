@@ -59,8 +59,8 @@ var current_friction: float = NORMAL_FRICTION_FORCE
 const MAX_FREEZE_HP: int = 800
 const FREEZE_HP_WARMED: int = -210
 const FREEZE_DECAY: int = 1
-const VOID_Y: int = 800 # Player dies when reaching this coordinate
-var match_manager: Object
+const VOID_Y: int = 700 # Player dies when reaching this coordinate
+onready var match_manager: Object = get_parent().get_parent()
 var moved_last_frame: bool = false
 
 signal sig_player_died(player_id)
@@ -74,7 +74,6 @@ func _ready() -> void:
 	if not facing_right:
 		scale.x = scale.x * -1
 		
-	match_manager = get_parent().get_parent()
 	connect("sig_player_died", match_manager, "_on_player_died")
 	match_manager.get_node("Camera").add_target(self)
 	

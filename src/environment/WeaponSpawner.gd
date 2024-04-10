@@ -1,13 +1,12 @@
 extends Node2D
 
-# We spawn stuff here
-var world: Object
 export(PickupableObject.Type) var type = PickupableObject.Type.PISTOL
 
 var weapon_scn: PackedScene = null
 var weapon: PickupableObject = null
 
 onready var SpawnTimer = $SpawnTimer
+onready var world: Object = get_parent()
 const SPAWN_DELAY: float = 5.0
 
 func _ready():
@@ -29,7 +28,6 @@ func _ready():
 		PickupableObject.Type.ICE_GUN:
 			weapon_scn = preload("res://scenes/items/Icegun.tscn")
 			
-	world = get_parent()
 	spawn()
 
 func _process(_delta) -> void:

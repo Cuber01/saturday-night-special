@@ -28,9 +28,6 @@ func init(pos: Vector2, time_til_arm: float):
 	ArmedTimer.connect("timeout", self, "_on_ArmedTimer_timeout")
 	add_child(ArmedTimer)
 	
-func _ready():
-	world = get_parent()
-	
 func _physics_process(delta: float) -> void:
 	velocity.y += Global.GRAVITY_FORCE
 	velocity = move_and_slide(velocity)

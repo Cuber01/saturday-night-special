@@ -38,6 +38,7 @@ func reset_board(board: Array, value) -> void:
 		board[i] = value
 
 func print_scoreboard() -> void:
+	pass # Doesn't work properly
 	print("ROUND " + str(round_count))
 	print("p0: " + str(scoreboard[0]) + " : " + str(money_board[0]))
 	print("p1: " + str(scoreboard[1]) + " : " + str(money_board[1]))

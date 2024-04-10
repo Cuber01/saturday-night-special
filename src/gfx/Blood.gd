@@ -1,18 +1,15 @@
 extends Area2D
 
-var is_colliding = false
+var is_colliding: bool = false
 
-var vspeed = rand_range(-5, 5)
-var hspeed
-var blood_acc = rand_range(0.05, 0.1)
-var do_wobble = false
+var vspeed: float = rand_range(-5, 5)
+var hspeed: float
+var blood_acc: float = rand_range(0.05, 0.1)
+var do_wobble: float = false
 
-var lifetime = rand_range(5,50)
+var lifetime: float = rand_range(5,50)
 
-var draw_surface
-
-func _ready() -> void:
-	draw_surface = get_parent()
+onready var draw_surface: Object = get_parent()
 
 func _physics_process(delta: float) -> void:
 	if is_colliding:
