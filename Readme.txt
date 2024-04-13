@@ -8,4 +8,4 @@ Asset packs used:
 - https://alkakrab.itch.io/free-shooter-synthwave-music-pack
 - https://sn4k3.itch.io/csgo-pixel-guns
 
-Many of these will be/were removed or modified during development.
+Some images from the weapon packs were modified.
