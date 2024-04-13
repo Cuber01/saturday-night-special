@@ -17,6 +17,7 @@ var world: TileMap
 var lifetime: int
 var damage: int
 var piercing: bool
+var always_spawn_spark: bool = false
 
 func init(pos: Vector2, vel: Vector2, lifespan: int,
 		  damage: int, world: TileMap, piercing: bool=false) -> void:
@@ -104,7 +105,7 @@ func change_state(var new_state, var death_by_collision = false) -> void:
 			continue
 		State.DEATH_PHASE_1:
 			remove_child($Hitbox)
-			if death_by_collision:
+			if death_by_collision or always_spawn_spark:
 				spawn_spark_gfx()
 			if get_node_or_null("Sprite"):
 				remove_child($Sprite)

@@ -1,6 +1,7 @@
 extends Bullet
 
 func _ready() -> void:
+	always_spawn_spark = true
 	spark_gfx = preload("res://scenes/gfx/particles/SnowballHit.tscn")
 
 func _collision_response(collision: KinematicCollision2D) -> bool:
