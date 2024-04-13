@@ -86,7 +86,7 @@ X change blood color
 X change particles
 1/2 dynamic blood
 - change player color
-- make bullets explode in the right place
+X make bullets explode in the right place
 - clean up
 	X remove the scoring system print
 	X _ready => onready var

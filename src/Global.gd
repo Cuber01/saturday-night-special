@@ -50,6 +50,6 @@ func velocity_to_direction(vel: Vector2):
 	else:
 		dir.y = 0
 		
-	return vel
+	return dir
 	
 	
