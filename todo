@@ -93,6 +93,9 @@ X clean up
 	X _ready => onready var
 	X remove unused assets
 	X remove spawning blood with mouse
+	
+Before release:
+- tests
 
 Stretch:
 - make explosions push debris and items

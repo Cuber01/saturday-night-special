@@ -24,11 +24,10 @@ func _ready() -> void:
 	Global.rng.randomize()
 	
 	level_manager = LevelManager.new(self)
-	#level_manager.load_level(rng.randi_range(0, level_manager.level_amount - 1))
-	level_manager.load_level(3) # 2
+	level_manager.load_level(Global.rng.randi_range(0, level_manager.level_amount - 1))
 	
 	SoundManager.init(10)
-	#SoundManager.play_music()
+	SoundManager.play_music()
 
 	SoundManager.change_sfx_volume(-5)
 

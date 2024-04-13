@@ -112,7 +112,7 @@ func _physics_process(delta) -> void:
 		input_jump()
 		input_pickup()
 		input_use()
-		input_slide()
+		#input_slide()
 		input_go_down()
 	else:
 		frozen_update()
