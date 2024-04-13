@@ -1,6 +1,6 @@
 # Credits
 
-Author: Jan Englert (@Cuber01)
+Author: Jan Englert (@Cuber01 on github.com)
 
 Asset packs used:
 - https://shononoki.itch.io/bullet-hell-music-pack
