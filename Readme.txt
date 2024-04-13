@@ -7,5 +7,6 @@ Asset packs used:
 - https://jestan.itch.io/weapons-pack
 - https://alkakrab.itch.io/free-shooter-synthwave-music-pack
 - https://sn4k3.itch.io/csgo-pixel-guns
+- https://limofeus.itch.io/pixel-simulations
 
 Some images from the weapon packs were modified.
