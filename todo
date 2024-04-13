@@ -84,9 +84,10 @@ X new explosion sound effect
 X get better blood textures
 X change blood color
 X change particles
-1/2 dynamic blood
-- change player color
+X dynamic blood
+X change player color
 X make bullets explode in the right place
+- fix dynamic blood
 - clean up
 	X remove the scoring system print
 	X _ready => onready var
