@@ -87,12 +87,12 @@ X change particles
 X dynamic blood
 X change player color
 X make bullets explode in the right place
-- fix dynamic blood
-- clean up
+X fix dynamic blood
+X clean up
 	X remove the scoring system print
 	X _ready => onready var
 	X remove unused assets
-	- remove spawning blood with mouse
+	X remove spawning blood with mouse
 
 Stretch:
 - make explosions push debris and items

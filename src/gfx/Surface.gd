@@ -4,8 +4,8 @@ var surface_image: Image = Image.new()
 
 var dynamic_blood: Resource = preload("res://scenes/gfx/DynamicBlood.tscn")
 
-const SURFACE_IMG_WIDTH = 1500
-const SURFACE_IMG_HEIGHT = 1000
+const SURFACE_IMG_WIDTH: int = 1500
+const SURFACE_IMG_HEIGHT: int = 1000
 
 func _ready() -> void:
 	texture = ImageTexture.new()
@@ -20,10 +20,7 @@ func draw_blood(draw_pos: Vector2) -> void:
 
 func remove_blood(rect: Rect2) -> void:
 	surface_image.lock()
-	for i in rect.size.x:
-		for j in rect.size.y:
-			surface_image.set_pixel(rect.position.x+SURFACE_IMG_WIDTH/2+i,
-			 rect.position.y+SURFACE_IMG_HEIGHT/2+j, Color(1,1,1,1))
+	surface_image.fill_rect(rect, Color(0,0,0,0))
 	surface_image.unlock()
 	
 func clear_surface() -> void:
@@ -31,12 +28,3 @@ func clear_surface() -> void:
 	
 func _physics_process(delta: float) -> void:
 	texture.create_from_image(surface_image)
-	
-	if (Input.is_action_pressed("mb_left")):
-		for i in range(1):
-			var blood_instance = dynamic_blood.instance()
-			blood_instance.hspeed = rand_range(-3,1)
-				
-			blood_instance.global_position = get_global_mouse_position()
-			add_child(blood_instance) 
-	
