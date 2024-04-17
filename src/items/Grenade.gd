@@ -1,9 +1,9 @@
 extends PickupableObject
 
 const TIME_UNTIL_EXPLOSION: int = 3
-const NUM_OF_BULLETS: int = 8
-const BULLET_SPEED: int = 8
-const BULLET_LIFESPAN: int = 12
+const NUM_OF_BULLETS: int = 12
+const BULLET_SPEED: int = 10
+const BULLET_LIFESPAN: int = 13
 const BULLET_DAMAGE: int = 100
 
 var boom_scn:   PackedScene = preload("res://scenes/gfx/OneShotAnimation.tscn")
@@ -13,6 +13,7 @@ onready var camera = world.get_parent().get_node("Camera")
 var used: bool = false
 
 func _ready() -> void:
+	levitating = false
 	throwVelocity = Vector2(350, 200)
 
 func _physics_process(delta: float) -> void:

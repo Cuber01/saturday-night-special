@@ -31,11 +31,11 @@ player_index = 1
 facing_right = false
 
 [node name="WeaponSpawnPoint" parent="." instance=ExtResource( 1 )]
-position = Vector2( 64, 217 )
+position = Vector2( 64, 216 )
 type = 1
 
 [node name="WeaponSpawnPoint2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 384, 218 )
+position = Vector2( 384, 216 )
 type = 1
 
 [node name="Box2" parent="." instance=ExtResource( 8 )]

@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-const NUM_OF_BULLETS: int = 8
-const BULLET_SPEED: int = 8
-const BULLET_LIFESPAN: int = 10
+const NUM_OF_BULLETS: int = 12
+const BULLET_SPEED: int = 16
+const BULLET_LIFESPAN: int = 6
 const BULLET_DAMAGE: int = 100
 
 onready var world: Object = get_parent()

@@ -95,7 +95,12 @@ X clean up
 	X remove spawning blood with mouse
 	
 Before release:
-- tests
+X bullets go upwards bug
+X snoflake gun more range
+X make wep levitate on spawn
+X rocket need to be flipped and behind trail
+X nerf shotgun
+X freeze is too long
 
 Stretch:
 - make explosions push debris and items

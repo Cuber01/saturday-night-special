@@ -4,6 +4,7 @@ class_name Crate
 var hitpoints: int = 50
 
 func _ready() -> void:
+	levitating = false
 	throwVelocity = Vector2(0, 0)
 
 func _use() -> void:
@@ -23,7 +24,8 @@ func _flip_additional_parts() -> void:
 func take_damage(damage: int,
 				 damage_type: int = Global.DamageType.HURT,
 				 direction: Vector2 = Vector2(0,-1)) -> bool:
-	hitpoints -= damage
+	if damage_type == Global.DamageType.HURT:
+		hitpoints -= damage
 	
 	if hitpoints < 0:
 		queue_free()

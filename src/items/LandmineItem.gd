@@ -4,6 +4,9 @@ var mine_scn: PackedScene = preload("res://scenes/environment/Landmine.tscn")
 
 const TIME_TIL_ARM: float = 3.0
 
+func _ready() -> void:
+	levitating = false
+
 func _use() -> void:
 	var mine: Object = mine_scn.instance()
 	mine.init(global_position, TIME_TIL_ARM)

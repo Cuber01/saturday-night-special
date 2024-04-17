@@ -12,7 +12,7 @@ curve = SubResource( 2 )
 
 [sub_resource type="Curve" id=4]
 max_value = 20.0
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.254181, 4.40909 ), 0.0, 0.0, 0, 0, Vector2( 0.762542, 4.40909 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.253846, 3.22727 ), 0.0, 0.0, 0, 0, Vector2( 0.746154, 2.68182 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=5]
 curve = SubResource( 4 )

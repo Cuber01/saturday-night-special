@@ -33,23 +33,12 @@ func spawn_bullets_in_circle(amount: int, speed: int, lifespan: int,
 				true)
 		world.call_deferred("add_child", bullet)
 		
-func velocity_to_direction(vel: Vector2):
-	var dir: Vector2 = Vector2(0,0)
-	
-	if vel.x > 0:
-		dir.x = 1
-	elif vel.x < 0:
-		dir.x = -1
+func positive_negative(num: float):
+	if num > 0:
+		return 1
+	elif num < 0:
+		return -1
 	else:
-		dir.x = 0
+		return 0
 		
-	if vel.y > 0:
-		dir.y = 1
-	elif vel.y < 0:
-		dir.y = -1
-	else:
-		dir.y = 0
-		
-	return dir
-	
-	
+

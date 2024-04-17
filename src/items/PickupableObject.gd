@@ -18,7 +18,7 @@ enum Type {
 	}
 
 # Physics
-const FRICTION_FORCE: float = 0.05 # Should take into account ground type / air in the future
+const FRICTION_FORCE: float = 0.07 # Should take into account ground type / air in the future
 var throwVelocity = Vector2(200, 100)
 var velocity: Vector2 = Vector2()
 
@@ -33,6 +33,7 @@ const TIME_UNTIL_DESPAWN: float = 5.0
 # Other
 var facing_right: bool = true
 var button_released: bool = false
+var levitating: bool = false
 
 func _ready() -> void:
 	world = get_parent()
@@ -40,6 +41,7 @@ func _ready() -> void:
 # Remember: this doesn't get called automatically
 func init(pos: Vector2, spawner_mother: Object) -> void:
 	global_position = pos
+	levitating = true # Only if spawned by a spawner
 	connect("sig_picked_up", spawner_mother, "_on_weapon_picked_up")
 
 # Override
@@ -73,7 +75,8 @@ func apply_friction() -> void:
 		velocity.x = lerp(velocity.x, 0, FRICTION_FORCE/2)
 
 func handle_gravity() -> void:
-	velocity.y += Global.GRAVITY_FORCE
+	if not levitating:
+		velocity.y += Global.GRAVITY_FORCE
 	
 func picked_update(newPos: Vector2) -> void:
 	position = newPos
@@ -84,6 +87,7 @@ func _pick_up(player: Object) -> void:
 	$PickupZone.get_node("PickupZoneShape").disabled = true
 	flip_direction(player.facing_right)
 	rotation = 0
+	levitating = false
 	holder = player
 	emit_signal("sig_picked_up")
 

@@ -92,7 +92,7 @@ func death_phase_one(delta) -> void:
 		change_state(State.DEATH_PHASE_2)
 		return
 	
-	move_and_collide(Global.velocity_to_direction(velocity) * 50 * delta)
+	move_and_collide(Vector2(Global.positive_negative(velocity.x) * 50 * delta, 0))
 	death_counter -= 1
 	
 func death_phase_two():

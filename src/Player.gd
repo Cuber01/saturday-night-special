@@ -56,7 +56,7 @@ var is_frozen: bool = false
 var current_friction: float = NORMAL_FRICTION_FORCE
 
 # Other
-const MAX_FREEZE_HP: int = 800
+const MAX_FREEZE_HP: int = 400
 const FREEZE_HP_WARMED: int = -210
 const FREEZE_DECAY: int = 1
 const VOID_Y: int = 700 # Player dies when reaching this coordinate
