@@ -26,5 +26,5 @@ func remove_blood(rect: Rect2) -> void:
 func clear_surface() -> void:
 	surface_image.fill(Color(0,0,0,0))
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	texture.create_from_image(surface_image)

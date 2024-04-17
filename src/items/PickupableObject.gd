@@ -45,7 +45,7 @@ func init(pos: Vector2, spawner_mother: Object) -> void:
 	connect("sig_picked_up", spawner_mother, "_on_weapon_picked_up")
 
 # Override
-func _physics_process(delta) -> void:
+func _physics_process(_delta) -> void:
 	if not holder:
 		handle_gravity()
 		move()

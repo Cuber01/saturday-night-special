@@ -45,8 +45,6 @@ var shooting_blocked: bool = false # Weapons are blocked when reloading and when
 var current_delay: int = 0 # Delay for automatic weapons
 var reloading: bool = false
 
-signal reloaded
-
 func _use() -> void:
 	if shooting_blocked or reloading:
 		return

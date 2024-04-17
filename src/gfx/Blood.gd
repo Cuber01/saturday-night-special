@@ -11,7 +11,7 @@ var lifetime: float = rand_range(5,50)
 
 onready var draw_surface: Object = get_parent()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_colliding:
 		draw_surface.draw_blood(global_position) 
 		
@@ -43,8 +43,8 @@ func _physics_process(delta: float) -> void:
 	position.y += vspeed
 	position.x += hspeed
 
-func _on_Blood_body_entered(body: Node) -> void:
+func _on_Blood_body_entered(_body: Node) -> void:
 	is_colliding = true
 
-func _on_Blood_body_exited(body: Node) -> void:
+func _on_Blood_body_exited(_body: Node) -> void:
 	is_colliding = false

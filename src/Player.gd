@@ -59,7 +59,7 @@ var current_friction: float = NORMAL_FRICTION_FORCE
 const MAX_FREEZE_HP: int = 400
 const FREEZE_HP_WARMED: int = -210
 const FREEZE_DECAY: int = 1
-const VOID_Y: int = 700 # Player dies when reaching this coordinate
+const VOID_Y: int = 600 # Player dies when reaching this coordinate
 onready var match_manager: Object = get_parent().get_parent()
 var moved_last_frame: bool = false
 
