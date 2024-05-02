@@ -1,3 +1,5 @@
+Itch.io link: https://cuber1.itch.io/saturday-night-special
+
 # Credits
 
 Author: Jan Englert (@Cuber01 on github.com)
@@ -10,3 +12,4 @@ Asset packs used:
 - https://limofeus.itch.io/pixel-simulations
 
 Some images from the weapon packs were modified.
+
